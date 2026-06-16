@@ -29,20 +29,42 @@ export const Contact: React.FC<ContactProps> = ({ prefillProjectName, clearPrefi
     }
   }, [prefillProjectName]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSending(true);
 
-    setTimeout(() => {
-      setIsSending(false);
-      setIsSubmitted(true);
+    try {
+      const response = await fetch("https://formsubmit.co/ajax/aegonet@gmail.com", {
+        method: "POST",
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          Name: name,
+          Telegram: telegram,
+          Email: email,
+          "Project Type": projectType,
+          Message: message
+        })
+      });
       
-      // Reset form
-      setName('');
-      setTelegram('');
-      setEmail('');
-      setMessage('');
-    }, 1500);
+      if (response.ok) {
+        setIsSubmitted(true);
+        // Reset form
+        setName('');
+        setTelegram('');
+        setEmail('');
+        setMessage('');
+      } else {
+        alert("Произошла ошибка при отправке. Пожалуйста, напишите напрямую на почту aegonet@gmail.com или в WhatsApp.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Ошибка сети. Пожалуйста, напишите напрямую в WhatsApp или на почту aegonet@gmail.com.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -75,11 +97,22 @@ export const Contact: React.FC<ContactProps> = ({ prefillProjectName, clearPrefi
               </div>
               <div className="flex items-center gap-3 text-gray-300">
                 <span className="h-2 w-2 rounded-full bg-indigo-400" />
-                <span>Email: contact@alex.dev</span>
+                <span>Email: aegonet@gmail.com</span>
               </div>
               <div className="flex items-center gap-3 text-gray-300">
                 <span className="h-2 w-2 rounded-full bg-purple-400" />
                 <span>Рабочие часы: 10:00 – 20:00 (UTC+3)</span>
+              </div>
+              <div className="pt-2">
+                <a 
+                  href="https://wa.me/995585890730" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-semibold text-xs rounded-xl shadow-lg shadow-[#25D366]/10 transition-all duration-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.93a7.907 7.907 0 0 0 1.08 3.951L0 16l4.223-1.108a7.9 7.9 0 0 0 3.776.969h.002c4.368 0 7.926-3.558 7.93-7.93A7.897 7.897 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.69-4.98c-.202-.101-1.194-.588-1.378-.654-.184-.066-.317-.1-.449.1-.132.2-.511.63-.626.76-.115.132-.23.148-.432.047a5.05 5.05 0 0 1-2.617-2.286c-.198-.34-.33-.76-.412-1.147-.078-.369.072-.569.213-.708.127-.127.282-.329.424-.492.14-.165.188-.282.281-.469.094-.188.047-.353-.023-.492-.07-.14-.45-1.087-.62-1.498-.166-.398-.332-.344-.45-.35-.115-.006-.247-.006-.38-.006-.132 0-.348.05-.53.247-.182.197-.694.678-.694 1.654 0 .976.71 1.92 0 1.92c.08.106 1.396 2.13 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.194-.488 1.362-.96.168-.472.168-.875.118-.96-.05-.084-.184-.132-.387-.233z"/></svg>
+                  Написать в WhatsApp
+                </a>
               </div>
             </div>
 
@@ -90,7 +123,7 @@ export const Contact: React.FC<ContactProps> = ({ prefillProjectName, clearPrefi
                 </div>
                 <div>
                   <h4 className="text-white font-bold text-sm">Быстрый старт</h4>
-                  <p className="text-xs text-gray-500 mt-1">Отвечаю в течение 2 часов в Telegram. Готов приступить к разработке ТЗ в течение суток.</p>
+                  <p className="text-xs text-gray-500 mt-1">Отвечаю в течение 2 часов в WhatsApp. Готов приступить к разработке ТЗ в течение суток.</p>
                 </div>
               </div>
             </div>

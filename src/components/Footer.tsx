@@ -14,7 +14,7 @@ export const Footer: React.FC = () => {
               <Terminal size={18} />
             </div>
             <span className="text-lg font-bold text-white font-display">AlexDev</span>
-            <span className="text-xs text-gray-500 font-mono">© 2026</span>
+            <span className="text-xs text-gray-500 font-mono">© 2024-2026 AlexDev.</span>
           </div>
 
           {/* Center Links */}

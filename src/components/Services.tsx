@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Cpu, Wallet, Layers, ArrowRight } from 'lucide-react';
+import { Bot, Cpu, Wallet, Layers, ArrowRight, Globe, Rocket } from 'lucide-react';
 
 export const Services: React.FC = () => {
   const list = [
@@ -26,6 +26,18 @@ export const Services: React.FC = () => {
       title: 'SaaS & Web-системы',
       desc: 'Масштабируемые веб-кабинеты, CRM-интеграции, панели управления данными, защищенные API и личные кабинеты для B2B клиентов.',
       stack: ['Next.js / React', 'Node.js', 'REST & GraphQL', 'Docker']
+    },
+    {
+      icon: <Globe size={28} className="text-pink-400" />,
+      title: 'Лендинги & Сайты',
+      desc: 'Высококонверсионные промо-страницы, корпоративные порталы и интернет-магазины под ключ. Оптимизация под Google Ads, SEO и подключение CRM.',
+      stack: ['Next.js / Vite', 'TailwindCSS', 'Google Analytics', 'SEO-адаптация']
+    },
+    {
+      icon: <Rocket size={28} className="text-amber-400" />,
+      title: 'Интеграция & Релиз',
+      desc: 'Развертывание в облачных инфраструктурах, поддержка серверов, настройка CI/CD, баз данных и регулярное сопровождение после релиза.',
+      stack: ['Vercel / VPS', 'GitHub Actions', 'Docker', 'Linux / Bash']
     }
   ];
 
@@ -47,7 +59,7 @@ export const Services: React.FC = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {list.map((item, index) => (
             <div 
               key={index}

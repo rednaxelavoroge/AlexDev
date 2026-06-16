@@ -75,12 +75,14 @@ function App() {
 
           {/* Nav CTA */}
           <div className="hidden md:block">
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-white font-semibold text-xs border border-white/10 transition-all"
+            <a 
+              href="https://wa.me/995585890730"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-white/5 hover:bg-white/10 text-white font-semibold text-xs border border-white/10 transition-all"
             >
-              Связаться в TG
-            </button>
+              Связаться в WhatsApp
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -99,12 +101,14 @@ function App() {
             <button onClick={() => scrollToSection('projects')} className="text-left text-gray-400 hover:text-white py-2 border-b border-white/5">Кейсы</button>
             <button onClick={() => scrollToSection('workflow')} className="text-left text-gray-400 hover:text-white py-2 border-b border-white/5">Процесс</button>
             <button onClick={() => scrollToSection('contact')} className="text-left text-gray-400 hover:text-white py-2 border-b border-white/5">Контакты</button>
-            <button 
-              onClick={() => scrollToSection('contact')}
-              className="w-full py-3 mt-4 text-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold text-sm"
+            <a 
+              href="https://wa.me/995585890730"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-3 mt-4 text-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold text-sm block"
             >
-              Связаться в TG
-            </button>
+              Связаться в WhatsApp
+            </a>
           </div>
         )}
       </header>
