@@ -3,21 +3,16 @@
 import { useState } from "react";
 import { CheckCircle2, SendHorizontal, MessageCircle, Globe, Send, Mail } from "lucide-react";
 import { siteConfig } from "@/lib/site";
-
-const PROJECT_TYPES = [
-  "AI-продукт / агент",
-  "SaaS / веб-платформа",
-  "Telegram Mini App",
-  "Web3 / DeFi",
-  "Автоматизация / интеграции",
-  "Другое",
-];
+import { useDict } from "@/lib/i18n/DictProvider";
 
 export function Contact() {
+  const dict = useDict();
+  const projectTypes = dict.contact.projectTypes as string[];
+
   const [form, setForm] = useState({
     name: "",
     contact: "",
-    type: PROJECT_TYPES[0],
+    type: projectTypes[0],
     message: "",
   });
   const [sent, setSent] = useState(false);
@@ -44,12 +39,12 @@ export function Contact() {
       });
       if (res.ok) {
         setSent(true);
-        setForm({ name: "", contact: "", type: PROJECT_TYPES[0], message: "" });
+        setForm({ name: "", contact: "", type: projectTypes[0], message: "" });
       } else {
-        setError("Не удалось отправить. Напишите в WhatsApp, Telegram или на email.");
+        setError(dict.contact.errorSend as string);
       }
     } catch {
-      setError("Ошибка сети. Напишите в WhatsApp, Telegram или на email.");
+      setError(dict.contact.errorNetwork as string);
     } finally {
       setSending(false);
     }
@@ -64,14 +59,13 @@ export function Contact() {
           <div className="space-y-8">
             <div>
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-4">
-                Контакты
+                {dict.contact.badge as string}
               </span>
               <h2 className="text-4xl sm:text-5xl font-bold text-white font-display tracking-tight leading-tight">
-                Давайте создадим что-то крутое
+                {dict.contact.heading as string}
               </h2>
               <p className="mt-4 text-gray-400 text-lg leading-relaxed">
-                Оставьте заявку или напишите напрямую — обсудим задачу, предложим подход и
-                оценку. Отвечаем в течение 24 часов.
+                {dict.contact.description as string}
               </p>
             </div>
 
@@ -86,8 +80,8 @@ export function Contact() {
                   <MessageCircle size={20} />
                 </span>
                 <span>
-                  <span className="block text-white font-semibold text-sm">WhatsApp</span>
-                  <span className="block text-gray-500 text-xs">Быстрый ответ</span>
+                  <span className="block text-white font-semibold text-sm">{dict.contact.whatsapp as string}</span>
+                  <span className="block text-gray-500 text-xs">{dict.contact.whatsappSub as string}</span>
                 </span>
               </a>
               <a
@@ -100,7 +94,7 @@ export function Contact() {
                   <Send size={20} />
                 </span>
                 <span>
-                  <span className="block text-white font-semibold text-sm">Telegram</span>
+                  <span className="block text-white font-semibold text-sm">{dict.contact.telegram as string}</span>
                   <span className="block text-gray-500 text-xs">{siteConfig.contacts.telegram}</span>
                 </span>
               </a>
@@ -112,8 +106,8 @@ export function Contact() {
                   <Mail size={18} />
                 </span>
                 <span>
-                  <span className="block text-white font-semibold text-sm">Email</span>
-                  <span className="block text-gray-500 text-xs">{siteConfig.contacts.email}</span>
+                  <span className="block text-white font-semibold text-sm">{dict.contact.emailLabel as string}</span>
+                  <span className="block text-gray-500 text-xs">{dict.contact.email as string}</span>
                 </span>
               </a>
               <a
@@ -124,15 +118,15 @@ export function Contact() {
                   <SendHorizontal size={18} />
                 </span>
                 <span>
-                  <span className="block text-white font-semibold text-sm">Форма заявки</span>
-                  <span className="block text-gray-500 text-xs">Заполните и мы ответим</span>
+                  <span className="block text-white font-semibold text-sm">{dict.contact.form as string}</span>
+                  <span className="block text-gray-500 text-xs">{dict.contact.formSub as string}</span>
                 </span>
               </a>
             </div>
 
             <div className="flex items-center gap-3 text-sm text-gray-400">
               <Globe size={16} className="text-teal-400" />
-              Работаем по всему миру · {siteConfig.location.city}, {siteConfig.location.country}
+              {dict.contact.worldwide as string} · {siteConfig.location.city}, {siteConfig.location.country}
             </div>
           </div>
 
@@ -143,60 +137,59 @@ export function Contact() {
                 <div className="h-16 w-16 bg-teal-500/10 border border-teal-500/20 rounded-full flex items-center justify-center text-teal-400">
                   <CheckCircle2 size={36} />
                 </div>
-                <h3 className="text-2xl font-bold text-white font-display">Заявка отправлена!</h3>
+                <h3 className="text-2xl font-bold text-white font-display">{dict.contact.successTitle as string}</h3>
                 <p className="text-gray-400 text-sm max-w-sm">
-                  Спасибо! Свяжемся с вами в течение 24 часов. Для срочных вопросов — WhatsApp,
-                  Telegram или email.
+                  {dict.contact.successText as string}
                 </p>
                 <button
                   onClick={() => setSent(false)}
                   className="mt-4 px-6 py-2.5 bg-white/5 hover:bg-white/10 text-white text-xs font-semibold rounded-lg border border-white/10 transition-all"
                 >
-                  Отправить ещё раз
+                  {dict.contact.resend as string}
                 </button>
               </div>
             ) : (
               <form onSubmit={submit} className="space-y-5">
-                <Field label="Ваше имя">
+                <Field label={dict.contact.fieldName as string}>
                   <input
                     type="text"
                     required
                     value={form.name}
                     onChange={(e) => set("name", e.target.value)}
-                    placeholder="Иван Иванов"
+                    placeholder={dict.contact.placeholderName as string}
                     className="input"
                   />
                 </Field>
-                <Field label="Как с вами связаться (WhatsApp / Telegram / email)">
+                <Field label={dict.contact.fieldContact as string}>
                   <input
                     type="text"
                     required
                     value={form.contact}
                     onChange={(e) => set("contact", e.target.value)}
-                     placeholder="+995 …, @username или email"
+                    placeholder={dict.contact.placeholderContact as string}
                     className="input"
                   />
                 </Field>
-                <Field label="Тип проекта">
+                <Field label={dict.contact.fieldType as string}>
                   <select
                     value={form.type}
                     onChange={(e) => set("type", e.target.value)}
                     className="input"
                   >
-                    {PROJECT_TYPES.map((t) => (
+                    {projectTypes.map((t) => (
                       <option key={t} value={t} className="bg-[#0c101e]">
                         {t}
                       </option>
                     ))}
                   </select>
                 </Field>
-                <Field label="Описание задачи">
+                <Field label={dict.contact.fieldMessage as string}>
                   <textarea
                     rows={4}
                     required
                     value={form.message}
                     onChange={(e) => set("message", e.target.value)}
-                    placeholder="Опишите цели, сроки и требования к продукту…"
+                    placeholder={dict.contact.placeholderMessage as string}
                     className="input resize-none"
                   />
                 </Field>
@@ -208,10 +201,10 @@ export function Contact() {
                   disabled={sending}
                   className="w-full py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 disabled:opacity-60 text-white font-semibold rounded-xl flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/15 transition-all"
                 >
-                  {sending ? "Отправка…" : (<>Отправить заявку <SendHorizontal size={16} /></>)}
+                  {sending ? (dict.contact.sending as string) : (<>{dict.contact.submit as string} <SendHorizontal size={16} /></>)}
                 </button>
                 <p className="text-center text-[11px] text-gray-600">
-                  Нажимая кнопку, вы соглашаетесь на обработку данных для ответа на заявку.
+                  {dict.contact.consent as string}
                 </p>
               </form>
             )}

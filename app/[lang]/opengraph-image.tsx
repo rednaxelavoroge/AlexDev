@@ -1,8 +1,13 @@
 import { ImageResponse } from "next/og";
+import { LANGS, type Lang } from "@/lib/i18n";
 
 export const alt = "AlexDev Studio — We design. We build. We scale.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
+
+export async function generateStaticParams() {
+  return LANGS.map((lang) => ({ lang }));
+}
 
 export default function OpengraphImage() {
   return new ImageResponse(

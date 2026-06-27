@@ -7,38 +7,58 @@ import { Footer } from "@/components/Footer";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { POSTS, getPost, type Block } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
+import { getDict, LANGS, type Lang } from "@/lib/i18n/dict";
+import { isValidLang } from "@/lib/i18n";
 
-export const revalidate = 3600; // ISR: ревалидация раз в час
+export const revalidate = 3600;
 
 export function generateStaticParams() {
-  return POSTS.map((p) => ({ slug: p.slug }));
+  const paths: { lang: Lang; slug: string }[] = [];
+  for (const lang of LANGS) {
+    for (const post of POSTS) {
+      paths.push({ lang, slug: post.slug });
+    }
+  }
+  return paths;
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }): Promise<Metadata> {
-  const { slug } = await params;
+  const { lang: raw, slug } = await params;
+  const lang = (isValidLang(raw) ? raw : "en") as Lang;
   const post = getPost(slug);
   if (!post) return {};
+
   return {
     title: post.title,
     description: post.description,
-    alternates: { canonical: `/blog/${post.slug}` },
+    alternates: {
+      canonical: `/${lang}/blog/${post.slug}`,
+      languages: Object.fromEntries(
+        LANGS.map((l) => [l, `/${l}/blog/${post.slug}`])
+      ) as Record<string, string>,
+    },
     openGraph: {
       type: "article",
       title: post.title,
       description: post.description,
       publishedTime: post.date,
-      url: `${siteConfig.url}/blog/${post.slug}`,
+      url: `${siteConfig.url}/${lang}/blog/${post.slug}`,
     },
     twitter: { card: "summary_large_image", title: post.title, description: post.description },
   };
 }
 
-function fmt(date: string) {
-  return new Date(date).toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
+function fmt(date: string, lang: Lang) {
+  const locale = lang === "ru" ? "ru-RU" : lang === "ka" ? "ka-GE" : lang === "hy" ? "hy-AM" : "en-US";
+  try {
+    return new Date(date).toLocaleDateString(locale, { day: "numeric", month: "long", year: "numeric" });
+  } catch {
+    return new Date(date).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" });
+  }
 }
 
 function Renderer({ block }: { block: Block }) {
@@ -67,26 +87,32 @@ function Renderer({ block }: { block: Block }) {
   }
 }
 
-export default async function Article({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params;
+export default async function Article({
+  params,
+}: {
+  params: Promise<{ lang: string; slug: string }>;
+}) {
+  const { lang: raw, slug } = await params;
+  const lang = (isValidLang(raw) ? raw : "en") as Lang;
+  const dict = getDict(lang);
   const post = getPost(slug);
   if (!post) notFound();
 
   return (
     <div className="min-h-screen bg-[#030712] text-gray-100">
-      <ArticleJsonLd title={post.title} description={post.description} date={post.date} slug={post.slug} />
+      <ArticleJsonLd title={post.title} description={post.description} date={post.date} slug={post.slug} lang={lang} />
       <BreadcrumbJsonLd
         items={[
-          { name: "Главная", url: siteConfig.url },
-          { name: "Блог", url: `${siteConfig.url}/blog` },
-          { name: post.title, url: `${siteConfig.url}/blog/${post.slug}` },
+          { name: dict.site.name, url: `${siteConfig.url}/${lang}` },
+          { name: dict.blog.heading, url: `${siteConfig.url}/${lang}/blog` },
+          { name: post.title, url: `${siteConfig.url}/${lang}/blog/${post.slug}` },
         ]}
       />
       <Navigation />
       <main id="main" className="pt-32 pb-24">
         <article className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white mb-8 transition-colors">
-            <ArrowLeft size={16} /> Все статьи
+          <Link href={`/${lang}/blog`} className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white mb-8 transition-colors">
+            <ArrowLeft size={16} /> {dict.blog.backToBlog}
           </Link>
 
           <div className="flex flex-wrap gap-2 mb-5">
@@ -101,8 +127,8 @@ export default async function Article({ params }: { params: Promise<{ slug: stri
             {post.title}
           </h1>
           <div className="flex items-center gap-3 text-sm text-gray-500 mb-10 pb-8 border-b border-white/5">
-            <span>{fmt(post.date)}</span>
-            <span className="flex items-center gap-1"><Clock size={13} /> {post.readingMinutes} мин чтения</span>
+            <span>{fmt(post.date, lang)}</span>
+            <span className="flex items-center gap-1"><Clock size={13} /> {post.readingMinutes} min read</span>
           </div>
 
           <div className="text-[15px]">
@@ -112,13 +138,13 @@ export default async function Article({ params }: { params: Promise<{ slug: stri
           </div>
 
           <div className="mt-14 glass-panel rounded-3xl p-8 text-center">
-            <h2 className="text-2xl font-bold text-white font-display mb-2">Нужен похожий продукт?</h2>
-            <p className="text-gray-400 mb-6">Обсудим вашу задачу и предложим решение.</p>
+            <h2 className="text-2xl font-bold text-white font-display mb-2">{dict.blog.ctaLine}</h2>
+            <p className="text-gray-400 mb-6">{dict.hero.description}</p>
             <Link
-              href="/#contact"
+              href={`/${lang}/#contact`}
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white font-semibold text-sm transition-all"
             >
-              Обсудить проект
+              {dict.blog.cta}
             </Link>
           </div>
         </article>

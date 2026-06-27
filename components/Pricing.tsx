@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { Check, ArrowRight } from "lucide-react";
 import { CURRENCIES, PRICING_TIERS, formatPrice, type Currency } from "@/lib/pricing";
+import { useDict } from "@/lib/i18n/DictProvider";
 
 export function Pricing() {
+  const dict = useDict();
   const [currency, setCurrency] = useState<Currency>(CURRENCIES[0]);
 
   return (
@@ -13,13 +15,13 @@ export function Pricing() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-10 max-w-2xl mx-auto">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-4">
-            Цены
+            {dict.pricing.badge as string}
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-white font-display tracking-tight">
-            От лендинга до enterprise AI
+            {dict.pricing.heading as string}
           </h2>
           <p className="mt-4 text-gray-400 text-lg">
-            Стартовые цены. Финальную оценку даём после бесплатного Discovery-созвона.
+            {dict.pricing.subheading as string}
           </p>
         </div>
 
@@ -54,7 +56,7 @@ export function Pricing() {
             >
               {tier.highlighted && (
                 <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-[11px] font-bold uppercase tracking-wider">
-                  Популярно
+                  {dict.pricing.popular as string}
                 </span>
               )}
               <h3 className="text-lg font-bold text-white font-display">{tier.name}</h3>
@@ -63,14 +65,14 @@ export function Pricing() {
               <div className="mb-4">
                 {tier.priceUsd !== null ? (
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-xs text-gray-500">{tier.unit}</span>
+                    <span className="text-xs text-gray-500">{dict.pricing.ctaPrefix as string}</span>
                     <span className="text-3xl font-extrabold text-white font-display">
                       {formatPrice(tier.priceUsd, currency)}
                     </span>
                   </div>
                 ) : (
                   <span className="text-3xl font-extrabold text-white font-display">
-                    Custom Quote
+                    {dict.pricing.customQuote as string}
                   </span>
                 )}
               </div>
@@ -99,7 +101,7 @@ export function Pricing() {
         </div>
 
         <p className="text-center text-xs text-gray-600 mt-8">
-          Цены хранятся в USD и конвертируются по индикативному курсу — не является публичной офертой.
+          {dict.pricing.disclaimer as string}
         </p>
       </div>
     </section>

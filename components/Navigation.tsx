@@ -4,8 +4,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Terminal, Menu, X } from "lucide-react";
 import { siteConfig } from "@/lib/site";
+import { useDict } from "@/lib/i18n/DictProvider";
 
 export function Navigation() {
+  const dict = useDict();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -37,7 +39,7 @@ export function Navigation() {
         <nav className="hidden lg:flex items-center gap-7 text-sm text-gray-400">
           {siteConfig.nav.map((item) => (
             <Link key={item.href} href={item.href} className="hover:text-white transition-colors">
-              {item.label}
+              {dict.nav[item.label as keyof typeof dict.nav] ?? item.label}
             </Link>
           ))}
         </nav>
@@ -47,14 +49,14 @@ export function Navigation() {
             href="#contact"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white font-semibold text-xs shadow-lg shadow-indigo-500/20 transition-all"
           >
-            Обсудить проект
+            {dict.nav.discussProject}
           </a>
         </div>
 
         <button
           onClick={() => setOpen(!open)}
           className="lg:hidden p-2 text-gray-300 hover:text-white"
-          aria-label={open ? "Закрыть меню" : "Открыть меню"}
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
         >
           {open ? <X size={24} /> : <Menu size={24} />}
@@ -70,14 +72,14 @@ export function Navigation() {
               onClick={() => setOpen(false)}
               className="text-gray-300 hover:text-white py-3 border-b border-white/5"
             >
-              {item.label}
+              {dict.nav[item.label as keyof typeof dict.nav] ?? item.label}
             </Link>
           ))}
           <a
             href="#contact"
             className="w-full py-3 mt-4 text-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold text-sm"
           >
-            Обсудить проект
+            {dict.nav.discussProject}
           </a>
         </div>
       )}

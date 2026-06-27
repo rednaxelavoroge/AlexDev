@@ -1,19 +1,24 @@
+"use client";
+
 import { Quote, Star } from "lucide-react";
 import { TESTIMONIALS } from "@/lib/content";
+import { useDict } from "@/lib/i18n/DictProvider";
 
 export function Testimonials() {
+  const dict = useDict();
+
   return (
     <section id="testimonials" className="py-24 lg:py-32 bg-[#02050c] relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-16 max-w-2xl mx-auto">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-4">
-            Отзывы
+            {dict.testimonials.badge as string}
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-white font-display tracking-tight">
-            Что говорят клиенты
+            {dict.testimonials.heading as string}
           </h2>
           <p className="mt-4 text-gray-400 text-lg">
-            Слова основателей продуктов, которые мы запускали и развивали вместе.
+            {dict.testimonials.subheading as string}
           </p>
         </div>
 

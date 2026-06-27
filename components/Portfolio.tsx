@@ -5,8 +5,10 @@ import { ArrowUpRight, FolderGit2, Lock, Hammer } from "lucide-react";
 import { PROJECTS, PROJECT_CATEGORIES, type Project } from "@/lib/projects";
 import { DeviceMockup } from "@/components/DeviceMockup";
 import { ProjectModal } from "@/components/ProjectModal";
+import { useDict } from "@/lib/i18n/DictProvider";
 
 export function Portfolio() {
+  const dict = useDict();
   const [filter, setFilter] = useState<string>("Все");
   const [selected, setSelected] = useState<Project | null>(null);
 
@@ -21,13 +23,13 @@ export function Portfolio() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12 max-w-2xl mx-auto">
           <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-sm font-semibold tracking-wide uppercase mb-4">
-            <FolderGit2 size={16} /> Портфолио
+            <FolderGit2 size={16} /> {dict.portfolio.badge as string}
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-white font-display tracking-tight">
-            Реальные продукты в продакшене
+            {dict.portfolio.heading as string}
           </h2>
           <p className="mt-4 text-gray-400 text-lg">
-            Не стоковые картинки, а живые проекты с реальными ссылками, стеком и результатами.
+            {dict.portfolio.subheading as string}
           </p>
         </div>
 
@@ -42,7 +44,7 @@ export function Portfolio() {
                   : "bg-white/5 border border-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
               }`}
             >
-              {c}
+              {c === "Все" ? (dict.portfolio.filters.all as string) : c}
             </button>
           ))}
         </div>

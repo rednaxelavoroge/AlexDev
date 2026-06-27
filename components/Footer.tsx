@@ -1,8 +1,13 @@
+"use client";
+
 import Link from "next/link";
 import { Terminal, MessageCircle, Send, Mail } from "lucide-react";
 import { siteConfig } from "@/lib/site";
+import { useDict } from "@/lib/i18n/DictProvider";
 
 export function Footer() {
+  const dict = useDict();
+
   return (
     <footer className="border-t border-white/5 bg-[#02050c] pt-16 pb-10 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,8 +22,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
-              Бутиковая студия разработки под руководством основателя. Создаём AI-продукты, SaaS и
-              веб-платформы для стартапов и бизнеса по всему миру.
+              {dict.footer.description as string}
             </p>
             <p className="text-xs text-gray-600">
               {siteConfig.location.city}, {siteConfig.location.country} · Worldwide
@@ -26,7 +30,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold text-sm mb-4 font-display">Навигация</h3>
+            <h3 className="text-white font-semibold text-sm mb-4 font-display">{dict.footer.nav as string}</h3>
             <ul className="space-y-2.5 text-sm text-gray-400">
               {siteConfig.nav.map((n) => (
                 <li key={n.href}>
@@ -39,7 +43,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="text-white font-semibold text-sm mb-4 font-display">Связаться</h3>
+            <h3 className="text-white font-semibold text-sm mb-4 font-display">{dict.footer.connect as string}</h3>
             <ul className="space-y-3 text-sm">
               <li>
                 <a
@@ -74,8 +78,8 @@ export function Footer() {
         </div>
 
         <div className="pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-600">
-          <p>© 2024–2026 AlexDev Studio. Все права защищены.</p>
-          <p>Founder &amp; Lead Engineer — Alex · AI · SaaS · Web3</p>
+          <p>{dict.footer.copyright as string}</p>
+          <p>{dict.footer.founderLine as string}</p>
         </div>
       </div>
     </footer>

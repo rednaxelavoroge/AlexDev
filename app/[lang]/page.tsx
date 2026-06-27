@@ -12,11 +12,24 @@ import { Faq } from "@/components/Faq";
 import { Contact } from "@/components/Contact";
 import { Footer } from "@/components/Footer";
 import { FaqJsonLd } from "@/components/seo/JsonLd";
+import { getDict, type Lang } from "@/lib/i18n/dict";
+import { isValidLang, LANGS } from "@/lib/i18n";
 
-export default function Home() {
+export async function generateStaticParams() {
+  return LANGS.map((lang) => ({ lang }));
+}
+
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang: raw } = await params;
+  const lang = (isValidLang(raw) ? raw : "en") as Lang;
+
   return (
     <div className="relative min-h-screen bg-[#030712] text-gray-100 overflow-x-hidden">
-      <FaqJsonLd />
+      <FaqJsonLd lang={lang} />
       <Navigation />
       <main id="main">
         <Hero />

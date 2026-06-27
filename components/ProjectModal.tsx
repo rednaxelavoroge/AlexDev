@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import { X, ExternalLink, ArrowRight, Lock, Hammer } from "lucide-react";
 import { DeviceMockup } from "@/components/DeviceMockup";
 import type { Project } from "@/lib/projects";
+import { useDict } from "@/lib/i18n/DictProvider";
 
 export function ProjectModal({
   project,
@@ -12,6 +13,8 @@ export function ProjectModal({
   project: Project | null;
   onClose: () => void;
 }) {
+  const dict = useDict();
+
   useEffect(() => {
     if (!project) return;
     const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
@@ -74,7 +77,7 @@ export function ProjectModal({
                 rel="noopener noreferrer"
                 className="flex-1 min-w-[200px] py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/15 transition-all"
               >
-                <ExternalLink size={18} /> Открыть проект <ArrowRight size={16} />
+                <ExternalLink size={18} /> {(dict.portfolio.modal as Record<string, string>).openProject} <ArrowRight size={16} />
               </a>
             ) : (
               <button
@@ -82,7 +85,9 @@ export function ProjectModal({
                 className="flex-1 min-w-[200px] py-4 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white rounded-xl font-semibold flex items-center justify-center gap-2 shadow-lg transition-all"
               >
                 {project.status === "nda" ? <Lock size={18} /> : <Hammer size={18} />}
-                {project.status === "nda" ? "Запросить демо-доступ" : "Узнать о запуске"}
+                {project.status === "nda"
+                  ? (dict.portfolio.modal as Record<string, string>).requestDemo
+                  : (dict.portfolio.modal as Record<string, string>).learnLaunch}
                 <ArrowRight size={16} />
               </button>
             )}
@@ -100,14 +105,14 @@ export function ProjectModal({
           </div>
 
           <div className="space-y-6">
-            <Block title="О проекте" text={project.fullDescription} />
-            <Block title="Задача" text={project.challenge} />
-            <Block title="Решение" text={project.solution} />
-            <Block title="Результат" text={project.outcome} accent />
+            <Block title={(dict.portfolio.modal as Record<string, string>).about} text={project.fullDescription} />
+            <Block title={(dict.portfolio.modal as Record<string, string>).challenge} text={project.challenge} />
+            <Block title={(dict.portfolio.modal as Record<string, string>).solution} text={project.solution} />
+            <Block title={(dict.portfolio.modal as Record<string, string>).outcome} text={project.outcome} accent />
           </div>
 
           <div>
-            <h3 className="text-lg font-bold text-white mb-3 font-display">Стек технологий</h3>
+            <h3 className="text-lg font-bold text-white mb-3 font-display">{(dict.portfolio.modal as Record<string, string>).tech}</h3>
             <div className="flex flex-wrap gap-2">
               {project.technologies.map((t) => (
                 <span
@@ -121,12 +126,12 @@ export function ProjectModal({
           </div>
 
           <div className="glass-panel rounded-2xl p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-gray-300 text-sm">Хотите похожий продукт для вашего бизнеса?</p>
+            <p className="text-gray-300 text-sm">{(dict.portfolio.modal as Record<string, string>).similar}</p>
             <button
               onClick={goContact}
               className="shrink-0 px-6 py-3 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold text-sm transition-all inline-flex items-center gap-2"
             >
-              Обсудить проект <ArrowRight size={16} />
+              {(dict.portfolio.modal as Record<string, string>).discuss} <ArrowRight size={16} />
             </button>
           </div>
         </div>

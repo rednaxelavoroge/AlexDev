@@ -6,13 +6,30 @@ import { Footer } from "@/components/Footer";
 import { BreadcrumbJsonLd } from "@/components/seo/JsonLd";
 import { POSTS } from "@/lib/blog";
 import { siteConfig } from "@/lib/site";
+import { getDict, type Lang, LANGS } from "@/lib/i18n/dict";
+import { isValidLang } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: "Блог — AI, SaaS, Web3 и разработка продуктов",
-  description:
-    "Статьи AlexDev Studio об AI-агентах, MCP, Claude, Telegram Mini Apps, Next.js, SaaS-архитектуре, автоматизации и Web3.",
-  alternates: { canonical: "/blog" },
-};
+export async function generateStaticParams() {
+  return LANGS.map((lang) => ({ lang }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang: raw } = await params;
+  const lang = (isValidLang(raw) ? raw : "en") as Lang;
+  const dict = getDict(lang);
+  return {
+    title: dict.seo.blogTitle,
+    description: dict.blog.subheading,
+    alternates: {
+      canonical: `/${lang}/blog`,
+      languages: Object.fromEntries(LANGS.map((l) => [l, `/${l}/blog`])) as Record<string, string>,
+    },
+  };
+}
 
 const COVER: Record<string, string> = {
   indigo: "from-indigo-600/30 to-indigo-900/10",
@@ -20,18 +37,31 @@ const COVER: Record<string, string> = {
   teal: "from-teal-600/30 to-teal-900/10",
 };
 
-function fmt(date: string) {
-  return new Date(date).toLocaleDateString("ru-RU", { day: "numeric", month: "long", year: "numeric" });
+function fmt(date: string, lang: Lang) {
+  const locale = lang === "ru" ? "ru-RU" : lang === "ka" ? "ka-GE" : lang === "hy" ? "hy-AM" : "en-US";
+  try {
+    return new Date(date).toLocaleDateString(locale, { day: "numeric", month: "long", year: "numeric" });
+  } catch {
+    return new Date(date).toLocaleDateString("en-US", { day: "numeric", month: "long", year: "numeric" });
+  }
 }
 
-export default function BlogIndex() {
+export default async function BlogIndex({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang: raw } = await params;
+  const lang = (isValidLang(raw) ? raw : "en") as Lang;
+  const dict = getDict(lang);
   const posts = [...POSTS].sort((a, b) => (a.date < b.date ? 1 : -1));
+
   return (
     <div className="min-h-screen bg-[#030712] text-gray-100">
       <BreadcrumbJsonLd
         items={[
-          { name: "Главная", url: siteConfig.url },
-          { name: "Блог", url: `${siteConfig.url}/blog` },
+          { name: dict.site.name, url: `${siteConfig.url}/${lang}` },
+          { name: dict.blog.heading, url: `${siteConfig.url}/${lang}/blog` },
         ]}
       />
       <Navigation />
@@ -39,13 +69,13 @@ export default function BlogIndex() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <header className="mb-14 text-center max-w-2xl mx-auto">
             <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-4">
-              Блог
+              {dict.blog.heading}
             </span>
             <h1 className="text-4xl sm:text-5xl font-bold text-white font-display tracking-tight">
-              Инсайты о продуктах, AI и инженерии
+              {dict.blog.heading}
             </h1>
             <p className="mt-4 text-gray-400 text-lg">
-              Практические заметки команды AlexDev Studio — без воды и хайпа.
+              {dict.blog.subheading}
             </p>
           </header>
 
@@ -53,7 +83,7 @@ export default function BlogIndex() {
             {posts.map((p) => (
               <Link
                 key={p.slug}
-                href={`/blog/${p.slug}`}
+                href={`/${lang}/blog/${p.slug}`}
                 className="glass-card rounded-3xl overflow-hidden group flex flex-col"
               >
                 <div className={`relative h-40 bg-gradient-to-br ${COVER[p.cover] ?? COVER.indigo} flex items-end p-5`}>
@@ -68,8 +98,8 @@ export default function BlogIndex() {
                 </div>
                 <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center gap-3 text-xs text-gray-500 mb-3">
-                    <span>{fmt(p.date)}</span>
-                    <span className="flex items-center gap-1"><Clock size={12} /> {p.readingMinutes} мин</span>
+                    <span>{fmt(p.date, lang)}</span>
+                    <span className="flex items-center gap-1"><Clock size={12} /> {p.readingMinutes} min</span>
                   </div>
                   <h2 className="text-xl font-bold text-white font-display mb-2 group-hover:text-indigo-300 transition-colors flex items-start justify-between gap-2">
                     {p.title}

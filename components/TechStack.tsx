@@ -1,4 +1,7 @@
+"use client";
+
 import { TECH_GROUPS, ALL_TECH } from "@/lib/tech";
+import { useDict } from "@/lib/i18n/DictProvider";
 
 // Бренды, удалённые из simpleicons по требованию правообладателей — локальные SVG
 const LOCAL_LOGOS: Record<string, string> = {
@@ -22,20 +25,21 @@ function Logo({ slug, name }: { slug: string; name: string }) {
 }
 
 export function TechStack() {
+  const dict = useDict();
+
   return (
     <section id="tech" className="py-24 lg:py-32 bg-[#030712] relative overflow-hidden">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[40rem] h-[40rem] bg-indigo-900/10 rounded-full glow-glow" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-14 max-w-2xl mx-auto">
           <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-400 text-xs font-semibold uppercase tracking-widest mb-4">
-            Технологии
+            {dict.tech.badge as string}
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-white font-display tracking-tight">
-            Современный стек под задачу
+            {dict.tech.heading as string}
           </h2>
           <p className="mt-4 text-gray-400 text-lg">
-            Выбираем технологии под цель проекта, а не наоборот — ради надёжности,
-            скорости и масштабируемости.
+            {dict.tech.subheading as string}
           </p>
         </div>
 

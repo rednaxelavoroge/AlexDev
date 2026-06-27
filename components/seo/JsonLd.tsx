@@ -1,5 +1,6 @@
 import { siteConfig } from "@/lib/site";
-import { FAQ } from "@/lib/content";
+import { getDict, type Lang } from "@/lib/i18n/dict";
+import { FAQ as FAQ_CONTENT } from "@/lib/content";
 
 function JsonLd({ data }: { data: Record<string, unknown> }) {
   return (
@@ -13,7 +14,8 @@ function JsonLd({ data }: { data: Record<string, unknown> }) {
 const ORG_ID = `${siteConfig.url}/#organization`;
 const PERSON_ID = `${siteConfig.url}/#alexander`;
 
-export function OrganizationJsonLd() {
+export function OrganizationJsonLd({ lang = "en" }: { lang?: Lang }) {
+  const dict = getDict(lang);
   return (
     <JsonLd
       data={{
@@ -21,13 +23,13 @@ export function OrganizationJsonLd() {
         "@type": ["Organization", "ProfessionalService"],
         "@id": ORG_ID,
         name: siteConfig.name,
-        url: siteConfig.url,
-        description: siteConfig.descriptionRu,
+        url: `${siteConfig.url}/${lang}`,
+        description: dict.site.description,
         logo: `${siteConfig.url}/icon.svg`,
         image: `${siteConfig.url}/opengraph-image`,
         founder: { "@id": PERSON_ID },
         areaServed: "Worldwide",
-        priceRange: "$5,000 – $100,000+",
+        priceRange: "$99 – $100,000+",
         knowsAbout: [
           "Artificial Intelligence",
           "SaaS Development",
@@ -54,7 +56,7 @@ export function OrganizationJsonLd() {
   );
 }
 
-export function PersonJsonLd() {
+export function PersonJsonLd({ lang = "en" }: { lang?: Lang }) {
   return (
     <JsonLd
       data={{
@@ -67,28 +69,32 @@ export function PersonJsonLd() {
         image: `${siteConfig.url}${siteConfig.founder.photo}`,
         worksFor: { "@id": ORG_ID },
         knowsAbout: ["AI", "Full-Stack Development", "SaaS", "Web3", "Cloud"],
-        url: siteConfig.url,
+        url: `${siteConfig.url}/${lang}`,
       }}
     />
   );
 }
 
-export function WebsiteJsonLd() {
+export function WebsiteJsonLd({ lang = "en" }: { lang?: Lang }) {
+  const dict = getDict(lang);
+  const inLanguage =
+    lang === "ru" ? "ru-RU" : lang === "ka" ? "ka-GE" : lang === "hy" ? "hy-AM" : "en-US";
   return (
     <JsonLd
       data={{
         "@context": "https://schema.org",
         "@type": "WebSite",
         "@id": `${siteConfig.url}/#website`,
-        url: siteConfig.url,
+        url: `${siteConfig.url}/${lang}`,
         name: siteConfig.name,
+        description: dict.site.description,
         publisher: { "@id": ORG_ID },
-        inLanguage: "ru-RU",
+        inLanguage,
         potentialAction: {
           "@type": "SearchAction",
           target: {
             "@type": "EntryPoint",
-            urlTemplate: `${siteConfig.url}/blog?q={search_term_string}`,
+            urlTemplate: `${siteConfig.url}/${lang}/blog?q={search_term_string}`,
           },
           "query-input": "required name=search_term_string",
         },
@@ -97,13 +103,14 @@ export function WebsiteJsonLd() {
   );
 }
 
-export function FaqJsonLd() {
+export function FaqJsonLd({ lang = "en" }: { lang?: Lang }) {
+  const dict = getDict(lang);
   return (
     <JsonLd
       data={{
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        mainEntity: FAQ.map((f) => ({
+        mainEntity: dict.faq.items.map((f) => ({
           "@type": "Question",
           name: f.q,
           acceptedAnswer: { "@type": "Answer", text: f.a },
@@ -135,11 +142,13 @@ export function ArticleJsonLd({
   description,
   date,
   slug,
+  lang = "en",
 }: {
   title: string;
   description: string;
   date: string;
   slug: string;
+  lang?: Lang;
 }) {
   return (
     <JsonLd
@@ -150,10 +159,10 @@ export function ArticleJsonLd({
         description,
         datePublished: date,
         dateModified: date,
-        url: `${siteConfig.url}/blog/${slug}`,
+        url: `${siteConfig.url}/${lang}/blog/${slug}`,
         author: { "@id": PERSON_ID },
         publisher: { "@id": ORG_ID },
-        mainEntityOfPage: `${siteConfig.url}/blog/${slug}`,
+        mainEntityOfPage: `${siteConfig.url}/${lang}/blog/${slug}`,
       }}
     />
   );
