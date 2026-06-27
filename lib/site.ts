@@ -27,10 +27,8 @@ export const siteConfig = {
   contacts: {
     formDeliveryEmail: "aegonet@gmail.com",
     whatsappUrl: "https://wa.me/995585890730",
-    telegram: "@alexdev_pro",
-    telegramUrl: "https://t.me/alexdev_pro",
-    email: "hello@alexdev.studio",
-    emailUrl: "mailto:hello@alexdev.studio?subject=Project%20inquiry",
+    messengerUrl: "https://m.me/61586410776411",
+    messengerProfile: "https://m.facebook.com/profile.php?id=61586410776411",
     github: "https://github.com",
   },
   experienceLine: "10+ Years Experience  ·  Startups & Businesses  ·  Worldwide Remote Collaboration",

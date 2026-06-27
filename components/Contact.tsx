@@ -1,9 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { CheckCircle2, SendHorizontal, MessageCircle, Globe, Send, Mail } from "lucide-react";
+import { CheckCircle2, SendHorizontal, MessageCircle, Globe } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { useDict } from "@/lib/i18n/DictProvider";
+
+function MessengerIcon({ size = 18 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.19.16.14.26.35.27.57l.05 1.78c.02.57.6.94 1.12.71l1.99-.88c.17-.07.36-.09.54-.04 1.04.29 2.13.44 3.27.44 5.64 0 10-4.13 10-9.7C22 6.13 17.64 2 12 2zm6 7.46l-2.93 4.66c-.47.74-1.47.93-2.18.4l-2.34-1.75a.6.6 0 0 0-.72 0l-3.16 2.4c-.42.32-.97-.18-.69-.63l2.93-4.66c.47-.74 1.47-.93 2.18-.4l2.34 1.75a.6.6 0 0 0 .72 0l3.16-2.4c.42-.32.97.18.69.63z" />
+    </svg>
+  );
+}
 
 export function Contact() {
   const dict = useDict();
@@ -85,34 +93,22 @@ export function Contact() {
                 </span>
               </a>
               <a
-                href={siteConfig.contacts.telegramUrl}
+                href={siteConfig.contacts.messengerUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-3 p-4 rounded-2xl bg-[#229ED9]/10 border border-[#229ED9]/25 hover:bg-[#229ED9]/15 transition-all group"
+                className="flex items-center gap-3 p-4 rounded-2xl bg-[#0084FF]/10 border border-[#0084FF]/25 hover:bg-[#0084FF]/15 transition-all group"
               >
-                <span className="h-10 w-10 rounded-xl bg-[#229ED9]/15 flex items-center justify-center text-[#43b4ec]">
-                  <Send size={20} />
+                <span className="h-10 w-10 rounded-xl bg-[#0084FF]/15 flex items-center justify-center text-[#3b9bff]">
+                  <MessengerIcon size={20} />
                 </span>
                 <span>
-                  <span className="block text-white font-semibold text-sm">{dict.contact.telegram as string}</span>
-                  <span className="block text-gray-500 text-xs">{siteConfig.contacts.telegram}</span>
-                </span>
-              </a>
-              <a
-                href={siteConfig.contacts.emailUrl}
-                className="flex items-center gap-3 p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] transition-all"
-              >
-                <span className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-indigo-300">
-                  <Mail size={18} />
-                </span>
-                <span>
-                  <span className="block text-white font-semibold text-sm">{dict.contact.emailLabel as string}</span>
-                  <span className="block text-gray-500 text-xs">{dict.contact.email as string}</span>
+                  <span className="block text-white font-semibold text-sm">Messenger</span>
+                  <span className="block text-gray-500 text-xs">Facebook Messenger</span>
                 </span>
               </a>
               <a
                 href="#contact-form"
-                className="flex items-center gap-3 p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] transition-all"
+                className="flex items-center gap-3 p-4 rounded-2xl bg-white/[0.03] border border-white/5 hover:bg-white/[0.05] transition-all sm:col-span-2"
               >
                 <span className="h-10 w-10 rounded-xl bg-white/5 flex items-center justify-center text-teal-400">
                   <SendHorizontal size={18} />

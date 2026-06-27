@@ -1,9 +1,17 @@
 "use client";
 
 import Link from "next/link";
-import { Terminal, MessageCircle, Send, Mail } from "lucide-react";
+import { Terminal, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { useDict } from "@/lib/i18n/DictProvider";
+
+function MessengerIcon({ size = 16 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12 2C6.36 2 2 6.13 2 11.7c0 2.91 1.19 5.44 3.14 7.19.16.14.26.35.27.57l.05 1.78c.02.57.6.94 1.12.71l1.99-.88c.17-.07.36-.09.54-.04 1.04.29 2.13.44 3.27.44 5.64 0 10-4.13 10-9.7C22 6.13 17.64 2 12 2zm6 7.46l-2.93 4.66c-.47.74-1.47.93-2.18.4l-2.34-1.75a.6.6 0 0 0-.72 0l-3.16 2.4c-.42.32-.97-.18-.69-.63l2.93-4.66c.47-.74 1.47-.93 2.18-.4l2.34 1.75a.6.6 0 0 0 .72 0l3.16-2.4c.42-.32.97.18.69.63z" />
+    </svg>
+  );
+}
 
 export function Footer() {
   const dict = useDict();
@@ -57,20 +65,12 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={siteConfig.contacts.telegramUrl}
+                  href={siteConfig.contacts.messengerUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
                 >
-                  <Send size={16} className="text-[#43b4ec]" /> Telegram
-                </a>
-              </li>
-              <li>
-                <a
-                  href={siteConfig.contacts.emailUrl}
-                  className="inline-flex items-center gap-2 text-gray-400 hover:text-white transition-colors"
-                >
-                  <Mail size={16} className="text-indigo-300" /> {siteConfig.contacts.email}
+                  <span className="text-[#3b9bff]"><MessengerIcon size={16} /></span> Messenger
                 </a>
               </li>
             </ul>

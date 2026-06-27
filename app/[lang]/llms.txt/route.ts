@@ -30,8 +30,7 @@ ${dict.site.descriptionShort}
 ## Contact
 - Website: ${base}
 - WhatsApp: ${siteConfig.contacts.whatsappUrl}
-- Telegram: ${siteConfig.contacts.telegramUrl}
-- Email: ${siteConfig.contacts.email}
+- Messenger: ${siteConfig.contacts.messengerUrl}
 - Contact form: ${base}/en/#contact
 
 ## Services

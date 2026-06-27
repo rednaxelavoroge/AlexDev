@@ -98,9 +98,8 @@ export interface Dict {
     description: string;
     whatsapp: string;
     whatsappSub: string;
-    telegram: string;
-    email: string;
-    emailLabel: string;
+    messenger: string;
+    messengerSub: string;
     form: string;
     formSub: string;
     worldwide: string;
