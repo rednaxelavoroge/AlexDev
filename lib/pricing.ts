@@ -1,8 +1,60 @@
 /**
  * Все цены хранятся внутри в USD. Конвертация — по индикативным курсам
  * (ориентировочно, не финансовая котировка). Базовая валюта — USD.
+ * Курсы обновляются через Frankfurter API и кешируются в sessionStorage на 1 час.
  */
 export type CurrencyCode = "USD" | "EUR" | "GBP" | "GEL" | "AMD" | "AED" | "RUB";
+
+const DEFAULT_RATES: Record<string, number> = {
+  EUR: 0.92,
+  GBP: 0.79,
+  GEL: 2.7,
+  AMD: 387,
+  AED: 3.67,
+  RUB: 82,
+};
+
+/** Создаёт массив валют с указанными курсами */
+function buildCurrencies(rates: Record<string, number>): Currency[] {
+  return [
+    { code: "USD", symbol: "$", rate: 1, round: 1, label: "US Dollar" },
+    { code: "EUR", symbol: "€", rate: rates.EUR ?? DEFAULT_RATES.EUR, round: 1, label: "Euro" },
+    { code: "GBP", symbol: "£", rate: rates.GBP ?? DEFAULT_RATES.GBP, round: 1, label: "British Pound" },
+    { code: "GEL", symbol: "₾", rate: rates.GEL ?? DEFAULT_RATES.GEL, round: 1, label: "Georgian Lari" },
+    { code: "AMD", symbol: "֏", rate: rates.AMD ?? DEFAULT_RATES.AMD, round: 100, label: "Armenian Dram" },
+    { code: "AED", symbol: "AED", rate: rates.AED ?? DEFAULT_RATES.AED, round: 1, label: "UAE Dirham" },
+    { code: "RUB", symbol: "₽", rate: rates.RUB ?? DEFAULT_RATES.RUB, round: 100, label: "Russian Ruble" },
+  ];
+}
+
+/** Запрашивает живые курсы через Frankfurter API, кеширует в sessionStorage на 1 час */
+export async function fetchLiveRates(): Promise<Currency[]> {
+  const CACHE_KEY = "alexdev_fx_rates";
+  const CACHE_TTL = 60 * 60 * 1000; // 1 час
+
+  try {
+    const cached = sessionStorage.getItem(CACHE_KEY);
+    if (cached) {
+      const { rates, ts } = JSON.parse(cached);
+      if (Date.now() - ts < CACHE_TTL) {
+        return buildCurrencies(rates);
+      }
+    }
+  } catch { /* невалидный кеш — идём в сеть */ }
+
+  try {
+    const res = await fetch("https://api.frankfurter.app/latest?from=USD&to=EUR,GBP,GEL,AMD,RUB");
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    const rates: Record<string, number> = { ...data.rates, AED: 3.67 }; // AED фиксирован к USD
+    try {
+      sessionStorage.setItem(CACHE_KEY, JSON.stringify({ rates, ts: Date.now() }));
+    } catch { /* sessionStorage недоступен */ }
+    return buildCurrencies(rates);
+  } catch {
+    return buildCurrencies(DEFAULT_RATES);
+  }
+}
 
 export interface Currency {
   code: CurrencyCode;
@@ -14,15 +66,7 @@ export interface Currency {
   label: string;
 }
 
-export const CURRENCIES: Currency[] = [
-  { code: "USD", symbol: "$", rate: 1, round: 1, label: "US Dollar" },
-  { code: "EUR", symbol: "€", rate: 0.92, round: 1, label: "Euro" },
-  { code: "GBP", symbol: "£", rate: 0.79, round: 1, label: "British Pound" },
-  { code: "GEL", symbol: "₾", rate: 2.7, round: 1, label: "Georgian Lari" },
-  { code: "AMD", symbol: "֏", rate: 387, round: 100, label: "Armenian Dram" },
-  { code: "AED", symbol: "AED", rate: 3.67, round: 1, label: "UAE Dirham" },
-  { code: "RUB", symbol: "₽", rate: 79, round: 100, label: "Russian Ruble" },
-];
+export const CURRENCIES: Currency[] = buildCurrencies(DEFAULT_RATES);
 
 export interface PricingTier {
   name: string;
@@ -192,10 +236,11 @@ export function convert(usd: number, currency: Currency): number {
     : Math.round(raw / currency.round) * currency.round;
 }
 
-export function formatPrice(usd: number | null, currency: Currency): string {
+export function formatPrice(usd: number | null, currency: Currency, lang: string = "en"): string {
   if (usd === null) return "Custom Quote";
   const value = convert(usd, currency);
-  const formatted = new Intl.NumberFormat("ru-RU").format(Math.round(value));
+  const locale = lang === "ru" ? "ru-RU" : lang === "ka" ? "ka-GE" : lang === "hy" ? "hy-AM" : "en-US";
+  const formatted = new Intl.NumberFormat(locale).format(Math.round(value));
   return currency.code === "AED"
     ? `${formatted} ${currency.symbol}`
     : `${currency.symbol}${formatted}`;

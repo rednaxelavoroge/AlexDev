@@ -59,10 +59,16 @@ export function Portfolio() {
               <div className="mb-7 px-2 pt-2">
                 <DeviceMockup
                   src={p.shot}
-                  alt={`${p.title} — превью`}
+                  alt={`${p.title} — ${dict.portfolio.previewAlt}`}
                   device={p.device}
                   status={p.status}
                   url={p.link}
+                  labels={{
+                    ndaLabel: dict.portfolio.ndaLabel,
+                    ndaDesc: dict.portfolio.ndaDesc,
+                    soonLabel: dict.portfolio.soonLabel,
+                    soonDesc: dict.portfolio.soonDesc,
+                  }}
                 />
               </div>
 
@@ -78,7 +84,7 @@ export function Portfolio() {
                 )}
                 {p.status === "soon" && (
                   <span className="inline-flex items-center gap-1 text-[10px] font-mono uppercase text-amber-400 px-2 py-1 rounded bg-amber-950/30 border border-amber-500/20">
-                    <Hammer size={10} /> Скоро
+                    <Hammer size={10} /> {dict.portfolio.soonLabel}
                   </span>
                 )}
               </div>

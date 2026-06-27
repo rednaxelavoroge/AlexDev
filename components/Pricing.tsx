@@ -1,13 +1,23 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Check, ArrowRight } from "lucide-react";
-import { CURRENCIES, PRICING_TIERS, formatPrice, type Currency } from "@/lib/pricing";
+import { CURRENCIES, PRICING_TIERS, formatPrice, fetchLiveRates, type Currency } from "@/lib/pricing";
 import { useDict } from "@/lib/i18n/DictProvider";
 
 export function Pricing() {
   const dict = useDict();
+  const [currencies, setCurrencies] = useState<Currency[]>(CURRENCIES);
   const [currency, setCurrency] = useState<Currency>(CURRENCIES[0]);
+
+  useEffect(() => {
+    fetchLiveRates().then(setCurrencies).catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    const current = currencies.find((c) => c.code === currency.code);
+    if (current) setCurrency(current);
+  }, [currencies]); // eslint-disable-line
 
   return (
     <section id="pricing" className="py-24 lg:py-32 bg-[#030712] relative">
@@ -27,7 +37,7 @@ export function Pricing() {
 
         {/* Currency switcher */}
         <div className="flex flex-wrap justify-center gap-2 mb-14">
-          {CURRENCIES.map((c) => (
+          {currencies.map((c) => (
             <button
               key={c.code}
               onClick={() => setCurrency(c)}
@@ -60,14 +70,14 @@ export function Pricing() {
                 </span>
               )}
               <h3 className="text-lg font-bold text-white font-display">{tier.name}</h3>
-              <p className="text-xs text-indigo-300/70 mb-4">{tier.taglineEn}</p>
+              <p className="text-xs text-indigo-300/70 mb-4">{dict.lang === "ru" ? tier.taglineRu : tier.taglineEn}</p>
 
               <div className="mb-4">
                 {tier.priceUsd !== null ? (
                   <div className="flex items-baseline gap-1.5">
                     <span className="text-xs text-gray-500">{dict.pricing.ctaPrefix as string}</span>
                     <span className="text-3xl font-extrabold text-white font-display">
-                      {formatPrice(tier.priceUsd, currency)}
+                      {formatPrice(tier.priceUsd, currency, dict.lang)}
                     </span>
                   </div>
                 ) : (

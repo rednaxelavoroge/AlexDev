@@ -19,6 +19,7 @@ export interface Dict {
     experienceLine: string;
     openForProjects: string;
     boutiqueLabel: string;
+    founderRole: string;
     stats: { value: string; label: string }[];
   };
   nav: {
@@ -56,6 +57,8 @@ export interface Dict {
     subheading: string;
     ctaLine: string;
     cta: string;
+    clientLabel: string;
+    outcomeLabel: string;
     items: { title: string; value: string; client: string; outcome: string }[];
   };
   why: {
@@ -69,6 +72,12 @@ export interface Dict {
     heading: string;
     subheading: string;
     filters: { all: string };
+    ndaLabel: string;
+    ndaDesc: string;
+    soonLabel: string;
+    soonDesc: string;
+    previewAlt: string;
+    close: string;
     modal: { tech: string; about: string; challenge: string; solution: string; outcome: string; similar: string; discuss: string; openProject: string; requestDemo: string; learnLaunch: string };
   };
   tech: {

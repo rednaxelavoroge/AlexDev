@@ -13,6 +13,7 @@ const dict: Dict = {
       "10+ Years Experience  ·  Startups & Businesses  ·  Worldwide Remote Collaboration",
     openForProjects: "Open for projects",
     boutiqueLabel: "Boutique development studio · Worldwide",
+    founderRole: "Founder & Lead Engineer",
     stats: [
       { value: "30+", label: "Systems launched" },
       { value: "10", label: "Years of engineering" },
@@ -82,6 +83,8 @@ const dict: Dict = {
     ctaLine:
       "Didn't find what you need? Let's discuss your challenge individually.",
     cta: "Get a consultation",
+    clientLabel: "For:",
+    outcomeLabel: "Result:",
     items: [
       {
         title: "AI Development",
@@ -206,6 +209,12 @@ const dict: Dict = {
     filters: {
       all: "All",
     },
+    ndaLabel: "Under NDA",
+    ndaDesc: "Preview unavailable due to non-disclosure agreement",
+    soonLabel: "Coming Soon",
+    soonDesc: "Product in active development — public domain soon",
+    previewAlt: "preview",
+    close: "Close",
     modal: {
       tech: "Tech Stack",
       about: "About the project",

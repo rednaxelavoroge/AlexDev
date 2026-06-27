@@ -4,7 +4,14 @@ import { Lock, Hammer } from "lucide-react";
 type Device = "macbook" | "browser" | "iphone";
 type Status = "live" | "nda" | "soon";
 
-function Placeholder({ status }: { status: Status }) {
+export interface DeviceLabels {
+  ndaLabel: string;
+  ndaDesc: string;
+  soonLabel: string;
+  soonDesc: string;
+}
+
+function Placeholder({ status, labels }: { status: Status; labels: DeviceLabels }) {
   const isNda = status === "nda";
   return (
     <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#0b0f19] to-[#070b15] text-center px-6">
@@ -18,12 +25,10 @@ function Placeholder({ status }: { status: Status }) {
         {isNda ? <Lock size={24} /> : <Hammer size={24} />}
       </div>
       <p className="text-white font-semibold font-display">
-        {isNda ? "Проект под NDA" : "Скоро запуск"}
+        {isNda ? labels.ndaLabel : labels.soonLabel}
       </p>
       <p className="text-xs text-gray-500 max-w-[14rem]">
-        {isNda
-          ? "Превью недоступно по соглашению о неразглашении"
-          : "Продукт в активной разработке — публичный домен скоро"}
+        {isNda ? labels.ndaDesc : labels.soonDesc}
       </p>
     </div>
   );
@@ -35,12 +40,14 @@ export function DeviceMockup({
   device,
   status,
   url,
+  labels,
 }: {
   src: string | null;
   alt: string;
   device: Device;
   status: Status;
   url?: string;
+  labels: DeviceLabels;
 }) {
   const Shot = ({ rounded = "" }: { rounded?: string }) =>
     src ? (
@@ -52,7 +59,7 @@ export function DeviceMockup({
         className={`object-cover object-top ${rounded}`}
       />
     ) : (
-      <Placeholder status={status} />
+      <Placeholder status={status} labels={labels} />
     );
 
   if (device === "iphone") {

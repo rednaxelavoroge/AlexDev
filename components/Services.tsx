@@ -37,11 +37,11 @@ export function Services() {
 
                 <dl className="space-y-2.5 mb-6 text-sm">
                   <div className="flex gap-2">
-                    <dt className="text-gray-500 shrink-0">Кому:</dt>
+                    <dt className="text-gray-500 shrink-0">{dict.services.clientLabel}</dt>
                     <dd className="text-gray-300">{item.client}</dd>
                   </div>
                   <div className="flex gap-2">
-                    <dt className="text-gray-500 shrink-0">Результат:</dt>
+                    <dt className="text-gray-500 shrink-0">{dict.services.outcomeLabel}</dt>
                     <dd className="text-teal-300">{item.outcome}</dd>
                   </div>
                 </dl>

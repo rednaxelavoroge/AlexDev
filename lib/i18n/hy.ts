@@ -4,7 +4,7 @@ const dict: Dict = {
   lang: "hy",
   site: {
     name: "AlexDev Studio",
-    tagline: "We design. We build. We scale.",
+    tagline: "Նախագծում ենք. Կառուցում ենք. Ընդլայնում ենք.",
     description:
       "AlexDev Studio — հիմնադրի ղեկավարած ծրագրային ստուդիա, որը ստեղծում է AI արտադրանքներ, SaaS և վեբ հարթակներ ստարտափների և աճող բիզնեսների համար ամբողջ աշխարհում։",
     descriptionShort:
@@ -13,6 +13,7 @@ const dict: Dict = {
       "10+ տարվա փորձ  ·  Ստարտափներ և բիզնեսներ  ·  Հեռավար համագործակցություն ամբողջ աշխարհում",
     openForProjects: "Բաց ենք նախագծերի համար",
     boutiqueLabel: "Բուտիկ ծրագրային ստուդիա · Ամբողջ աշխարհում",
+    founderRole: "Հիմնադիր և առաջատար ինժեներ",
     stats: [
       { value: "30+", label: "Գործարկված համակարգեր" },
       { value: "10", label: "Տարվա ինժեներական փորձ" },
@@ -82,6 +83,8 @@ const dict: Dict = {
     ctaLine:
       "Չգտա՞ք այն, ինչ փնտրում եք։ Եկեք անհատապես քննարկենք ձեր մարտահրավերը։",
     cta: "Ստանալ խորհրդատվություն",
+    clientLabel: "Ում համար:",
+    outcomeLabel: "Արդյունք:",
     items: [
       {
         title: "AI մշակում",
@@ -206,6 +209,12 @@ const dict: Dict = {
     filters: {
       all: "Բոլորը",
     },
+    ndaLabel: "NDA-ի տակ",
+    ndaDesc: "Պրեվյուն անհասանելի է գաղտնիության համաձայնագրի պատճառով",
+    soonLabel: "Շուտով մեկնարկ",
+    soonDesc: "Պրոդուկտը ակտիվ մշակման մեջ է — հանրային դոմեն շուտով",
+    previewAlt: "պրեվյու",
+    close: "Փակել",
     modal: {
       tech: "Տեխստեկ",
       about: "Նախագծի մասին",
@@ -326,7 +335,7 @@ const dict: Dict = {
       "Ուղարկեք հայտ կամ կապվեք ուղիղ. մենք կքննարկենք ձեր մարտահրավերը, կառաջարկենք մոտեցում և գնահատում։ Պատասխանում ենք 24 ժամվա ընթացքում։",
     whatsapp: "WhatsApp",
     whatsappSub: "Արագ արձագանք",
-    messenger: "Telegram",
+    messenger: "Messenger",
     messengerSub: "Facebook Messenger",
     form: "Հայտի ձևաթուղթ",
     formSub: "Լրացրեք, և մենք կպատասխանենք",

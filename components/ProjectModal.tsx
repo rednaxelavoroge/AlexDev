@@ -52,7 +52,7 @@ export function ProjectModal({
           <button
             onClick={onClose}
             className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-gray-400 hover:text-white transition-colors shrink-0"
-            aria-label="Закрыть"
+            aria-label={dict.portfolio.close}
           >
             <X size={20} />
           </button>
@@ -62,10 +62,16 @@ export function ProjectModal({
           <div className="px-2 pt-2">
             <DeviceMockup
               src={project.shot}
-              alt={`${project.title} — превью`}
+              alt={`${project.title} — ${dict.portfolio.previewAlt}`}
               device={project.device}
               status={project.status}
               url={project.link}
+              labels={{
+                ndaLabel: dict.portfolio.ndaLabel,
+                ndaDesc: dict.portfolio.ndaDesc,
+                soonLabel: dict.portfolio.soonLabel,
+                soonDesc: dict.portfolio.soonDesc,
+              }}
             />
           </div>
 

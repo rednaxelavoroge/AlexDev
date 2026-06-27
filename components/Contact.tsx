@@ -38,7 +38,7 @@ export function Contact() {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
-          _subject: `AlexDev Studio — заявка: ${form.type}`,
+          _subject: `AlexDev Studio — Request: ${form.type}`,
           Name: form.name,
           Contact: form.contact,
           "Project Type": form.type,

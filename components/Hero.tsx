@@ -93,7 +93,7 @@ export function Hero() {
                 <div className="absolute bottom-4 inset-x-4 glass-panel rounded-2xl p-4 flex items-center justify-between">
                   <div>
                     <p className="text-[11px] uppercase tracking-widest text-indigo-300 font-semibold flex items-center gap-1.5">
-                      <BadgeCheck size={13} /> {siteConfig.founder.role}
+                      <BadgeCheck size={13} /> {dict.site.founderRole}
                     </p>
                     <p className="text-white font-bold font-display text-lg leading-tight">
                       {siteConfig.founder.displayName}

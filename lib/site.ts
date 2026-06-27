@@ -19,8 +19,8 @@ export const siteConfig = {
     startedYear: 2014,
   },
   location: {
-    city: "Батуми",
-    country: "Грузия",
+    city: "Batumi",
+    country: "Georgia",
     countryCode: "GE",
     region: "Worldwide",
   },

@@ -5,6 +5,8 @@ import { Terminal, MessageCircle } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 import { useDict } from "@/lib/i18n/DictProvider";
 
+const NAV_KEYS = ["services", "portfolio", "technologies", "process", "pricing", "faq", "blog", "contacts"] as const;
+
 function MessengerIcon({ size = 16 }: { size?: number }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -40,10 +42,10 @@ export function Footer() {
           <div>
             <h3 className="text-white font-semibold text-sm mb-4 font-display">{dict.footer.nav as string}</h3>
             <ul className="space-y-2.5 text-sm text-gray-400">
-              {siteConfig.nav.map((n) => (
+              {siteConfig.nav.map((n, i) => (
                 <li key={n.href}>
                   <Link href={n.href} className="hover:text-white transition-colors">
-                    {n.label}
+                    {dict.nav[NAV_KEYS[i]] ?? n.label}
                   </Link>
                 </li>
               ))}
