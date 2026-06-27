@@ -9,10 +9,10 @@ import { useDict } from "@/lib/i18n/DictProvider";
 
 export function Portfolio() {
   const dict = useDict();
-  const [filter, setFilter] = useState<string>("Все");
+  const [filter, setFilter] = useState<string>("All");
   const [selected, setSelected] = useState<Project | null>(null);
 
-  const list = filter === "Все" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
+  const list = filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter);
 
   return (
     <section id="portfolio" className="py-24 lg:py-32 relative bg-[#02050c]">
@@ -44,7 +44,7 @@ export function Portfolio() {
                   : "bg-white/5 border border-white/5 text-gray-400 hover:bg-white/10 hover:text-white"
               }`}
             >
-              {c === "Все" ? (dict.portfolio.filters.all as string) : c}
+              {c === "All" ? (dict.portfolio.filters.all as string) : c}
             </button>
           ))}
         </div>

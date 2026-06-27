@@ -60,7 +60,7 @@ export function Pricing() {
                 </span>
               )}
               <h3 className="text-lg font-bold text-white font-display">{tier.name}</h3>
-              <p className="text-xs text-indigo-300/70 mb-4">{tier.taglineRu}</p>
+              <p className="text-xs text-indigo-300/70 mb-4">{tier.taglineEn}</p>
 
               <div className="mb-4">
                 {tier.priceUsd !== null ? (

@@ -1,4 +1,4 @@
-/* Контент второстепенных секций: Процесс, Почему мы, FAQ, Отзывы */
+/* Content for secondary sections: Process, Why Choose, FAQ, Testimonials */
 
 export interface ProcessStep {
   num: string;
@@ -13,43 +13,43 @@ export const PROCESS_STEPS: ProcessStep[] = [
     num: "01",
     icon: "Compass",
     title: "Discovery",
-    desc: "Погружаемся в ваш бизнес, аудиторию и конкурентов. Формулируем цели, метрики успеха и техническое задание.",
-    bullets: ["Анализ задачи", "Метрики успеха", "ТЗ и оценка"],
+    desc: "Dive into your business, audience and competitors. Define goals, success metrics and technical requirements.",
+    bullets: ["Task analysis", "Success metrics", "Spec & estimate"],
   },
   {
     num: "02",
     icon: "PenTool",
-    title: "Планирование и UI/UX",
-    desc: "Проектируем архитектуру, пользовательские сценарии и интерфейсы — от wireframes до кликабельного прототипа.",
-    bullets: ["User flows", "Прототип", "Дизайн-система"],
+    title: "Planning & UI/UX",
+    desc: "Design architecture, user flows and interfaces — from wireframes to clickable prototype.",
+    bullets: ["User flows", "Prototype", "Design system"],
   },
   {
     num: "03",
     icon: "Boxes",
-    title: "Архитектура",
-    desc: "Закладываем масштабируемую и безопасную архитектуру: данные, интеграции, инфраструктура.",
-    bullets: ["Схема данных", "Интеграции", "Инфраструктура"],
+    title: "Architecture",
+    desc: "Lay out scalable and secure architecture: data model, integrations, infrastructure.",
+    bullets: ["Data schema", "Integrations", "Infrastructure"],
   },
   {
     num: "04",
     icon: "GitBranch",
-    title: "Разработка",
-    desc: "Пишем чистый код спринтами с еженедельными демо. Вы видите прогресс и влияете на результат на каждом шаге.",
-    bullets: ["Недельные спринты", "Еженедельные демо", "Чистый код"],
+    title: "Development",
+    desc: "Write clean code in sprints with weekly demos. You see progress and shape results at every step.",
+    bullets: ["Weekly sprints", "Weekly demos", "Clean code"],
   },
   {
     num: "05",
     icon: "ShieldCheck",
-    title: "QA и аудит",
-    desc: "Ручное и автоматизированное тестирование, нагрузка, безопасность и аудит смарт-контрактов перед релизом.",
-    bullets: ["Unit / E2E тесты", "Нагрузка", "Безопасность"],
+    title: "QA & Audit",
+    desc: "Manual and automated testing, load testing, security and smart contract audit before release.",
+    bullets: ["Unit / E2E tests", "Load testing", "Security"],
   },
   {
     num: "06",
     icon: "Rocket",
-    title: "Запуск и поддержка",
-    desc: "Деплой, CI/CD и мониторинг. После релиза — гарантийное сопровождение и дальнейшее развитие продукта.",
-    bullets: ["Деплой и CI/CD", "Мониторинг", "Поддержка 24/7"],
+    title: "Launch & Support",
+    desc: "Deployment, CI/CD and monitoring. Post-launch warranty support and ongoing development.",
+    bullets: ["Deploy & CI/CD", "Monitoring", "24/7 support"],
   },
 ];
 
@@ -62,33 +62,33 @@ export interface Advantage {
 export const WHY_CHOOSE: Advantage[] = [
   {
     icon: "UserCheck",
-    title: "Разработка под руководством основателя",
-    desc: "Alex лично ведёт каждый проект — никаких потерянных в переписке менеджеров и испорченного телефона.",
+    title: "Founder-led development",
+    desc: "Alex personally leads every project — no lost context, no layers of middle management, no telephone game.",
   },
   {
     icon: "MessagesSquare",
-    title: "Прозрачная коммуникация",
-    desc: "Понятный статус задач, честные сроки и прямой канал связи с инженером, а не с аккаунт-менеджером.",
+    title: "Transparent communication",
+    desc: "Clear task status, honest timelines, direct line to the engineer — not an account manager.",
   },
   {
     icon: "MonitorPlay",
-    title: "Еженедельные демо",
-    desc: "Каждую неделю вы видите рабочую сборку и влияете на продукт, пока его ещё можно менять дёшево.",
+    title: "Weekly demos",
+    desc: "Every week you see a working build and shape the product while changes are still cheap.",
   },
   {
     icon: "Network",
-    title: "Сеть сеньоров",
-    desc: "Под задачу подключаем проверенных senior-разработчиков, дизайнеров, DevOps и AI-специалистов.",
+    title: "Senior network",
+    desc: "We bring in vetted senior developers, designers, DevOps and AI specialists per project.",
   },
   {
     icon: "Gauge",
-    title: "Масштабируемая архитектура",
-    desc: "Закладываем фундамент, который выдержит рост: от первых пользователей до серьёзной нагрузки.",
+    title: "Scalable architecture",
+    desc: "We lay a foundation that handles growth: from first users to serious load.",
   },
   {
     icon: "Sparkles",
-    title: "AI-first подход",
-    desc: "Сразу думаем, где AI даст бизнесу преимущество, а не приклеиваем его постфактум ради хайпа.",
+    title: "AI-first approach",
+    desc: "We think about where AI gives business an advantage from day one, not as an afterthought.",
   },
 ];
 
@@ -99,36 +99,36 @@ export interface FaqItem {
 
 export const FAQ: FaqItem[] = [
   {
-    q: "Чем студия отличается от фрилансера или агентства?",
-    a: "AlexDev Studio — это формат «бутик под руководством основателя»: Alex лично отвечает за архитектуру и результат каждого проекта, а под задачу подключает проверенную сеть senior-инженеров, дизайнеров, DevOps и AI-специалистов. Вы получаете вовлечённость основателя и при этом мощность команды — без накладных расходов большого агентства.",
+    q: "How is the studio different from a freelancer or agency?",
+    a: "AlexDev Studio is a founder-led boutique: Alex personally owns the architecture and outcome of every project, while bringing in a network of vetted senior engineers, designers, DevOps and AI specialists. You get founder-level commitment with team power — without large-agency overhead.",
   },
   {
-    q: "Сколько стоит разработка проекта?",
-    a: "Проекты стартуют от $99 за лендинг и от $500 за бизнес-сайт или стартап-MVP. Маркетплейсы — от $5,000, FinTech-платформы — от $25,000, Enterprise AI — индивидуально. Точная цифра зависит от объёма и сроков. На сайте есть стартовые цены с переключателем валют, а финальную оценку мы даём после бесплатного Discovery-созвона.",
+    q: "How much does development cost?",
+    a: "Projects start from $99 for a landing page and from $500 for a business website or startup MVP. Marketplaces from $5,000, FinTech platforms from $25,000, Enterprise AI — custom. The exact figure depends on scope and timeline. The site shows starting prices with a currency switcher, and we give a final estimate after a free Discovery call.",
   },
   {
-    q: "Сколько времени занимает разработка?",
-    a: "MVP запускаем за 2–4 недели, SaaS — за 1–3 месяца, маркетплейсы и enterprise-системы — дольше. Работаем недельными спринтами с демо, так что прогресс виден уже с первой недели.",
+    q: "How long does development take?",
+    a: "We launch an MVP in 2–4 weeks, SaaS in 1–3 months, marketplaces and enterprise systems — longer. We work in weekly sprints with demos, so you see progress from week one.",
   },
   {
-    q: "Вы работаете с клиентами из других стран?",
-    a: "Да, мы работаем по всему миру и удалённо. Основная коммуникация — на русском и английском, через Telegram, WhatsApp, email и видеозвонки. Цены показываем в USD, EUR, GBP, GEL, AMD, AED и RUB.",
+    q: "Do you work with clients from other countries?",
+    a: "Yes, we work worldwide and remotely. Primary communication in Russian and English via WhatsApp, Messenger and video calls. Prices shown in USD, EUR, GBP, GEL, AMD, AED and RUB.",
   },
   {
-    q: "Кому будет принадлежать код и права?",
-    a: "Все права на код и продукт переходят к вам. Мы передаём репозиторий, документацию и доступы к инфраструктуре. По запросу подписываем NDA до начала обсуждения деталей.",
+    q: "Who owns the code and rights?",
+    a: "All code and product rights transfer to you. We hand over the repository, documentation and infrastructure access. We sign NDAs on request before discussing details.",
   },
   {
-    q: "Что происходит после запуска?",
-    a: "Мы предоставляем гарантийную поддержку и предлагаем ежемесячный retainer для развития продукта: новые функции, мониторинг, обновления и приоритетный канал связи.",
+    q: "What happens after launch?",
+    a: "We provide warranty support and offer a monthly retainer for product development: new features, monitoring, updates and a priority communication channel.",
   },
   {
-    q: "Можете ли вы доработать или спасти существующий проект?",
-    a: "Да. Мы проводим технический аудит, оцениваем состояние кода и архитектуры и предлагаем план: рефакторинг, развитие или поэтапное переписывание. Часто это быстрее и дешевле, чем строить с нуля.",
+    q: "Can you improve or rescue an existing project?",
+    a: "Yes. We perform a technical audit, assess code and architecture health, and propose a plan: refactoring, further development or phased rewrite. This is often faster and cheaper than starting from scratch.",
   },
   {
-    q: "Как начать работу со студией?",
-    a: "Напишите в WhatsApp, Telegram или email — либо заполните форму на сайте. Мы согласуем короткий Discovery-созвон, разберём задачу, предложим подход и оценку. Отвечаем в течение 24 часов.",
+    q: "How do I start working with the studio?",
+    a: "Write on WhatsApp or Messenger — or fill out the form on the site. We'll schedule a short Discovery call, analyze your challenge, and propose an approach and estimate. We respond within 24 hours.",
   },
 ];
 
@@ -143,26 +143,26 @@ export interface Testimonial {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
-    name: "Основатель",
-    role: "Мебельная фабрика · B2B",
+    name: "Founder",
+    role: "Furniture factory · B2B",
     initials: "SP",
-    text: "AI-сотрудник заменил нам часы ручных расчётов. Менеджеры теперь собирают коммерческое предложение за минуты, а не за полдня. Alex погружался в наш бизнес как партнёр, а не подрядчик.",
+    text: "The AI agent replaced hours of manual calculations. Our managers now prepare commercial proposals in minutes instead of half a day. Alex immersed himself in our business as a partner, not a contractor.",
     project: "Showroom Pro",
     accent: "from-teal-500/20 to-indigo-500/10",
   },
   {
-    name: "Продуктовая команда",
-    role: "DeFi-проект",
+    name: "Product team",
+    role: "DeFi project",
     initials: "RC",
-    text: "Сложную on-chain логику сделали прозрачной и безопасной. Еженедельные демо держали нас в курсе, и релиз прошёл без сюрпризов. Рекомендуем как надёжного инженерного партнёра.",
+    text: "Complex on-chain logic was made transparent and secure. Weekly demos kept us informed, and the launch went off without surprises. We recommend AlexDev as a reliable engineering partner.",
     project: "ROSCASH",
     accent: "from-purple-500/20 to-indigo-500/10",
   },
   {
-    name: "Основатель",
-    role: "Шеринг-платформа",
+    name: "Founder",
+    role: "Sharing platform",
     initials: "SK",
-    text: "Из хаотичных Telegram-чатов получилась настоящая платформа с AI-оценкой вещей. Десятки тысяч обменов и стабильный ежедневный онлайн — лучшее доказательство качества работы.",
+    text: "Chaotic Telegram chats turned into a real platform with AI-powered item assessment. Tens of thousands of successful exchanges and steady daily activity — the best proof of quality.",
     project: "Swap Kids",
     accent: "from-indigo-500/20 to-teal-500/10",
   },
