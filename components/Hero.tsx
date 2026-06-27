@@ -30,9 +30,8 @@ export function Hero() {
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-400 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
-              AlexDev Studio помогает стартапам и бизнесу запускать современные продукты
-              на базе AI — SaaS, веб-платформы и автоматизацию. От идеи и MVP до
-              масштабируемой архитектуры.
+              Мы помогаем стартапам и бизнесу запускать современные продукты — от AI и SaaS до веб-платформ и
+              автоматизации. От идеи до масштабируемой архитектуры.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4">
@@ -50,6 +49,10 @@ export function Hero() {
                 Смотреть портфолио
               </a>
             </div>
+
+            <p className="text-sm text-teal-400/80 font-medium tracking-wide">
+              {siteConfig.experienceLine}
+            </p>
 
             <dl className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-white/5 max-w-xl mx-auto lg:mx-0">
               {siteConfig.stats.map((s) => (
@@ -93,7 +96,7 @@ export function Hero() {
                       <BadgeCheck size={13} /> Founder &amp; Lead Engineer
                     </p>
                     <p className="text-white font-bold font-display text-lg leading-tight">
-                      Александр
+                      {siteConfig.founder.displayName}
                     </p>
                   </div>
                   <Sparkles size={20} className="text-amber-400 shrink-0" />

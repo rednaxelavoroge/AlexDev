@@ -40,11 +40,13 @@ export function OrganizationJsonLd() {
           addressLocality: siteConfig.location.city,
           addressCountry: siteConfig.location.countryCode,
         },
-        sameAs: [siteConfig.contacts.messengerProfile, siteConfig.contacts.github],
+        sameAs: [siteConfig.contacts.telegramUrl, siteConfig.contacts.github],
+        email: siteConfig.contacts.email,
         contactPoint: {
           "@type": "ContactPoint",
           contactType: "sales",
           url: siteConfig.contacts.whatsappUrl,
+          email: siteConfig.contacts.email,
           availableLanguage: ["Russian", "English"],
         },
       }}

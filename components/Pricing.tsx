@@ -16,10 +16,10 @@ export function Pricing() {
             Цены
           </span>
           <h2 className="text-4xl sm:text-5xl font-bold text-white font-display tracking-tight">
-            Прозрачные пакеты
+            От лендинга до enterprise AI
           </h2>
           <p className="mt-4 text-gray-400 text-lg">
-            Ориентировочные стартовые бюджеты. Финальную оценку даём после Discovery-созвона.
+            Стартовые цены. Финальную оценку даём после бесплатного Discovery-созвона.
           </p>
         </div>
 
@@ -42,7 +42,7 @@ export function Pricing() {
           ))}
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {PRICING_TIERS.map((tier) => (
             <div
               key={tier.name}
@@ -58,7 +58,7 @@ export function Pricing() {
                 </span>
               )}
               <h3 className="text-lg font-bold text-white font-display">{tier.name}</h3>
-              <p className="text-xs text-indigo-300/70 mb-4">{tier.tagline}</p>
+              <p className="text-xs text-indigo-300/70 mb-4">{tier.taglineRu}</p>
 
               <div className="mb-4">
                 {tier.priceUsd !== null ? (
@@ -69,11 +69,11 @@ export function Pricing() {
                     </span>
                   </div>
                 ) : (
-                  <span className="text-3xl font-extrabold text-white font-display">Индивидуально</span>
+                  <span className="text-3xl font-extrabold text-white font-display">
+                    Custom Quote
+                  </span>
                 )}
               </div>
-
-              <p className="text-sm text-gray-400 leading-relaxed mb-5">{tier.description}</p>
 
               <ul className="space-y-2.5 mb-6 flex-1">
                 {tier.features.map((f) => (

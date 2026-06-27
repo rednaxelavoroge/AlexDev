@@ -15,22 +15,22 @@ export interface Currency {
 }
 
 export const CURRENCIES: Currency[] = [
-  { code: "USD", symbol: "$", rate: 1, round: 100, label: "US Dollar" },
-  { code: "EUR", symbol: "€", rate: 0.92, round: 100, label: "Euro" },
-  { code: "GBP", symbol: "£", rate: 0.79, round: 100, label: "British Pound" },
-  { code: "GEL", symbol: "₾", rate: 2.7, round: 100, label: "Georgian Lari" },
-  { code: "AMD", symbol: "֏", rate: 387, round: 5000, label: "Armenian Dram" },
-  { code: "AED", symbol: "AED", rate: 3.67, round: 100, label: "UAE Dirham" },
-  { code: "RUB", symbol: "₽", rate: 79, round: 5000, label: "Russian Ruble" },
+  { code: "USD", symbol: "$", rate: 1, round: 1, label: "US Dollar" },
+  { code: "EUR", symbol: "€", rate: 0.92, round: 1, label: "Euro" },
+  { code: "GBP", symbol: "£", rate: 0.79, round: 1, label: "British Pound" },
+  { code: "GEL", symbol: "₾", rate: 2.7, round: 1, label: "Georgian Lari" },
+  { code: "AMD", symbol: "֏", rate: 387, round: 100, label: "Armenian Dram" },
+  { code: "AED", symbol: "AED", rate: 3.67, round: 1, label: "UAE Dirham" },
+  { code: "RUB", symbol: "₽", rate: 79, round: 100, label: "Russian Ruble" },
 ];
 
 export interface PricingTier {
   name: string;
-  /** базовая цена в USD; null = индивидуально */
+  /** базовая цена в USD; null = Custom Quote */
   priceUsd: number | null;
   unit: string;
-  tagline: string;
-  description: string;
+  taglineEn: string;
+  taglineRu: string;
   features: string[];
   highlighted?: boolean;
   cta: string;
@@ -38,80 +38,164 @@ export interface PricingTier {
 
 export const PRICING_TIERS: PricingTier[] = [
   {
-    name: "Launch / MVP",
-    priceUsd: 5000,
+    name: "Landing Page",
+    priceUsd: 99,
     unit: "от",
-    tagline: "Запуск идеи в продакшен",
-    description:
-      "Для стартапов, которым нужно быстро проверить гипотезу рабочим продуктом, а не прототипом.",
+    taglineEn: "Single-page site with form and analytics",
+    taglineRu: "Одностраничный сайт с формой и аналитикой",
     features: [
-      "Лендинг или компактный продукт",
-      "1 ключевой пользовательский сценарий",
-      "AI-функция или интеграция под ключ",
-      "Деплой на Vercel + базовый SEO",
-      "2–4 недели до релиза",
+      "Адаптивный одностраничный сайт",
+      "Контактная форма, карта, мессенджеры",
+      "Базовая SEO-оптимизация",
+      "Домен, хостинг, SSL",
+      "Аналитика и пиксели",
+      "3–5 дней до запуска",
     ],
-    cta: "Обсудить MVP",
+    cta: "Заказать лендинг",
   },
   {
-    name: "Growth / SaaS",
-    priceUsd: 15000,
+    name: "Business Website",
+    priceUsd: 500,
     unit: "от",
-    tagline: "Продукт, готовый расти",
-    description:
-      "Полноценный SaaS или платформа с биллингом, кабинетами и масштабируемой архитектурой.",
+    taglineEn: "Multi-page company website with CMS",
+    taglineRu: "Многостраничный сайт компании с CMS",
     features: [
-      "Многопользовательская архитектура",
-      "Биллинг и платежи (Stripe)",
-      "AI-агенты и автоматизация процессов",
-      "Админ-панель и аналитика",
-      "Еженедельные демо и поддержка после релиза",
+      "Многостраничный сайт (до 10 стр)",
+      "CMS для самостоятельного наполнения",
+      "Продвинутая SEO и скорость 95+",
+      "Блог, портфолио, отзывы",
+      "Интеграция CRM и мессенджеров",
+      "1–2 недели до запуска",
+    ],
+    cta: "Создать сайт",
+  },
+  {
+    name: "Corporate Website",
+    priceUsd: 1500,
+    unit: "от",
+    taglineEn: "Premium corporate platform with custom UX",
+    taglineRu: "Премиальная корпоративная платформа",
+    features: [
+      "Уникальный дизайн и анимации",
+      "Личный кабинет клиента / партнёра",
+      "Сложная SEO-стратегия",
+      "Мультиязычность (2+ языка)",
+      "Интеграции: CRM, ERP, 1С, платежи",
+      "2–4 недели до запуска",
     ],
     highlighted: true,
-    cta: "Запустить продукт",
+    cta: "Обсудить проект",
   },
   {
-    name: "Scale / Enterprise",
-    priceUsd: 40000,
+    name: "Startup MVP",
+    priceUsd: 500,
     unit: "от",
-    tagline: "Сложные системы и нагрузки",
-    description:
-      "Enterprise-платформы, Web3 и высоконагруженные системы с командой сеньоров под задачу.",
+    taglineEn: "Functional prototype to test your idea",
+    taglineRu: "Функциональный прототип для проверки идеи",
     features: [
-      "Распределённая отказоустойчивая архитектура",
-      "Web3 / смарт-контракты с аудитом",
-      "Интеграции, роли, безопасность, аудит",
-      "DevOps, CI/CD и мониторинг",
-      "Долгосрочное сопровождение и SLA",
+      "Рабочий продукт, а не кликабельный макет",
+      "1 ключевой пользовательский сценарий",
+      "Авторизация и базовая админ-панель",
+      "Деплой на облако + мониторинг",
+      "Итеративные спринты по 1 неделе",
+      "2–4 недели до MVP",
     ],
-    cta: "Спроектировать систему",
+    cta: "Запустить MVP",
   },
   {
-    name: "Retainer",
-    priceUsd: 3000,
+    name: "Telegram Mini App",
+    priceUsd: 500,
     unit: "от",
-    tagline: "Постоянная команда под рукой",
-    description:
-      "Ежемесячное развитие и поддержка продукта выделенной командой студии.",
+    taglineEn: "In-app experience inside Telegram",
+    taglineRu: "Приложение внутри Telegram",
     features: [
-      "Выделенные часы инженеров ежемесячно",
-      "Развитие фич и техническая поддержка",
-      "Мониторинг и обновления",
-      "Приоритетный канал связи",
+      "Mini App с Telegram-авторизацией",
+      "Платежи через Telegram Stars",
+      "Реферальная система и геймификация",
+      "Бот-администратор и уведомления",
+      "Веб-панель управления контентом",
+      "1–3 недели до запуска",
     ],
-    cta: "Обсудить сопровождение",
+    cta: "Создать Mini App",
+  },
+  {
+    name: "AI Integration",
+    priceUsd: 1000,
+    unit: "от",
+    taglineEn: "Embed AI into your business workflow",
+    taglineRu: "Внедрение AI в ваш бизнес-процесс",
+    features: [
+      "AI-агент или RAG-система под задачу",
+      "Интеграция с вашей базой знаний",
+      "API или чат-интерфейс (Web / Telegram / WhatsApp)",
+      "Автоматизация одного сквозного процесса",
+      "Обучение команды работе с AI",
+      "2–4 недели до внедрения",
+    ],
+    highlighted: true,
+    cta: "Внедрить AI",
+  },
+  {
+    name: "Marketplace",
+    priceUsd: 5000,
+    unit: "от",
+    taglineEn: "Two-sided platform with payments and moderation",
+    taglineRu: "Двусторонняя платформа с платежами и модерацией",
+    features: [
+      "Два типа пользователей + роли",
+      "Платёжный шлюз и комиссии",
+      "Рейтинг, отзывы, верификация",
+      "Админ-панель с модерацией",
+      "Поиск, фильтры, каталог",
+      "1–3 месяца до запуска",
+    ],
+    cta: "Запустить маркетплейс",
+  },
+  {
+    name: "FinTech Platform",
+    priceUsd: 25000,
+    unit: "от",
+    taglineEn: "Financial platform with compliance and high-load architecture",
+    taglineRu: "Финансовая платформа с комплаенсом и высокой нагрузкой",
+    features: [
+      "Отказоустойчивая high-load архитектура",
+      "Платёжный шлюз (Stripe / локальные эквайеры)",
+      "KYC/AML и комплаенс",
+      "Web3 / смарт-контракты (опционально)",
+      "Аудит безопасности и пентест",
+      "2–4 месяца до запуска",
+    ],
+    cta: "Обсудить FinTech",
+  },
+  {
+    name: "Enterprise AI",
+    priceUsd: null,
+    unit: "",
+    taglineEn: "Custom enterprise AI systems — tailored scope and pricing",
+    taglineRu: "Кастомные enterprise AI-системы — объём и цена под задачу",
+    features: [
+      "Индивидуальная AI-архитектура",
+      "Команда senior-специалистов под проект",
+      "Интеграция с legacy-системами",
+      "Security audit и комплаенс",
+      "SLA и долгосрочное сопровождение",
+      "Roadmap и поэтапная разработка",
+    ],
+    cta: "Связаться с нами",
   },
 ];
 
 export function convert(usd: number, currency: Currency): number {
   const raw = usd * currency.rate;
-  return Math.round(raw / currency.round) * currency.round;
+  return currency.round === 1
+    ? raw
+    : Math.round(raw / currency.round) * currency.round;
 }
 
-export function formatPrice(usd: number, currency: Currency): string {
+export function formatPrice(usd: number | null, currency: Currency): string {
+  if (usd === null) return "Custom Quote";
   const value = convert(usd, currency);
-  const formatted = new Intl.NumberFormat("ru-RU").format(value);
-  // символ-префикс для $€£₾₽֏, постфикс для буквенных кодов (AED)
+  const formatted = new Intl.NumberFormat("ru-RU").format(Math.round(value));
   return currency.code === "AED"
     ? `${formatted} ${currency.symbol}`
     : `${currency.symbol}${formatted}`;

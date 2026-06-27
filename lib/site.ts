@@ -9,6 +9,7 @@ export const siteConfig = {
   url: "https://alexdev-portfolio.vercel.app",
   locale: "ru_RU",
   founder: {
+    displayName: "Alex",
     name: "Александр Морозов",
     nameEn: "Alexander Morozov",
     role: "Founder & Lead Engineer",
@@ -24,16 +25,15 @@ export const siteConfig = {
     region: "Worldwide",
   },
   contacts: {
-    // Куда тихо доставляются заявки с формы (через formsubmit.co). На сайте НЕ отображается.
     formDeliveryEmail: "aegonet@gmail.com",
-    whatsapp: "995585890730",
     whatsappUrl: "https://wa.me/995585890730",
-    // Facebook Messenger (профиль id 61586410776411)
-    messengerUrl: "https://m.me/61586410776411",
-    messengerProfile: "https://m.facebook.com/profile.php?id=61586410776411",
+    telegram: "@alexdev_pro",
+    telegramUrl: "https://t.me/alexdev_pro",
+    email: "hello@alexdev.studio",
+    emailUrl: "mailto:hello@alexdev.studio?subject=Project%20inquiry",
     github: "https://github.com",
-    calendly: "", // future Calendly integration
   },
+  experienceLine: "10+ Years Experience  ·  Startups & Businesses  ·  Worldwide Remote Collaboration",
   stats: [
     { value: "30+", label: "Запущенных систем" },
     { value: "10", label: "Лет инженерного опыта" },

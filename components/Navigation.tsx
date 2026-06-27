@@ -44,9 +44,7 @@ export function Navigation() {
 
         <div className="hidden lg:block">
           <a
-            href={siteConfig.contacts.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-full bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-400 hover:to-purple-500 text-white font-semibold text-xs shadow-lg shadow-indigo-500/20 transition-all"
           >
             Обсудить проект
@@ -76,9 +74,7 @@ export function Navigation() {
             </Link>
           ))}
           <a
-            href={siteConfig.contacts.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
+            href="#contact"
             className="w-full py-3 mt-4 text-center rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-semibold text-sm"
           >
             Обсудить проект
