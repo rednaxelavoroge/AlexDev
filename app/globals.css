@@ -1,0 +1,161 @@
+@import "tailwindcss";
+
+/* ============================================================
+   AlexDev Studio — Design System
+   Dark, premium, glassmorphism. Indigo / Purple / Teal accents.
+   Preserves the visual language of the original portfolio.
+   ============================================================ */
+
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-outfit), var(--font-inter), sans-serif;
+
+  --color-bg-dark: #030712;
+  --color-bg-card: #0b0f19;
+  --color-accent-primary: #6366f1;
+  --color-accent-secondary: #a855f7;
+  --color-accent-teal: #14b8a6;
+
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-gradient: gradient-shift 8s ease infinite;
+  --animate-pulse-glow: pulse-glow 4s ease-in-out infinite;
+  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    background-color: #030712;
+    color: #f3f4f6;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background: rgba(99, 102, 241, 0.3);
+    color: #fff;
+  }
+}
+
+/* ---------- Glassmorphism ---------- */
+.glass-panel {
+  background: rgba(11, 15, 25, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(15, 23, 42, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-card:hover {
+  border-color: rgba(99, 102, 241, 0.4);
+  box-shadow: 0 0 30px rgba(99, 102, 241, 0.15);
+  transform: translateY(-4px);
+}
+
+/* ---------- Glows ---------- */
+.glow-glow {
+  filter: blur(80px);
+  opacity: 0.15;
+  pointer-events: none;
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(120deg, #818cf8, #c084fc, #2dd4bf, #818cf8);
+  background-size: 300% 100%;
+  animation: var(--animate-gradient);
+}
+
+/* ---------- Grid background ---------- */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* ---------- Marquee ---------- */
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: var(--animate-marquee);
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* ---------- Form inputs ---------- */
+.input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 0.75rem;
+  color: #fff;
+  font-size: 0.875rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.input::placeholder { color: #6b7280; }
+.input:hover { border-color: rgba(255, 255, 255, 0.18); }
+.input:focus {
+  border-color: #6366f1;
+  background: #070a13;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.12);
+}
+
+/* ---------- Device mockup shadow ---------- */
+.device-shadow {
+  box-shadow:
+    0 50px 100px -20px rgba(0, 0, 0, 0.7),
+    0 30px 60px -30px rgba(99, 102, 241, 0.25);
+}
+
+/* ---------- Reveal on scroll (CSS-only, progressive enhancement) ---------- */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    animation: var(--animate-fade-up);
+    animation-timeline: view();
+    animation-range: entry 0% cover 28%;
+  }
+}
+
+/* ---------- Keyframes ---------- */
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-14px); }
+}
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.12; }
+  50% { opacity: 0.25; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #030712; }
+::-webkit-scrollbar-thumb { background: #1f2937; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #374151; }
