@@ -19,8 +19,19 @@ export interface Dict {
     experienceLine: string;
     openForProjects: string;
     boutiqueLabel: string;
+    stats: { value: string; label: string }[];
   };
-  nav: Record<string, string> & { discussProject: string };
+  nav: {
+    services: string;
+    portfolio: string;
+    technologies: string;
+    process: string;
+    pricing: string;
+    faq: string;
+    blog: string;
+    contacts: string;
+    discussProject: string;
+  };
   hero: {
     title1: string;
     title2: string;

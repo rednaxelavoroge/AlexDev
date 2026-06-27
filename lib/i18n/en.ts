@@ -13,6 +13,12 @@ const dict: Dict = {
       "10+ Years Experience  ·  Startups & Businesses  ·  Worldwide Remote Collaboration",
     openForProjects: "Open for projects",
     boutiqueLabel: "Boutique development studio · Worldwide",
+    stats: [
+      { value: "30+", label: "Systems launched" },
+      { value: "10", label: "Years of engineering" },
+      { value: "$5k–$100k+", label: "Project budgets" },
+      { value: "24h", label: "Avg response time" },
+    ],
   },
   nav: {
     services: "Services",

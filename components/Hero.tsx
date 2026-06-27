@@ -54,11 +54,11 @@ export function Hero() {
             </div>
 
             <p className="text-sm text-teal-400/80 font-medium tracking-wide">
-              {siteConfig.experienceLine}
+              {dict.site.experienceLine}
             </p>
 
             <dl className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-6 border-t border-white/5 max-w-xl mx-auto lg:mx-0">
-              {siteConfig.stats.map((s) => (
+              {dict.site.stats.map((s) => (
                 <div key={s.label}>
                   <dt className="text-2xl sm:text-3xl font-bold text-white font-display">{s.value}</dt>
                   <dd className="text-xs text-gray-500 mt-1 leading-tight">{s.label}</dd>

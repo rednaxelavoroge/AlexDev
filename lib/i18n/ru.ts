@@ -13,6 +13,12 @@ const dict: Dict = {
       "10+ Years Experience  ·  Startups & Businesses  ·  Worldwide Remote Collaboration",
     openForProjects: "Открыт для проектов",
     boutiqueLabel: "Бутиковая студия разработки · Worldwide",
+    stats: [
+      { value: "30+", label: "Запущенных систем" },
+      { value: "10", label: "Лет инженерного опыта" },
+      { value: "$5k–$100k+", label: "Бюджеты проектов" },
+      { value: "24ч", label: "Среднее время ответа" },
+    ],
   },
   nav: {
     services: "Услуги",
@@ -26,9 +32,9 @@ const dict: Dict = {
     discussProject: "Обсудить проект",
   },
   hero: {
-    title1: "We design.",
-    title2: "We build.",
-    title3: "We scale.",
+    title1: "Проектируем.",
+    title2: "Разрабатываем.",
+    title3: "Масштабируем.",
     description:
       "Мы помогаем стартапам и бизнесу запускать современные продукты — от AI и SaaS до веб-платформ и автоматизации. От идеи до масштабируемой архитектуры.",
     cta: "Обсудить проект",
