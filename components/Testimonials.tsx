@@ -23,31 +23,34 @@ export function Testimonials() {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((t) => (
-            <figure key={t.project} className="glass-card rounded-2xl p-7 flex flex-col">
-              <Quote size={28} className="text-indigo-400/60 mb-4" />
-              <blockquote className="text-gray-300 text-sm leading-relaxed flex-1">
-                {t.text}
-              </blockquote>
-              <div className="flex gap-0.5 mt-5 mb-4">
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} size={14} className="text-amber-400 fill-amber-400" />
-                ))}
-              </div>
-              <figcaption className="flex items-center gap-3 pt-4 border-t border-white/5">
-                <div
-                  className={`h-11 w-11 rounded-full bg-gradient-to-br ${t.accent} border border-white/10 flex items-center justify-center text-white font-bold text-sm font-display`}
-                >
-                  {t.initials}
+          {(dict.testimonials.items as { name: string; role: string; text: string }[]).map((item, i) => {
+            const meta = TESTIMONIALS[i];
+            return (
+              <figure key={meta.project} className="glass-card rounded-2xl p-7 flex flex-col">
+                <Quote size={28} className="text-indigo-400/60 mb-4" />
+                <blockquote className="text-gray-300 text-sm leading-relaxed flex-1">
+                  {item.text}
+                </blockquote>
+                <div className="flex gap-0.5 mt-5 mb-4">
+                  {Array.from({ length: 5 }).map((_, j) => (
+                    <Star key={j} size={14} className="text-amber-400 fill-amber-400" />
+                  ))}
                 </div>
-                <div>
-                  <p className="text-white font-semibold text-sm">{t.name}</p>
-                  <p className="text-gray-500 text-xs">{t.role}</p>
-                </div>
-                <span className="ml-auto text-[11px] font-mono text-indigo-300/70">{t.project}</span>
-              </figcaption>
-            </figure>
-          ))}
+                <figcaption className="flex items-center gap-3 pt-4 border-t border-white/5">
+                  <div
+                    className={`h-11 w-11 rounded-full bg-gradient-to-br ${meta.accent} border border-white/10 flex items-center justify-center text-white font-bold text-sm font-display`}
+                  >
+                    {meta.initials}
+                  </div>
+                  <div>
+                    <p className="text-white font-semibold text-sm">{item.name}</p>
+                    <p className="text-gray-500 text-xs">{item.role}</p>
+                  </div>
+                  <span className="ml-auto text-[11px] font-mono text-indigo-300/70">{meta.project}</span>
+                </figcaption>
+              </figure>
+            );
+          })}
         </div>
       </div>
     </section>

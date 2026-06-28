@@ -104,6 +104,7 @@ export interface Dict {
     badge: string;
     heading: string;
     subheading: string;
+    items: { name: string; role: string; text: string }[];
   };
   faq: {
     badge: string;

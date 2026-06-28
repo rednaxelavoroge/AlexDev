@@ -314,6 +314,23 @@ const dict: Dict = {
     heading: "What clients say",
     subheading:
       "Words from the founders of products we've launched and grown together.",
+    items: [
+      {
+        name: "Founder",
+        role: "Furniture factory · B2B",
+        text: "The AI agent replaced hours of manual calculations. Our managers now prepare commercial proposals in minutes instead of half a day. Alex immersed himself in our business as a partner, not a contractor.",
+      },
+      {
+        name: "Product team",
+        role: "DeFi project",
+        text: "Complex on-chain logic was made transparent and secure. Weekly demos kept us informed, and the launch went off without surprises. We recommend AlexDev as a reliable engineering partner.",
+      },
+      {
+        name: "Founder",
+        role: "Sharing platform",
+        text: "Chaotic Telegram chats turned into a real platform with AI-powered item assessment. Tens of thousands of successful exchanges and steady daily activity — the best proof of quality.",
+      },
+    ],
   },
   faq: {
     badge: "FAQ",
