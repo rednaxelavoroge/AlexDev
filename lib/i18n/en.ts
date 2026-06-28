@@ -167,6 +167,33 @@ const dict: Dict = {
         outcome:
           "Secure contracts and transparent product economics.",
       },
+      {
+        title: "SEO Optimization",
+        value:
+          "We perform technical SEO audits, on-page optimization and link building to drive organic traffic from Google and other search engines.",
+        client:
+          "Businesses and products that need stable organic traffic without paid advertising.",
+        outcome:
+          "Higher rankings, more qualified visitors and reduced customer acquisition cost.",
+      },
+      {
+        title: "Digital Marketing",
+        value:
+          "We develop and execute digital promotion strategies: content marketing, social media, email campaigns and paid ads — aligned with your business goals.",
+        client:
+          "Brands and products ready to build a scalable audience and automate lead generation.",
+        outcome:
+          "A working marketing system that consistently brings in leads and conversions.",
+      },
+      {
+        title: "GEO — AI Search Optimization",
+        value:
+          "We optimize your brand and content to appear in answers from ChatGPT, Perplexity, Claude, Gemini and other AI assistants — the new frontier of online discovery.",
+        client:
+          "Businesses that want to be found when their target customers ask AI chatbots for recommendations.",
+        outcome:
+          "Your brand consistently mentioned in AI-generated answers, driving trust and inbound leads.",
+      },
     ],
   },
   why: {
