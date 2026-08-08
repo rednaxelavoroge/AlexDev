@@ -3,7 +3,9 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { locales, langLabels } from '../lib/i18n';
+import { getContent } from '../content';
 import { aiBusinessAssistantContent } from '../content/ai-business-assistant';
+import Footer from './Footer';
 
 export default function AIBusinessAssistantPage({ locale }) {
   const router = useRouter();
@@ -19,6 +21,7 @@ export default function AIBusinessAssistantPage({ locale }) {
 
   const lang = locale === 'ru' ? 'ru' : 'en';
   const c = aiBusinessAssistantContent[lang] || aiBusinessAssistantContent.en;
+  const mainContent = getContent(locale);
 
   function toggleTheme() {
     const next = theme === 'light' ? 'dark' : 'light';
@@ -36,7 +39,7 @@ export default function AIBusinessAssistantPage({ locale }) {
   function submitDemoRequest(e) {
     e.preventDefault();
     const text =
-      'AI Business Assistant — Demo Request' +
+      'AI Business Assistant — Consultation Request' +
       '\nName: ' + (form.name.trim() || '—') +
       '\nCompany: ' + (form.company.trim() || '—') +
       '\nContact: ' + (form.contact.trim() || '—') +
@@ -44,7 +47,7 @@ export default function AIBusinessAssistantPage({ locale }) {
       '\nAutomation goals: ' + (form.automate.trim() || '—');
 
     window.open(
-      'https://wa.me/37281952565?text=' + encodeURIComponent(text),
+      'https://wa.me/' + mainContent.contact.whatsapp + '?text=' + encodeURIComponent(text),
       '_blank'
     );
     setDemoOpen(false);
@@ -65,9 +68,9 @@ export default function AIBusinessAssistantPage({ locale }) {
             <a href={`/${locale}/ai-business-assistant`} style={{ color: 'var(--accent)', fontWeight: 600 }}>
               AI Business Assistant
             </a>
-            <a href="#what">Capabilities</a>
-            <a href="#how">How it works</a>
+            <a href="#automate">{c.autoTitle}</a>
             <a href="#positioning">Your Business</a>
+            <a href="#how">Workflow</a>
             <a href="#integrations">Integrations</a>
             <a href="#pricing">Pricing</a>
           </div>
@@ -88,11 +91,30 @@ export default function AIBusinessAssistantPage({ locale }) {
         </div>
       </nav>
 
-      <main>
+      <main style={{ overflowX: 'hidden' }}>
         <div className="wrap">
-          {/* HERO SECTION */}
-          <section className="hero">
-            <div className="hero-grid">
+          {/* HERO SECTION WITH ATMOSPHERIC WHATSAPP VECTOR GRAPHIC */}
+          <section className="hero" style={{ position: 'relative' }}>
+            {/* Atmospheric WhatsApp Vector Graphic */}
+            <div
+              style={{
+                position: 'absolute',
+                top: '-40px',
+                right: '-60px',
+                width: '420px',
+                height: '420px',
+                opacity: 0.05,
+                pointerEvents: 'none',
+                zIndex: 0,
+                color: 'var(--fg)',
+              }}
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+              </svg>
+            </div>
+
+            <div className="hero-grid" style={{ position: 'relative', zIndex: 1 }}>
               <div>
                 <span className="eyebrow"><span className="dot" />{c.badge}</span>
                 <h1>AI Business <span className="mut">Assistant</span></h1>
@@ -112,7 +134,7 @@ export default function AIBusinessAssistantPage({ locale }) {
                 </div>
               </div>
 
-              {/* Technical Diagram */}
+              {/* Architecture Spec Panel */}
               <div className="spec" style={{ padding: 0 }}>
                 <div className="spec-top">
                   <span className="t">WhatsApp AI Architecture</span>
@@ -130,7 +152,7 @@ export default function AIBusinessAssistantPage({ locale }) {
                   <div className="spec-row gate" style={{ gridTemplateColumns: '1fr' }}>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                       <span style={{ fontSize: '11px', color: 'var(--accent)', textTransform: 'uppercase' }}>Step 2 • Rules & Knowledge Engine</span>
-                      <span className="tag">AI + Supabase</span>
+                      <span className="tag">AI + Knowledge Store</span>
                     </div>
                     <p style={{ color: 'var(--fg)', fontSize: '13px', marginTop: '4px' }}>Checks catalog, price rules, company FAQs, tone of voice & client history.</p>
                   </div>
@@ -147,10 +169,67 @@ export default function AIBusinessAssistantPage({ locale }) {
             </div>
           </section>
 
-          {/* WHAT IT DOES */}
-          <section id="what">
+          {/* WHAT WE AUTOMATE */}
+          <section id="automate">
             <div className="sec-head">
               <span className="id">01</span>
+              <span className="nm">{c.autoTitle}</span>
+              <span className="ln" />
+            </div>
+            <h2>{c.autoTitle}</h2>
+            <p className="lead">{c.autoSub}</p>
+
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '32px' }}>
+              {c.autoList.map((item, idx) => (
+                <span key={idx} className="chip" style={{ fontSize: '13.5px', padding: '10px 16px', background: 'var(--panel)', color: 'var(--fg)' }}>
+                  ⚡ {item}
+                </span>
+              ))}
+            </div>
+          </section>
+
+          {/* YOUR BUSINESS YOUR KNOWLEDGE YOUR AI */}
+          <section id="positioning">
+            <div className="sec-head">
+              <span className="id">02</span>
+              <span className="nm">Customization</span>
+              <span className="ln" />
+            </div>
+            <h2>{c.posTitle}</h2>
+            <p className="lead">{c.posSub}</p>
+            <div style={{ marginTop: '20px', padding: '14px 20px', background: 'var(--accent-dim)', border: '1px solid var(--line2)', borderRadius: '8px', color: 'var(--accent)', fontWeight: 500 }}>
+              {c.posLead}
+            </div>
+
+            <div style={{ marginTop: '32px' }}>
+              <span className="mono" style={{ display: 'block', marginBottom: '16px' }}>{c.posItemsLabel}</span>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
+                {c.posItems.map((item, idx) => (
+                  <span key={idx} className="chip" style={{ color: 'var(--fg)', borderColor: 'var(--line2)', background: 'var(--panel)' }}>
+                    ✓ {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* INDUSTRY EXAMPLES */}
+            <div style={{ marginTop: '40px' }}>
+              <span className="mono" style={{ display: 'block', marginBottom: '16px' }}>{c.posExamplesTitle}</span>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+                {c.posExamples.map((ex, idx) => (
+                  <div key={idx} className="spec" style={{ padding: '20px' }}>
+                    <h3 style={{ fontSize: '16px', color: 'var(--accent)', marginBottom: '8px', fontFamily: 'var(--disp)' }}>{ex.domain}</h3>
+                    <p style={{ fontSize: '13.5px', color: 'var(--fg2)', lineHeight: 1.5 }}>{ex.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* WHAT IT DOES / CAPABILITIES */}
+          <section id="what">
+            <div className="sec-head">
+              <span className="id">03</span>
               <span className="nm">Capabilities</span>
               <span className="ln" />
             </div>
@@ -173,7 +252,7 @@ export default function AIBusinessAssistantPage({ locale }) {
           {/* HOW IT WORKS */}
           <section id="how">
             <div className="sec-head">
-              <span className="id">02</span>
+              <span className="id">04</span>
               <span className="nm">Workflow</span>
               <span className="ln" />
             </div>
@@ -193,53 +272,8 @@ export default function AIBusinessAssistantPage({ locale }) {
             </div>
           </section>
 
-          {/* YOUR BUSINESS YOUR KNOWLEDGE YOUR AI */}
-          <section id="positioning">
-            <div className="sec-head">
-              <span className="id">03</span>
-              <span className="nm">Customization</span>
-              <span className="ln" />
-            </div>
-            <h2>{c.posTitle}</h2>
-            <p className="lead">{c.posSub}</p>
-            <div style={{ marginTop: '20px', padding: '14px 20px', background: 'var(--accent-dim)', border: '1px solid var(--line2)', borderRadius: '8px', color: 'var(--accent)', fontWeight: 500 }}>
-              {c.posLead}
-            </div>
-
-            <div style={{ marginTop: '32px' }}>
-              <span className="mono" style={{ display: 'block', marginBottom: '16px' }}>{c.posItemsLabel}</span>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px' }}>
-                {c.posItems.map((item, idx) => (
-                  <span key={idx} className="chip" style={{ color: 'var(--fg)', borderColor: 'var(--line2)', background: 'var(--panel)' }}>
-                    ✓ {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          </section>
-
-          {/* WHATSAPP + AI */}
-          <section>
-            <div className="sec-head">
-              <span className="id">04</span>
-              <span className="nm">WhatsApp Native</span>
-              <span className="ln" />
-            </div>
-            <h2>{c.waTitle}</h2>
-            <p className="lead">{c.waSub}</p>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginTop: '40px' }}>
-              {c.waCards.map((card, idx) => (
-                <div key={idx} className="spec" style={{ padding: '24px' }}>
-                  <h3 style={{ fontSize: '17px', color: 'var(--fg)', marginBottom: '8px', fontFamily: 'var(--disp)' }}>{card.t}</h3>
-                  <p style={{ fontSize: '14px', color: 'var(--fg2)' }}>{card.d}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
           {/* HUMAN HANDOFF */}
-          <section>
+          <section id="handoff">
             <div className="sec-head">
               <span className="id">05</span>
               <span className="nm">Human Handoff</span>
@@ -306,111 +340,10 @@ export default function AIBusinessAssistantPage({ locale }) {
             </div>
           </section>
 
-          {/* BUSINESS AUTOMATION */}
-          <section>
-            <div className="sec-head">
-              <span className="id">07</span>
-              <span className="nm">Automation Scope</span>
-              <span className="ln" />
-            </div>
-            <h2>{c.autoTitle}</h2>
-            <p className="lead">{c.autoSub}</p>
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '32px' }}>
-              {c.autoList.map((item, idx) => (
-                <span key={idx} className="chip" style={{ fontSize: '13.5px', padding: '10px 16px', background: 'var(--panel)', color: 'var(--fg)' }}>
-                  ⚡ {item}
-                </span>
-              ))}
-            </div>
-          </section>
-
-          {/* WHO IT IS FOR */}
-          <section>
-            <div className="sec-head">
-              <span className="id">08</span>
-              <span className="nm">Industries</span>
-              <span className="ln" />
-            </div>
-            <h2>{c.whoTitle}</h2>
-            <p className="lead">{c.whoSub}</p>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '12px', marginTop: '32px' }}>
-              {c.whoCards.map((ind, idx) => (
-                <div key={idx} className="spec-row" style={{ padding: '14px 18px', background: 'var(--panel)' }}>
-                  <span style={{ fontSize: '14px', fontWeight: 500, color: 'var(--fg)' }}>{ind}</span>
-                </div>
-              ))}
-            </div>
-
-            <div style={{ marginTop: '20px', padding: '16px 20px', background: 'var(--accent-dim)', border: '1px solid var(--line2)', borderRadius: '8px', textAlign: 'center', fontWeight: 600, color: 'var(--accent)' }}>
-              ✨ {c.whoUniversal}
-            </div>
-          </section>
-
-          {/* SECURITY & CONTROL */}
-          <section>
-            <div className="sec-head">
-              <span className="id">09</span>
-              <span className="nm">Control</span>
-              <span className="ln" />
-            </div>
-            <h2>{c.secTitle}</h2>
-            <p className="lead">{c.secSub}</p>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginTop: '40px' }}>
-              {c.secItems.map((item, idx) => (
-                <div key={idx} className="spec" style={{ padding: '20px' }}>
-                  <h3 style={{ fontSize: '16px', color: 'var(--fg)', marginBottom: '6px' }}>{item.t}</h3>
-                  <p style={{ fontSize: '13.5px', color: 'var(--fg2)' }}>{item.d}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
-          {/* TECH STACK */}
-          <section>
-            <div className="sec-head">
-              <span className="id">10</span>
-              <span className="nm">Technology</span>
-              <span className="ln" />
-            </div>
-            <h2>{c.techTitle}</h2>
-            <p className="lead">{c.techSub}</p>
-
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '32px' }}>
-              {c.techItems.map((item, idx) => (
-                <span key={idx} className="chip" style={{ fontSize: '13px', color: 'var(--fg)' }}>
-                  🛠️ {item}
-                </span>
-              ))}
-            </div>
-          </section>
-
-          {/* IMPLEMENTATION PROCESS */}
-          <section>
-            <div className="sec-head">
-              <span className="id">11</span>
-              <span className="nm">Implementation</span>
-              <span className="ln" />
-            </div>
-            <h2>{c.implTitle}</h2>
-            <p className="lead">{c.implSub}</p>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginTop: '40px' }}>
-              {c.implSteps.map((st, idx) => (
-                <div key={idx} className="spec" style={{ padding: '20px' }}>
-                  <h3 style={{ fontSize: '15px', color: 'var(--accent)', marginBottom: '6px' }}>{st.t}</h3>
-                  <p style={{ fontSize: '13.5px', color: 'var(--fg2)' }}>{st.d}</p>
-                </div>
-              ))}
-            </div>
-          </section>
-
           {/* PRICING */}
           <section id="pricing">
             <div className="sec-head">
-              <span className="id">12</span>
+              <span className="id">07</span>
               <span className="nm">Pricing & Tiers</span>
               <span className="ln" />
             </div>
@@ -460,7 +393,7 @@ export default function AIBusinessAssistantPage({ locale }) {
             </div>
           </section>
 
-          {/* START / DEMO MODAL FORM */}
+          {/* CONSULTATION MODAL FORM */}
           {demoOpen && (
             <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(8px)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
               <div className="spec" style={{ maxWidth: '500px', width: '100%', padding: '32px', position: 'relative', background: 'var(--panel)' }}>
@@ -505,14 +438,7 @@ export default function AIBusinessAssistantPage({ locale }) {
         </div>
       </main>
 
-      <footer>
-        <div className="wrap">
-          <div className="copy">
-            <span>© 2024–2026 AlexDev · AI-Native Engineering</span>
-            <a href={`/${locale}`}>alex-dev.pro</a>
-          </div>
-        </div>
-      </footer>
+      <Footer content={mainContent} locale={locale} />
     </>
   );
 }

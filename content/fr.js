@@ -95,6 +95,11 @@ export const fr = {
     lead: 'Des produits réels avec des métriques réelles : la plupart en production, chacun avec son statut honnête. Pas de maquettes, pas de traction inventée.',
     projects: [
       {
+        dm: 'AI · WhatsApp · Automation', yr: '2026', name: 'AI Business Assistant', url: 'alex-dev.pro/ai-business-assistant', href: '/fr/ai-business-assistant',
+        desc: "AI customer assistant for WhatsApp that works with a business's own knowledge base, qualifies leads and automates customer communication.",
+        metrics: [{ mv: 'WhatsApp', mk: 'Cloud API v23.0' }, { mv: '24/7', mk: 'AI Assistant' }, { mv: 'Bitrix24', mk: 'CRM Integration' }],
+      },
+      {
         dm: 'FinTech · AI', yr: '2025', name: 'MEM Cash', url: 'memcash.app', href: 'https://memcash.app',
         desc: 'Plateforme de micro-crédit à IA agentique qui couvre en temps réel de petits manques de solde au moment du paiement : orchestration multi-agents, scoring de crédit alternatif par LLM et une PWA offline-first.',
         metrics: [{ mv: 'Agentic', mk: 'IA multi-agents' }, { mv: 'Llama 3.1', mk: 'Scoring' }, { mv: 'PWA', mk: 'Offline-first' }],
