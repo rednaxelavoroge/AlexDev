@@ -47,6 +47,7 @@ export default function SiteV2({ content: c, locale }) {
         <div className="nav-in">
           <a className="logo" href="#top"><span className="mk" />AlexDev</a>
           <div className="nav-links">
+            <a href={`/${locale}/ai-business-assistant`}>{c.nav.product || 'AI Business Assistant'}</a>
             <a href="#framework">{c.nav.framework}</a>
             <a href="#engineer">{c.nav.engineer}</a>
             <a href="#work">{c.nav.work}</a>
