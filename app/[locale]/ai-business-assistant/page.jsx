@@ -22,6 +22,11 @@ export async function generateMetadata({ params }) {
       title: c.seoTitle,
       description: c.seoDescription,
       images: ['/og-ai-business-assistant.png'],
+    },
+    icons: {
+      icon: '/favicon.ico',
+      shortcut: '/favicon.ico',
+      apple: '/apple-icon.png',
     }
   };
 }

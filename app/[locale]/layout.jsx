@@ -26,6 +26,11 @@ export const metadata = {
     description,
     images: ['/og.png'],
   },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
 };
 
 export default function LocaleLayout({ children, params }) {
