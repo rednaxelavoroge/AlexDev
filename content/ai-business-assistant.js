@@ -26,8 +26,8 @@ export const aiBusinessAssistantContent = {
     ],
 
     nav: {
+      product: 'AI Business Assistant',
       automate: 'What We Automate',
-      positioning: 'Your Business',
       how: 'Workflow',
       integrations: 'Integrations',
       pricing: 'Pricing',
@@ -168,9 +168,9 @@ export const aiBusinessAssistantContent = {
     ],
 
     nav: {
-      automate: 'Что мы автоматизируем',
-      positioning: 'Ваш бизнес',
-      how: 'Как это работает',
+      product: 'AI Бизнес-Ассистент',
+      automate: 'Что автоматизируем',
+      how: 'Как работает',
       integrations: 'Интеграции',
       pricing: 'Стоимость',
       cta: 'Получить консультацию'

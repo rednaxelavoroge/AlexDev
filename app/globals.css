@@ -40,8 +40,8 @@ nav{border-bottom:1px solid var(--line);position:sticky;top:0;z-index:40;backgro
 .logo{font-family:var(--disp);font-weight:600;font-size:19px;letter-spacing:-.01em;display:flex;align-items:center;gap:9px}
 .logo .mk{width:22px;height:22px;border:1.5px solid var(--fg);border-radius:3px;position:relative}
 .logo .mk::after{content:"";position:absolute;inset:4px;border-left:1.5px solid var(--accent);border-bottom:1.5px solid var(--accent)}
-.nav-links{display:flex;gap:30px}
-.nav-links a{font-size:14px;color:var(--fg2);transition:color .15s}
+.nav-links{display:flex;gap:22px;align-items:center}
+.nav-links a{font-size:14px;color:var(--fg2);transition:color .15s;white-space:nowrap}
 .nav-links a:hover{color:var(--fg)}
 .nav-cta{display:flex;align-items:center;gap:18px}
 .lang-select{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:var(--fg2);background:transparent;border:1px solid var(--line2);border-radius:7px;padding:8px 10px;cursor:pointer;transition:.15s}

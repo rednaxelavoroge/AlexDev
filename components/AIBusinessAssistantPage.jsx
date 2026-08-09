@@ -65,8 +65,10 @@ export default function AIBusinessAssistantPage({ locale }) {
             <span className="mk" />AlexDev
           </a>
           <div className="nav-links">
+            <a href={`/${locale}/ai-business-assistant`} style={{ color: 'var(--accent)', fontWeight: 600 }}>
+              {c.nav.product}
+            </a>
             <a href="#automate">{c.nav.automate}</a>
-            <a href="#positioning">{c.nav.positioning}</a>
             <a href="#how">{c.nav.how}</a>
             <a href="#integrations">{c.nav.integrations}</a>
             <a href="#pricing">{c.nav.pricing}</a>
