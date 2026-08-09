@@ -5,11 +5,56 @@ export const aiBusinessAssistantContent = {
     
     badge: 'AI Customer Assistant for WhatsApp',
     title: 'AI Business Assistant',
-    subtitle: 'Your business gets an AI assistant that communicates with customers on WhatsApp, answers questions, works with your knowledge base and follows your business rules — 24/7.',
-    ctaDemo: 'Request a consultation',
+    subtitle: 'An AI customer assistant that communicates with your customers on WhatsApp, uses your business knowledge, follows your rules and automates customer communication 24/7.',
+    ctaConsult: 'Request a consultation',
     ctaStart: 'Get started',
-    techBadge: 'Meta Cloud API v23.0',
     
+    heroMeta: ['WhatsApp Cloud API', 'AI Knowledge Engine', 'CRM Integration'],
+    aiEngineNote: 'The AI engine is selected according to the business requirements — balancing quality, speed, cost and scenario complexity.',
+
+    archSteps: [
+      { step: 'STEP 1', title: 'Customer sends a WhatsApp message', desc: 'Inbound message arrives via official WhatsApp Cloud API.' },
+      { step: 'STEP 2', title: 'AI understands the request', desc: 'Uses your knowledge base, catalog, rules, FAQs and customer context.' },
+      { step: 'STEP 3', title: 'AI responds or hands the conversation to a human manager', desc: 'Delivers instant 24/7 reply or escalates complex queries to your team.' }
+    ],
+
+    nav: {
+      product: 'AI Business Assistant',
+      automate: 'What We Automate',
+      positioning: 'Your Business',
+      how: 'Workflow',
+      integrations: 'Integrations',
+      pricing: 'Pricing',
+      cta: 'Request a consultation'
+    },
+
+    autoTitle: 'What We Automate',
+    autoSub: 'WhatsApp becomes an automated entry point into your business workflows.',
+    autoList: [
+      'Customer questions', 'Product & service consultations', 'Product selection', 'Lead qualification',
+      'Contact collection', 'Appointment requests', 'Customer support', 'FAQ automation',
+      'Incoming request processing', 'Manager handoff', 'CRM updates & logging', 'Follow-up communication',
+      'Custom business workflows'
+    ],
+
+    posTitle: 'Your Business. Your Knowledge. Your AI.',
+    posSub: 'We don\'t give every business the same generic chatbot. We configure the AI assistant specifically around your business.',
+    posLead: 'Your team provides the knowledge and rules. We build and configure the AI assistant around them.',
+    posItemsLabel: 'Your AI assistant is configured around your business:',
+    posItems: [
+      'Products & Catalogs', 'Services & Scope', 'Prices & Packages', 'FAQs & Answers',
+      'Policies & Guarantees', 'Delivery Conditions', 'Sales Rules', 'Company Information',
+      'Communication Style', 'Qualification Questions', 'Escalation Rules'
+    ],
+    posExamplesTitle: 'Adaptable to any industry:',
+    posExamples: [
+      { domain: 'Furniture', desc: 'AI knows furniture items, dimensions, fabrics, custom pricing, and showroom policies.' },
+      { domain: 'Automotive', desc: 'AI knows vehicles, trim levels, options, stock availability, and dealership conditions.' },
+      { domain: 'Real Estate', desc: 'AI knows property listings, floor plans, locations, pricing, and viewing schedules.' },
+      { domain: 'Retail & E-commerce', desc: 'AI handles catalog browsing, product availability, order status, and store hours.' },
+      { domain: 'IT & Professional Services', desc: 'AI knows scope of services, tech stack, engagement models, and commercial proposals.' }
+    ],
+
     whatTitle: 'What your AI Business Assistant can do',
     whatSub: 'Automate routine communication while preserving high quality, accuracy, and personalized customer care.',
     features: [
@@ -31,7 +76,7 @@ export const aiBusinessAssistantContent = {
     ],
 
     howTitle: 'How it works',
-    howSub: 'A seamless 7-step customer journey operating 24/7 directly inside WhatsApp.',
+    howSub: 'A seamless customer journey operating 24/7 directly inside WhatsApp.',
     steps: [
       { num: '01', t: 'Customer sends a message to your WhatsApp', d: 'Customer writes directly to your official business WhatsApp number.' },
       { num: '02', t: 'AI understands the request', d: 'The system analyzes intent, language, context, and incoming metadata.' },
@@ -40,30 +85,6 @@ export const aiBusinessAssistantContent = {
       { num: '05', t: 'Customer receives response immediately', d: 'The message is delivered directly in WhatsApp within seconds.' },
       { num: '06', t: 'Conversation transferred to manager when required', d: 'If human judgment or manual intervention is needed, the chat escalates to your team.' },
       { num: '07', t: 'Your manager can continue the conversation', d: 'Your manager replies seamlessly through CRM/Open Lines back to the customer on WhatsApp.' }
-    ],
-
-    posTitle: 'Your Business. Your Knowledge. Your AI.',
-    posSub: 'We don\'t give every business the same generic chatbot. We configure the AI assistant around YOUR business.',
-    posLead: 'Your team provides the knowledge. We build and configure the AI assistant around it.',
-    posItemsLabel: 'Your AI assistant is configured around your business:',
-    posItems: [
-      'Products & Catalogs', 'Services & Scope', 'Prices & Packages', 'FAQs & Answers',
-      'Policies & Guarantees', 'Delivery Conditions', 'Sales Rules', 'Company Information',
-      'Communication Style', 'Qualification Questions', 'Escalation Rules'
-    ],
-    posExamplesTitle: 'How it adapts to different industries:',
-    posExamples: [
-      { domain: 'Furniture Salon', desc: 'AI knows furniture items, dimensions, fabrics, custom pricing, and showroom policies.' },
-      { domain: 'Automotive Dealer', desc: 'AI knows vehicles, trim levels, options, stock availability, and dealership conditions.' },
-      { domain: 'IT & Services', desc: 'AI knows scope of services, tech stack, engagement models, and commercial proposals.' }
-    ],
-
-    waTitle: 'AI + WhatsApp: Zero Friction for Customers',
-    waSub: 'Your customers already use WhatsApp. There is no need to teach them a new interface. They simply write to your business as usual. The AI Assistant works behind the conversation.',
-    waCards: [
-      { t: 'Familiar Interface', d: 'No app installs or website chat widgets required. Customers write directly in WhatsApp.' },
-      { t: 'AI Behind Conversation', d: 'The AI Assistant works invisibly behind the messaging interface 24/7.' },
-      { t: 'Direct Meta Connection', d: 'Official WhatsApp Cloud API infrastructure ensures enterprise reliability and privacy.' }
     ],
 
     handoffTitle: 'AI handles routine conversations. A human takes over when needed.',
@@ -82,59 +103,10 @@ export const aiBusinessAssistantContent = {
     crmSub: 'Bitrix24, CRM, ERP, REST API, Webhooks and custom integrations.',
     bitrixTitle: 'Bitrix24 Integration',
     bitrixDesc: 'The AI Assistant can be connected to Bitrix24 to help your team work with customer conversations, CRM data and manager handoff.',
-    bitrixNote: 'Bitrix24 integration is available when your business needs CRM connectivity.',
+    bitrixNote: 'Bitrix24 integration is available when needed.',
     archTitle: 'Open System Architecture',
     archDesc: 'Architecture remains open for Bitrix24, custom CRM integrations, Webhooks / REST APIs, ERP, and internal databases.',
-    crmItems: ['WhatsApp', 'Bitrix24', 'CRM', 'ERP', 'REST API', 'Webhooks', 'Custom integrations'],
-
-    autoTitle: 'What We Automate',
-    autoSub: 'WhatsApp becomes an automated entry point into your business workflows.',
-    autoList: [
-      'Customer questions', 'Product/service consultations', 'Product selection', 'Lead qualification',
-      'Contact collection', 'Appointment requests', 'Customer support', 'FAQ automation',
-      'Incoming request processing', 'Manager handoff', 'CRM updates & logging', 'Follow-up communication',
-      'Business-specific workflows'
-    ],
-
-    whoTitle: 'Built for businesses that talk to customers every day.',
-    whoSub: 'Configured for your domain. Adaptable to any business receiving customer messages.',
-    whoCards: [
-      'Retail', 'Automotive', 'Furniture', 'Real Estate', 'Healthcare',
-      'Hospitality', 'Education', 'Professional Services', 'E-commerce', 'Technology'
-    ],
-    whoUniversal: 'And any business that receives customer messages through WhatsApp.',
-
-    secTitle: 'Your business controls the assistant.',
-    secSub: 'Full oversight over what your AI assistant knows, how it answers, and when it escalates.',
-    secItems: [
-      { t: 'Your Knowledge Base', d: 'Verified company documents and catalogs serve as the single source of truth.' },
-      { t: 'Your Instructions', d: 'Custom system prompts dictate strict boundary rules and allowed statements.' },
-      { t: 'Your Business Rules', d: 'Working hours, qualification logic, and policies are strictly enforced.' },
-      { t: 'Your Escalation Rules', d: 'Specify exact triggers or high-intent leads for instant manager handoff.' },
-      { t: 'Your Communication Style', d: 'Tone of voice tailored to your brand identity — formal, friendly, or consultative.' }
-    ],
-
-    techTitle: 'Built with modern AI infrastructure',
-    techSub: 'Engineered on the production-proven architecture of existing WhatsApp AI Assistant deployments.',
-    techItems: [
-      'WhatsApp Cloud API (Graph API v23.0)', 'Next.js 14 / App Router', 'TypeScript',
-      'Supabase (PostgreSQL with RLS)', 'Claude Haiku 4.5 & Multi-provider support',
-      'Bitrix24 REST API & Open Lines connector', 'REST APIs & Webhooks'
-    ],
-
-    implTitle: 'What We Actually Sell: Implementation Service',
-    implSub: 'We don\'t sell a generic bot. We build and configure a complete AI Business Assistant tailored around your business.',
-    implSteps: [
-      { t: '1. Business Analysis', d: 'We analyze your customer inquiry types and workflow requirements.' },
-      { t: '2. Knowledge Base Ingestion', d: 'We structure your catalogs, prices, FAQs, and company policies.' },
-      { t: '3. Scenario Definition', d: 'We map out qualification steps, working hours, and escalation triggers.' },
-      { t: '4. AI Configuration & Prompting', d: 'We engineer prompt rules, tone of voice, and boundary constraints.' },
-      { t: '5. WhatsApp Cloud API Connection', d: 'We connect your dedicated phone number directly to Meta Cloud API.' },
-      { t: '6. CRM Integration (Optional)', d: 'We connect Bitrix24 or custom CRM for client recognition and deal logging.' },
-      { t: '7. Human Handoff Setup', d: 'We configure manager notifications and two-way WhatsApp message relay.' },
-      { t: '8. Testing & Validation', d: 'We execute scenario tests, edge cases, and language verification.' },
-      { t: '9. Production Launch', d: 'We deploy to production infrastructure with monitoring and support.' }
-    ],
+    crmItems: ['WhatsApp Cloud API', 'Bitrix24 (Optional)', 'CRM & ERP', 'Webhooks / REST API', 'Custom integrations'],
 
     pricingTitle: 'Implementation Pricing',
     pricingSub: 'Custom setup for your business. Implementation is tailored to your business requirements.',
@@ -153,7 +125,7 @@ export const aiBusinessAssistantContent = {
     },
 
     formTitle: 'Request a consultation',
-    formSub: 'Fill out the form below to discuss how AI Business Assistant can be configured for your company.',
+    formSub: 'Tell us about your business and what you would like to automate.',
     formFields: {
       name: 'Name', namePh: 'John Doe',
       company: 'Company', companyPh: 'Acme Corp',
@@ -169,10 +141,55 @@ export const aiBusinessAssistantContent = {
     
     badge: 'AI Customer Assistant для WhatsApp',
     title: 'AI Business Assistant',
-    subtitle: 'AI-ассистент для бизнеса, который общается с вашими клиентами в WhatsApp, отвечает на вопросы, использует вашу базу знаний и работает по вашим правилам — 24/7.',
-    ctaDemo: 'Получить консультацию',
+    subtitle: 'AI-ассистент для бизнеса, который общается с вашими клиентами в WhatsApp, использует вашу базу знаний, следует вашим правилам и помогает автоматизировать клиентскую коммуникацию 24/7.',
+    ctaConsult: 'Получить консультацию',
     ctaStart: 'Начать внедрение',
-    techBadge: 'Meta Cloud API v23.0',
+    
+    heroMeta: ['WhatsApp Cloud API', 'AI Knowledge Engine', 'CRM Integration'],
+    aiEngineNote: 'AI-модель подбирается под задачи бизнеса — с учётом качества, скорости, стоимости и сложности сценариев.',
+
+    archSteps: [
+      { step: 'ШАГ 1', title: 'Клиент пишет в WhatsApp', desc: 'Входящее сообщение поступает через официальный WhatsApp Cloud API.' },
+      { step: 'ШАГ 2', title: 'AI анализирует запрос', desc: 'Использует базу знаний, каталог, правила, FAQ и контекст клиента.' },
+      { step: 'ШАГ 3', title: 'AI отвечает или передаёт диалог менеджеру', desc: 'Мгновенно отвечает 24/7 или перенаправляет сложные вопросы вашей команде.' }
+    ],
+
+    nav: {
+      product: 'AI Business Assistant',
+      automate: 'Что мы автоматизируем',
+      positioning: 'Ваш бизнес',
+      how: 'Как это работает',
+      integrations: 'Интеграции',
+      pricing: 'Стоимость',
+      cta: 'Получить консультацию'
+    },
+
+    autoTitle: 'Что мы автоматизируем',
+    autoSub: 'WhatsApp становится автоматизированной точкой входа в клиентский путь.',
+    autoList: [
+      'Ответы на вопросы клиентов', 'Консультации по товарам и услугам', 'Подбор товара или услуги', 'Квалификацию входящих лидов',
+      'Сбор контактных данных', 'Запись на встречи и услуги', 'Поддержку клиентов', 'Автоматизацию FAQ',
+      'Обработку входящих заявок', 'Передачу лида менеджеру', 'Обновление данных в CRM', 'Автоматический follow-up',
+      'Индивидуальные бизнес-сценарии'
+    ],
+
+    posTitle: 'Ваш бизнес. Ваши знания. Ваш AI.',
+    posSub: 'Мы не даём клиенту один и тот же шаблонный бот. Мы настраиваем AI под продукты, услуги, каталог, цены, правила, FAQ, сценарии, tone of voice, квалификацию лидов, передачу менеджеру и CRM.',
+    posLead: 'Ваша команда дает знания и правила. Мы создаем и настраиваем AI-ассистента вокруг них.',
+    posItemsLabel: 'Ваш AI-ассистент настраивается индивидуально вокруг вашего бизнеса:',
+    posItems: [
+      'Продукты и товары', 'Услуги и сервис', 'Цены и тарифы', 'Частые вопросы (FAQ)',
+      'Правила и гарантии', 'Условия доставки', 'Сценарии продаж', 'Информация о компании',
+      'Стиль общения (Tone of voice)', 'Вопросы квалификации', 'Правила эскалации'
+    ],
+    posExamplesTitle: 'Применимо в любой отрасли:',
+    posExamples: [
+      { domain: 'Мебельный салон', desc: 'AI знает предметы мебели, габариты, ткани, цены и условия конкретного салона.' },
+      { domain: 'Автодилер', desc: 'AI знает комплектации автомобилей, цены, наличие и условия конкретного дилера.' },
+      { domain: 'Недвижимость', desc: 'AI подбирает объекты, планировки, локации, стоимости и организует просмотры.' },
+      { domain: 'Ритейл и e-Commerce', desc: 'AI консультирует по каталогу, наличию, статусам заказов и графику магазинов.' },
+      { domain: 'IT и Сервисные услуги', desc: 'AI знает стек технологий, перечень услуг, процессы и коммерческие предложения.' }
+    ],
 
     whatTitle: 'Что может ваш AI Business Assistant',
     whatSub: 'Автоматизация рутинных коммуникаций с сохранением высокого качества, точности и индивидуального подхода к клиенту.',
@@ -195,7 +212,7 @@ export const aiBusinessAssistantContent = {
     ],
 
     howTitle: 'Как это работает',
-    howSub: 'Прозрачный 7-шаговый сценарий взаимодействия с клиентом прямо в WhatsApp 24/7.',
+    howSub: 'Прозрачный сценарий взаимодействия с клиентом прямо в WhatsApp 24/7.',
     steps: [
       { num: '01', t: 'Клиент пишет в ваш WhatsApp', d: 'Клиент отправляет сообщение на официальный бизнес-номер вашей компании.' },
       { num: '02', t: 'AI распознает запрос', d: 'Система анализирует смысл, язык общения, контекст и параметры обращения.' },
@@ -203,31 +220,7 @@ export const aiBusinessAssistantContent = {
       { num: '04', t: 'AI формирует точный ответ', d: 'Создает корректное сообщение с учетом тональности и стандартов вашего бренда.' },
       { num: '05', t: 'Клиент мгновенно получает ответ', d: 'Сообщение доставляется в WhatsApp за считанные секунды.' },
       { num: '06', t: 'Передача менеджеру при необходимости', d: 'Если ситуация требует участия человека, диалог перенаправляется вашей команде.' },
-      { num: '07', t: 'Менеджер продолжат диалог', d: 'Менеджер отвечает из CRM/Открытых линий прямо в тот же чат WhatsApp.' }
-    ],
-
-    posTitle: 'Ваш бизнес. Ваши знания. Ваш AI.',
-    posSub: 'Мы не продаем одинаковый бот для всех. Мы настраиваем AI-ассистента вокруг бизнеса конкретного клиента.',
-    posLead: 'Ваша команда дает знания. Мы создаем и настраиваем AI-ассистента вокруг них.',
-    posItemsLabel: 'Ваш AI-ассистент настраивается индивидуально вокруг вашего бизнеса:',
-    posItems: [
-      'Продукты и товары', 'Услуги и сервис', 'Цены и тарифы', 'Частые вопросы (FAQ)',
-      'Правила и гарантии', 'Условия доставки', 'Сценарии продаж', 'Информация о компании',
-      'Стиль общения (Tone of voice)', 'Вопросы квалификации', 'Правила эскалации'
-    ],
-    posExamplesTitle: 'Как это работает для разных отраслей:',
-    posExamples: [
-      { domain: 'Мебельный салон', desc: 'AI знает предметы мебели, габариты, ткани, цены и условия конкретного салона.' },
-      { domain: 'Автодилер', desc: 'AI знает комплектации автомобилей, цены, наличие и условия конкретного дилера.' },
-      { domain: 'IT-компания / Услуги', desc: 'AI знает стек технологий, перечень услуг, процессы и коммерческие предложения.' }
-    ],
-
-    waTitle: 'AI + WhatsApp: Максимальный комфорт для клиента',
-    waSub: 'Ваши клиенты уже ежедневно используют WhatsApp. Нет необходимости обучать их новому интерфейсу. Они просто пишут в ваш бизнес. AI-ассистент работает прямо в диалоге.',
-    waCards: [
-      { t: 'Привычный мессенджер', d: 'Никаких скачиваний приложений или форм на сайте. Клиент пишет в рабочий WhatsApp.' },
-      { t: 'AI на страже диалога', d: 'AI-ассистент работает прямо в чате, отвечая мгновенно 24/7.' },
-      { t: 'Прямое подключение', d: 'Официальный Meta Cloud API гарантирует надежность, быструю доставку и приватность.' }
+      { num: '07', t: 'Менеджер продолжает диалог', d: 'Менеджер отвечает из CRM/Открытых линий прямо в тот же чат WhatsApp.' }
     ],
 
     handoffTitle: 'AI обрабатывает типовые обращения. Менеджер подключается, когда это необходимо.',
@@ -246,59 +239,10 @@ export const aiBusinessAssistantContent = {
     crmSub: 'Bitrix24, CRM, ERP, REST API, Webhooks и индивидуальные интеграции.',
     bitrixTitle: 'Интеграция с Bitrix24',
     bitrixDesc: 'AI Business Assistant может быть подключен к Bitrix24 для помощи вашей команде с обращениями клиентов, данными CRM и передачей диалога.',
-    bitrixNote: 'Интеграция с Bitrix24 подключается при необходимости работы с CRM.',
+    bitrixNote: 'Интеграция с Bitrix24 при необходимости.',
     archTitle: 'Открытая интеграционная архитектура',
     archDesc: 'Архитектура с поддержкой Webhooks и REST API позволяет легко подключить Bitrix24, кастомные CRM, ERP и внутренние системы.',
-    crmItems: ['WhatsApp', 'Bitrix24', 'CRM', 'ERP', 'REST API', 'Webhooks', 'Индивидуальные интеграции'],
-
-    autoTitle: 'Что мы автоматизируем',
-    autoSub: 'WhatsApp становится автоматизированной точкой входа в клиентский путь.',
-    autoList: [
-      'Ответы на вопросы клиентов', 'Консультации по товарам и услугам', 'Подбор товара или услуги', 'Квалификацию входящих лидов',
-      'Сбор контактных данных', 'Запись на встречи и услуги', 'Поддержку клиентов', 'Автоматизацию FAQ',
-      'Обработку входящих заявок', 'Передачу лида менеджеру', 'Обновление данных в CRM', 'Автоматический follow-up',
-      'Индивидуальные бизнес-сценарии'
-    ],
-
-    whoTitle: 'Создано для бизнеса, который ежедневно общается с клиентами.',
-    whoSub: 'Адаптируется под любую отрасль, принимающую обращения клиентов.',
-    whoCards: [
-      'Ритейл', 'Автодилеры', 'Мебельные салоны', 'Недвижимость', 'Клиники и медицина',
-      'Отели и туризм', 'Образование', 'Сервисные услуги', 'Интернет-магазины', 'IT и технологии'
-    ],
-    whoUniversal: 'И любой другой бизнес, который получает обращения клиентов в WhatsApp.',
-
-    secTitle: 'Ваш бизнес полностью контролирует ассистента.',
-    secSub: 'Полный контроль над базой знаний, стилем ответов и условиями вызова человека.',
-    secItems: [
-      { t: 'Ваша база знаний', d: 'Ассистент опирается исключительно на ваши утвержденные каталоги и регламенты.' },
-      { t: 'Ваши инструкции', d: 'Системные промпты строго ограничивают темы и рамки допустимых ответов.' },
-      { t: 'Ваши бизнес-правила', d: 'График работы, порядок расчетов и условия соглашений соблюдаются неукоснительно.' },
-      { t: 'Ваши правила эскалации', d: 'Задаются триггеры, при появлении которых ассистент мгновенно вызывает менеджера.' },
-      { t: 'Ваш стиль общения', d: 'Tone of voice настраивается под ценности бренда — от делового до консультативного.' }
-    ],
-
-    techTitle: 'Современная технологическая инфраструктура',
-    techSub: 'Построено на проверенной архитектуре WhatsApp AI Assistant.',
-    techItems: [
-      'WhatsApp Cloud API (Meta Graph API v23.0)', 'Next.js 14 / App Router', 'TypeScript',
-      'Supabase (PostgreSQL с RLS)', 'Claude Haiku 4.5 и мультипровайдерность',
-      'Bitrix24 REST API & Open Lines коннектор', 'REST APIs & вебхуки'
-    ],
-
-    implTitle: 'Что мы продаем: Услуга внедрения',
-    implSub: 'Мы продаем не просто "бота", а полное внедрение и настройку AI Business Assistant под ваш бизнес.',
-    implSteps: [
-      { t: '1. Анализ бизнеса', d: 'Изучаем ваши каналы коммуникаций и задачи автоматизации.' },
-      { t: '2. Сбор базы знаний', d: 'Структурируем каталоги, прайс-листы, правила и FAQ.' },
-      { t: '3. Определение сценариев', d: 'Формируем шаги квалификации, график работы и правила передачи.' },
-      { t: '4. Настройка AI и промптов', d: 'Конфигурируем промпты, tone of voice и правила ограничений.' },
-      { t: '5. Подключение WhatsApp Cloud API', d: 'Подключаем прямой номер компании к Meta Cloud API.' },
-      { t: '6. Интеграция с CRM (опционально)', d: 'Настраиваем Bitrix24 или иную CRM для учета контактов.' },
-      { t: '7. Настройка human handoff', d: 'Определяем правила передачи сообщений менеджеру и двусторонний relay.' },
-      { t: '8. Тестирование и отладка', d: 'Проводим сценарийные тесты и проверку локализации.' },
-      { t: '9. Запуск в работу', d: 'Выводим решение в продуктив с поддержкой и сопровождением.' }
-    ],
+    crmItems: ['WhatsApp Cloud API', 'Bitrix24 (опционально)', 'CRM и ERP', 'Webhooks / REST API', 'Индивидуальные интеграции'],
 
     pricingTitle: 'Формат внедрения',
     pricingSub: 'Индивидуальная настройка под задачи вашего бизнеса. Объем работ адаптируется под требования.',
@@ -317,7 +261,7 @@ export const aiBusinessAssistantContent = {
     },
 
     formTitle: 'Получить консультацию',
-    formSub: 'Заполните форму, чтобы обсудить, как AI Business Assistant будет настроен для вашей компании.',
+    formSub: 'Заполните форму, чтобы обсудить, как AI Business Assistant может быть настроен под вашу компанию.',
     formFields: {
       name: 'Имя', namePh: 'Иван Иванов',
       company: 'Компания', companyPh: 'ООО «Бизнес»',

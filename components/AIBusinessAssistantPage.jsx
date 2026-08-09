@@ -66,13 +66,13 @@ export default function AIBusinessAssistantPage({ locale }) {
           </a>
           <div className="nav-links">
             <a href={`/${locale}/ai-business-assistant`} style={{ color: 'var(--accent)', fontWeight: 600 }}>
-              AI Business Assistant
+              {c.nav.product}
             </a>
-            <a href="#automate">{c.autoTitle}</a>
-            <a href="#positioning">Your Business</a>
-            <a href="#how">Workflow</a>
-            <a href="#integrations">Integrations</a>
-            <a href="#pricing">Pricing</a>
+            <a href="#automate">{c.nav.automate}</a>
+            <a href="#positioning">{c.nav.positioning}</a>
+            <a href="#how">{c.nav.how}</a>
+            <a href="#integrations">{c.nav.integrations}</a>
+            <a href="#pricing">{c.nav.pricing}</a>
           </div>
           <div className="nav-cta">
             <select className="lang-select" aria-label="Language" value={langLabels[locale] || 'EN'} onChange={changeLang}>
@@ -85,7 +85,7 @@ export default function AIBusinessAssistantPage({ locale }) {
               </svg>
             </button>
             <button className="btn btn-pri" onClick={() => setDemoOpen(true)}>
-              {c.ctaDemo}
+              {c.nav.cta}
             </button>
           </div>
         </div>
@@ -93,79 +93,90 @@ export default function AIBusinessAssistantPage({ locale }) {
 
       <main style={{ overflowX: 'hidden' }}>
         <div className="wrap">
-          {/* HERO SECTION WITH ATMOSPHERIC WHATSAPP VECTOR GRAPHIC */}
-          <section className="hero" style={{ position: 'relative' }}>
-            {/* Atmospheric WhatsApp Vector Graphic */}
-            <div
-              style={{
-                position: 'absolute',
-                top: '-40px',
-                right: '-60px',
-                width: '420px',
-                height: '420px',
-                opacity: 0.05,
-                pointerEvents: 'none',
-                zIndex: 0,
-                color: 'var(--fg)',
-              }}
-            >
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
-                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
-              </svg>
-            </div>
-
-            <div className="hero-grid" style={{ position: 'relative', zIndex: 1 }}>
+          {/* HERO SECTION WITH ENGINEERING WHATSAPP UI SCENE */}
+          <section className="hero">
+            <div className="hero-grid" style={{ alignItems: 'center' }}>
               <div>
                 <span className="eyebrow"><span className="dot" />{c.badge}</span>
                 <h1>AI Business <span className="mut">Assistant</span></h1>
                 <p className="sub">{c.subtitle}</p>
                 <div className="hero-cta">
                   <button className="btn btn-pri" onClick={() => setDemoOpen(true)}>
-                    {c.ctaDemo}
+                    {c.ctaConsult}
                   </button>
                   <button className="btn btn-ghost" onClick={() => setDemoOpen(true)}>
                     {c.ctaStart}
                   </button>
                 </div>
                 <div className="hero-meta">
-                  <span><i></i>Meta Cloud API v23.0</span>
-                  <span><i></i>Claude Haiku 4.5</span>
-                  <span><i></i>Bitrix24 CRM</span>
+                  {c.heroMeta.map((m, i) => (
+                    <span key={i}><i></i>{m}</span>
+                  ))}
                 </div>
               </div>
 
-              {/* Architecture Spec Panel */}
-              <div className="spec" style={{ padding: 0 }}>
-                <div className="spec-top">
-                  <span className="t">WhatsApp AI Architecture</span>
-                  <span className="s">Production Ready</span>
+              {/* Engineering WhatsApp UI Scene */}
+              <div className="spec" style={{ padding: '24px', background: 'var(--panel)', borderRadius: '14px', border: '1px solid var(--line2)' }}>
+                {/* Header Badge */}
+                <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', paddingBottom: '16px', borderBottom: '1px solid var(--line)' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff' }}>
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984 0 1.76.459 3.478 1.333 4.992l-1.416 5.174 5.293-1.388c1.464.798 3.116 1.218 4.778 1.219h.004c5.506 0 9.989-4.478 9.99-9.984.001-2.667-1.034-5.174-2.92-7.062a9.927 9.927 0 0 0-7.072-2.937zm5.811 14.162c-.244.688-1.42 1.314-1.961 1.396-.54.081-1.244.116-2.008-.129-.462-.148-1.055-.341-1.826-.676-3.23-1.399-5.328-4.664-5.489-4.88-.162-.216-1.309-1.741-1.309-3.321 0-1.58.825-2.358 1.12-2.678.295-.32.645-.4.86-.4.215 0 .43.003.618.01.2.008.47-.076.736.56.27.646.917 2.24.997 2.402.08.162.134.351.027.567-.107.216-.162.351-.322.54-.162.189-.34.423-.487.567-.162.162-.331.338-.142.662.189.324.84 1.386 1.802 2.242 1.238 1.102 2.28 1.444 2.604 1.606.324.162.513.135.702-.081.189-.216.81-.945 1.026-1.269.216-.324.432-.27.728-.162.297.108 1.889.891 2.213 1.053.324.162.54.243.621.378.081.135.081.783-.163 1.471z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div style={{ fontSize: '13px', fontWeight: 600, color: 'var(--fg)', fontFamily: 'var(--disp)' }}>WhatsApp Cloud API</div>
+                      <div style={{ fontSize: '11px', color: 'var(--fg3)', fontFamily: 'var(--mono)' }}>Official Meta Infrastructure</div>
+                    </div>
+                  </div>
+                  <span className="tag" style={{ color: '#25D366', borderColor: 'rgba(37,211,102,0.3)', fontSize: '10px' }}>Active • 24/7 AI</span>
                 </div>
-                <div style={{ padding: '20px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                  <div className="spec-row" style={{ gridTemplateColumns: '1fr' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '11px', color: 'var(--accent)', textTransform: 'uppercase' }}>Step 1 • Customer Message</span>
-                      <span className="tag">Meta Cloud API</span>
-                    </div>
-                    <p style={{ color: 'var(--fg2)', fontSize: '13px', marginTop: '4px' }}>Inbound WhatsApp message received via direct Webhook without BSP markup.</p>
+
+                {/* Simulated Conversation Scene */}
+                <div style={{ marginTop: '16px', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  {/* Customer Message */}
+                  <div style={{ alignSelf: 'flex-start', maxWidth: '88%', padding: '10px 14px', borderRadius: '12px 12px 12px 2px', background: 'var(--bg2)', border: '1px solid var(--line)', fontSize: '13px', color: 'var(--fg2)' }}>
+                    <span style={{ display: 'block', fontSize: '10px', color: 'var(--fg3)', fontFamily: 'var(--mono)', marginBottom: '4px' }}>Customer → WhatsApp</span>
+                    {lang === 'ru' ? '«Здравствуйте! Уточните наличие и условия доставки товара Velvet Emerald?»' : '"Hi! Can you confirm availability and delivery terms for Velvet Emerald?"'}
                   </div>
 
-                  <div className="spec-row gate" style={{ gridTemplateColumns: '1fr' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '11px', color: 'var(--accent)', textTransform: 'uppercase' }}>Step 2 • Rules & Knowledge Engine</span>
-                      <span className="tag">AI + Knowledge Store</span>
-                    </div>
-                    <p style={{ color: 'var(--fg)', fontSize: '13px', marginTop: '4px' }}>Checks catalog, price rules, company FAQs, tone of voice & client history.</p>
+                  {/* AI Knowledge Node Indicator */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 12px', background: 'var(--accent-dim)', borderRadius: '6px', fontSize: '11px', color: 'var(--accent)', fontFamily: 'var(--mono)', width: 'fit-content', margin: '2px 0' }}>
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }}></span>
+                    {lang === 'ru' ? 'AI Engine: Поиск по базе знаний, ценам и правилам компании' : 'AI Engine: Matched knowledge base, stock & business rules'}
                   </div>
 
-                  <div className="spec-row" style={{ gridTemplateColumns: '1fr' }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <span style={{ fontSize: '11px', color: 'var(--fg3)', textTransform: 'uppercase' }}>Step 3 • Answer & Manager Handoff</span>
-                      <span className="tag">Bitrix24 / Open Lines</span>
-                    </div>
-                    <p style={{ color: 'var(--fg2)', fontSize: '13px', marginTop: '4px' }}>Sends 24/7 instant response or relays conversation to human manager.</p>
+                  {/* AI Assistant Message */}
+                  <div style={{ alignSelf: 'flex-end', maxWidth: '88%', padding: '10px 14px', borderRadius: '12px 12px 2px 12px', background: 'var(--panel2)', border: '1px solid var(--accent)', fontSize: '13px', color: 'var(--fg)' }}>
+                    <span style={{ display: 'block', fontSize: '10px', color: 'var(--accent)', fontFamily: 'var(--mono)', marginBottom: '4px' }}>AI Business Assistant</span>
+                    {lang === 'ru' ? '«Да, в наличии 3 шт. в ткани Velvet Emerald. Экспресс-доставка — 2 рабочих дня. Оформить заказ или позвать менеджера?»' : '"Yes, 3 units available in Velvet Emerald. Express delivery takes 2 business days. Would you like to place an order or connect with a manager?"'}
                   </div>
+                </div>
+
+                {/* Handoff Diagram Bar */}
+                <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: '1px dashed var(--line2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '11px', color: 'var(--fg3)', fontFamily: 'var(--mono)' }}>
+                  <span>Customer ⇄ WhatsApp</span>
+                  <span style={{ color: 'var(--accent)' }}>AI Engine</span>
+                  <span>CRM ⇄ Manager</span>
                 </div>
               </div>
+            </div>
+
+            {/* Step Architecture Cards */}
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px', marginTop: '40px' }}>
+              {c.archSteps.map((st, i) => (
+                <div key={i} className="spec" style={{ padding: '20px' }}>
+                  <span className="mono" style={{ fontSize: '11px', color: 'var(--accent)', textTransform: 'uppercase' }}>{st.step}</span>
+                  <h3 style={{ fontSize: '15px', color: 'var(--fg)', margin: '6px 0 4px', fontFamily: 'var(--disp)' }}>{st.title}</h3>
+                  <p style={{ fontSize: '13px', color: 'var(--fg2)', lineHeight: 1.5 }}>{st.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* AI Model Note */}
+            <div style={{ marginTop: '16px', padding: '12px 18px', background: 'var(--bg2)', border: '1px solid var(--line)', borderRadius: '8px', fontSize: '13px', color: 'var(--fg3)', fontFamily: 'var(--mono)' }}>
+              ℹ️ {c.aiEngineNote}
             </div>
           </section>
 
@@ -215,7 +226,7 @@ export default function AIBusinessAssistantPage({ locale }) {
             {/* INDUSTRY EXAMPLES */}
             <div style={{ marginTop: '40px' }}>
               <span className="mono" style={{ display: 'block', marginBottom: '16px' }}>{c.posExamplesTitle}</span>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
                 {c.posExamples.map((ex, idx) => (
                   <div key={idx} className="spec" style={{ padding: '20px' }}>
                     <h3 style={{ fontSize: '16px', color: 'var(--accent)', marginBottom: '8px', fontFamily: 'var(--disp)' }}>{ex.domain}</h3>
@@ -361,7 +372,7 @@ export default function AIBusinessAssistantPage({ locale }) {
                     {c.pricingStarter.f.map((f, i) => (<li key={i} style={{ fontSize: '13.5px', color: 'var(--fg2)' }}>✓ {f}</li>))}
                   </ul>
                 </div>
-                <button className="btn btn-ghost" style={{ width: '100%', marginTop: '24px' }} onClick={() => setDemoOpen(true)}>{c.ctaDemo}</button>
+                <button className="btn btn-ghost" style={{ width: '100%', marginTop: '24px' }} onClick={() => setDemoOpen(true)}>{c.ctaConsult}</button>
               </div>
 
               {/* Business (Featured) */}
@@ -388,12 +399,12 @@ export default function AIBusinessAssistantPage({ locale }) {
                     {c.pricingCustom.f.map((f, i) => (<li key={i} style={{ fontSize: '13.5px', color: 'var(--fg2)' }}>✓ {f}</li>))}
                   </ul>
                 </div>
-                <button className="btn btn-ghost" style={{ width: '100%', marginTop: '24px' }} onClick={() => setDemoOpen(true)}>{c.ctaDemo}</button>
+                <button className="btn btn-ghost" style={{ width: '100%', marginTop: '24px' }} onClick={() => setDemoOpen(true)}>{c.ctaConsult}</button>
               </div>
             </div>
           </section>
 
-          {/* CONSULTATION MODAL FORM */}
+          {/* UNIVERSAL CONSULTATION MODAL FORM */}
           {demoOpen && (
             <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(8px)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
               <div className="spec" style={{ maxWidth: '500px', width: '100%', padding: '32px', position: 'relative', background: 'var(--panel)' }}>

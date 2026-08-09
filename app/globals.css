@@ -131,10 +131,10 @@ h1 .mut{color:var(--fg3)}
 .wbody a.url::after{content:" \2197";opacity:.55}
 .wbody p{color:var(--fg2);font-size:13.5px;line-height:1.5;margin-top:12px}
 .wmet{display:flex;border-top:1px solid var(--line)}
-.wmet div{flex:1;padding:14px 16px;border-right:1px solid var(--line)}
+.wmet div{flex:1;min-width:0;padding:14px 10px;border-right:1px solid var(--line);box-sizing:border-box}
 .wmet div:last-child{border-right:0}
-.wmet .mv{font-family:var(--disp);font-weight:600;font-size:16px;color:var(--accent)}
-.wmet .mk{font-family:var(--mono);font-size:10px;color:var(--fg3);letter-spacing:.06em;margin-top:4px;text-transform:uppercase}
+.wmet .mv{font-family:var(--disp);font-weight:600;font-size:15px;color:var(--accent);overflow-wrap:break-word;word-break:break-word}
+.wmet .mk{font-family:var(--mono);font-size:10px;color:var(--fg3);letter-spacing:.04em;margin-top:4px;text-transform:uppercase;overflow-wrap:break-word;word-break:break-word;line-height:1.35}
 
 .aes{display:grid;grid-template-columns:repeat(7,1fr);gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--bg2);margin-top:34px}
 .stage{padding:22px 16px;border-right:1px solid var(--line);position:relative}
