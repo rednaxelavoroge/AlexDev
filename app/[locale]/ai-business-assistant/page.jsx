@@ -15,13 +15,13 @@ export async function generateMetadata({ params }) {
       url: `https://www.alex-dev.pro/${locale}/ai-business-assistant`,
       siteName: 'AlexDev',
       type: 'website',
-      images: [{ url: '/og.png', width: 1200, height: 630, alt: c.seoTitle }],
+      images: [{ url: '/og-ai-business-assistant.png', width: 1200, height: 630, alt: c.seoTitle }],
     },
     twitter: {
       card: 'summary_large_image',
       title: c.seoTitle,
       description: c.seoDescription,
-      images: ['/og.png'],
+      images: ['/og-ai-business-assistant.png'],
     }
   };
 }
