@@ -12,6 +12,13 @@ export const aiBusinessAssistantContent = {
     heroMeta: ['WhatsApp Cloud API', 'AI Knowledge Engine', 'CRM Integration'],
     aiEngineNote: 'The AI engine is selected according to the business requirements — balancing quality, speed, cost and scenario complexity.',
 
+    heroDialogue: {
+      customer: '“Hello! Could you tell me if Velvet Emerald is available and what the delivery terms are?”',
+      aiEngineNote: 'AI Engine: Matched knowledge base, stock & business rules',
+      aiReply: '“Hello! Yes, Velvet Emerald is currently in stock — 3 units available. Express delivery takes 2 business days. Would you like to place an order or speak with a manager?”',
+      greetingRuleNote: 'AI naturally greets the customer on initial inquiry, provides direct answers on follow-up, and connects a manager when required.'
+    },
+
     archSteps: [
       { step: 'STEP 1', title: 'Customer sends a WhatsApp message', desc: 'Inbound message arrives via official WhatsApp Cloud API.' },
       { step: 'STEP 2', title: 'AI understands the request', desc: 'Uses your knowledge base, catalog, rules, FAQs and customer context.' },
@@ -19,7 +26,6 @@ export const aiBusinessAssistantContent = {
     ],
 
     nav: {
-      product: 'AI Business Assistant',
       automate: 'What We Automate',
       positioning: 'Your Business',
       how: 'Workflow',
@@ -136,17 +142,24 @@ export const aiBusinessAssistantContent = {
     }
   },
   ru: {
-    seoTitle: 'AI Business Assistant | AI-ассистент для WhatsApp — AlexDev',
-    seoDescription: 'AI Business Assistant для WhatsApp. Автоматизация общения с клиентами, квалификация лидов, ответы на вопросы и интеграция AI с бизнес-процессами и CRM.',
+    seoTitle: 'AI Бизнес-Ассистент | AI Customer Assistant для WhatsApp — AlexDev',
+    seoDescription: 'AI Бизнес-Ассистент для WhatsApp. Автоматизация общения с клиентами, квалификация лидов, ответы на вопросы и интеграция AI с бизнес-процессами и CRM.',
     
     badge: 'AI Customer Assistant для WhatsApp',
-    title: 'AI Business Assistant',
+    title: 'AI Бизнес-Ассистент',
     subtitle: 'AI-ассистент для бизнеса, который общается с вашими клиентами в WhatsApp, использует вашу базу знаний, следует вашим правилам и помогает автоматизировать клиентскую коммуникацию 24/7.',
     ctaConsult: 'Получить консультацию',
     ctaStart: 'Начать внедрение',
     
     heroMeta: ['WhatsApp Cloud API', 'AI Knowledge Engine', 'CRM Integration'],
     aiEngineNote: 'AI-модель подбирается под задачи бизнеса — с учётом качества, скорости, стоимости и сложности сценариев.',
+
+    heroDialogue: {
+      customer: '«Здравствуйте! Уточните наличие и условия доставки товара Velvet Emerald?»',
+      aiEngineNote: 'AI Engine: Проверка базы знаний, остатков и правил компании',
+      aiReply: '«Здравствуйте! Да, товар Velvet Emerald есть в наличии — 3 шт. Экспресс-доставка занимает 2 рабочих дня. Оформить заказ или позвать менеджера?»',
+      greetingRuleNote: 'AI естественно приветствует клиента при первом обращении, отвечает по существу при продолжении диалога и привлекает менеджера при необходимости.'
+    },
 
     archSteps: [
       { step: 'ШАГ 1', title: 'Клиент пишет в WhatsApp', desc: 'Входящее сообщение поступает через официальный WhatsApp Cloud API.' },
@@ -155,7 +168,6 @@ export const aiBusinessAssistantContent = {
     ],
 
     nav: {
-      product: 'AI Business Assistant',
       automate: 'Что мы автоматизируем',
       positioning: 'Ваш бизнес',
       how: 'Как это работает',
@@ -191,7 +203,7 @@ export const aiBusinessAssistantContent = {
       { domain: 'IT и Сервисные услуги', desc: 'AI знает стек технологий, перечень услуг, процессы и коммерческие предложения.' }
     ],
 
-    whatTitle: 'Что может ваш AI Business Assistant',
+    whatTitle: 'Что может ваш AI Бизнес-Ассистент',
     whatSub: 'Автоматизация рутинных коммуникаций с сохранением высокого качества, точности и индивидуального подхода к клиенту.',
     features: [
       { t: 'Отвечать на вопросы клиентов 24/7', d: 'Мгновенно дает точные ответы на обращения клиентов круглосуточно, без задержек.' },
@@ -238,7 +250,7 @@ export const aiBusinessAssistantContent = {
     crmTitle: 'Интеграция с существующими бизнес-системами',
     crmSub: 'Bitrix24, CRM, ERP, REST API, Webhooks и индивидуальные интеграции.',
     bitrixTitle: 'Интеграция с Bitrix24',
-    bitrixDesc: 'AI Business Assistant может быть подключен к Bitrix24 для помощи вашей команде с обращениями клиентов, данными CRM и передачей диалога.',
+    bitrixDesc: 'AI Бизнес-Ассистент может быть подключен к Bitrix24 для помощи вашей команде с обращениями клиентов, данными CRM и передачей диалога.',
     bitrixNote: 'Интеграция с Bitrix24 при необходимости.',
     archTitle: 'Открытая интеграционная архитектура',
     archDesc: 'Архитектура с поддержкой Webhooks и REST API позволяет легко подключить Bitrix24, кастомные CRM, ERP и внутренние системы.',
@@ -261,7 +273,7 @@ export const aiBusinessAssistantContent = {
     },
 
     formTitle: 'Получить консультацию',
-    formSub: 'Заполните форму, чтобы обсудить, как AI Business Assistant может быть настроен под вашу компанию.',
+    formSub: 'Заполните форму, чтобы обсудить, как AI Бизнес-Ассистент может быть настроен под вашу компанию.',
     formFields: {
       name: 'Имя', namePh: 'Иван Иванов',
       company: 'Компания', companyPh: 'ООО «Бизнес»',

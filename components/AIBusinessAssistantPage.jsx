@@ -39,12 +39,12 @@ export default function AIBusinessAssistantPage({ locale }) {
   function submitDemoRequest(e) {
     e.preventDefault();
     const text =
-      'AI Business Assistant — Consultation Request' +
-      '\nName: ' + (form.name.trim() || '—') +
-      '\nCompany: ' + (form.company.trim() || '—') +
-      '\nContact: ' + (form.contact.trim() || '—') +
-      '\nBusiness type: ' + (form.bizType.trim() || '—') +
-      '\nAutomation goals: ' + (form.automate.trim() || '—');
+      (lang === 'ru' ? 'AI Бизнес-Ассистент — Запрос консультации' : 'AI Business Assistant — Consultation Request') +
+      '\n' + (lang === 'ru' ? 'Имя: ' : 'Name: ') + (form.name.trim() || '—') +
+      '\n' + (lang === 'ru' ? 'Компания: ' : 'Company: ') + (form.company.trim() || '—') +
+      '\n' + (lang === 'ru' ? 'Контакт: ' : 'Contact: ') + (form.contact.trim() || '—') +
+      '\n' + (lang === 'ru' ? 'Сфера бизнеса: ' : 'Business type: ') + (form.bizType.trim() || '—') +
+      '\n' + (lang === 'ru' ? 'Цели автоматизации: ' : 'Automation goals: ') + (form.automate.trim() || '—');
 
     window.open(
       'https://wa.me/' + mainContent.contact.whatsapp + '?text=' + encodeURIComponent(text),
@@ -65,9 +65,6 @@ export default function AIBusinessAssistantPage({ locale }) {
             <span className="mk" />AlexDev
           </a>
           <div className="nav-links">
-            <a href={`/${locale}/ai-business-assistant`} style={{ color: 'var(--accent)', fontWeight: 600 }}>
-              {c.nav.product}
-            </a>
             <a href="#automate">{c.nav.automate}</a>
             <a href="#positioning">{c.nav.positioning}</a>
             <a href="#how">{c.nav.how}</a>
@@ -98,7 +95,11 @@ export default function AIBusinessAssistantPage({ locale }) {
             <div className="hero-grid" style={{ alignItems: 'center' }}>
               <div>
                 <span className="eyebrow"><span className="dot" />{c.badge}</span>
-                <h1>AI Business <span className="mut">Assistant</span></h1>
+                {lang === 'ru' ? (
+                  <h1>AI Бизнес-<span className="mut">Ассистент</span></h1>
+                ) : (
+                  <h1>AI Business <span className="mut">Assistant</span></h1>
+                )}
                 <p className="sub">{c.subtitle}</p>
                 <div className="hero-cta">
                   <button className="btn btn-pri" onClick={() => setDemoOpen(true)}>
@@ -138,27 +139,25 @@ export default function AIBusinessAssistantPage({ locale }) {
                   {/* Customer Message */}
                   <div style={{ alignSelf: 'flex-start', maxWidth: '88%', padding: '10px 14px', borderRadius: '12px 12px 12px 2px', background: 'var(--bg2)', border: '1px solid var(--line)', fontSize: '13px', color: 'var(--fg2)' }}>
                     <span style={{ display: 'block', fontSize: '10px', color: 'var(--fg3)', fontFamily: 'var(--mono)', marginBottom: '4px' }}>Customer → WhatsApp</span>
-                    {lang === 'ru' ? '«Здравствуйте! Уточните наличие и условия доставки товара Velvet Emerald?»' : '"Hi! Can you confirm availability and delivery terms for Velvet Emerald?"'}
+                    {c.heroDialogue.customer}
                   </div>
 
                   {/* AI Knowledge Node Indicator */}
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', padding: '6px 12px', background: 'var(--accent-dim)', borderRadius: '6px', fontSize: '11px', color: 'var(--accent)', fontFamily: 'var(--mono)', width: 'fit-content', margin: '2px 0' }}>
                     <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: 'var(--accent)' }}></span>
-                    {lang === 'ru' ? 'AI Engine: Поиск по базе знаний, ценам и правилам компании' : 'AI Engine: Matched knowledge base, stock & business rules'}
+                    {c.heroDialogue.aiEngineNote}
                   </div>
 
                   {/* AI Assistant Message */}
                   <div style={{ alignSelf: 'flex-end', maxWidth: '88%', padding: '10px 14px', borderRadius: '12px 12px 2px 12px', background: 'var(--panel2)', border: '1px solid var(--accent)', fontSize: '13px', color: 'var(--fg)' }}>
-                    <span style={{ display: 'block', fontSize: '10px', color: 'var(--accent)', fontFamily: 'var(--mono)', marginBottom: '4px' }}>AI Business Assistant</span>
-                    {lang === 'ru' ? '«Да, в наличии 3 шт. в ткани Velvet Emerald. Экспресс-доставка — 2 рабочих дня. Оформить заказ или позвать менеджера?»' : '"Yes, 3 units available in Velvet Emerald. Express delivery takes 2 business days. Would you like to place an order or connect with a manager?"'}
+                    <span style={{ display: 'block', fontSize: '10px', color: 'var(--accent)', fontFamily: 'var(--mono)', marginBottom: '4px' }}>{c.title}</span>
+                    {c.heroDialogue.aiReply}
                   </div>
                 </div>
 
-                {/* Handoff Diagram Bar */}
-                <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: '1px dashed var(--line2)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '11px', color: 'var(--fg3)', fontFamily: 'var(--mono)' }}>
-                  <span>Customer ⇄ WhatsApp</span>
-                  <span style={{ color: 'var(--accent)' }}>AI Engine</span>
-                  <span>CRM ⇄ Manager</span>
+                {/* Greeting & Handoff Note Bar */}
+                <div style={{ marginTop: '16px', paddingTop: '12px', borderTop: '1px dashed var(--line2)', fontSize: '11px', color: 'var(--fg3)', fontFamily: 'var(--mono)', lineHeight: 1.4 }}>
+                  💡 {c.heroDialogue.greetingRuleNote}
                 </div>
               </div>
             </div>

@@ -2,7 +2,6 @@ export const en = {
   contact: { whatsapp: '37281952565', messenger: 'https://m.me/61586410776411' },
 
   nav: {
-    product: 'AI Business Assistant',
     framework: 'Framework',
     engineer: 'What we engineer',
     work: 'Work',
