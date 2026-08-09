@@ -14,12 +14,14 @@ export async function generateMetadata({ params }) {
       description: c.seoDescription,
       url: `https://www.alex-dev.pro/${locale}/ai-business-assistant`,
       siteName: 'AlexDev',
-      type: 'website'
+      type: 'website',
+      images: [{ url: '/og.png', width: 1200, height: 630, alt: c.seoTitle }],
     },
     twitter: {
       card: 'summary_large_image',
       title: c.seoTitle,
-      description: c.seoDescription
+      description: c.seoDescription,
+      images: ['/og.png'],
     }
   };
 }
