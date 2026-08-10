@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { locales, langLabels } from '../lib/i18n';
 import { getContent } from '../content';
@@ -23,6 +23,24 @@ export default function ShowroomAIPage({ locale }) {
   const lang = locale === 'ru' ? 'ru' : 'en';
   const c = showroomAIContent[lang] || showroomAIContent.en;
   const mainContent = getContent(locale);
+
+  useEffect(() => {
+    if (!demoOpen) return;
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setDemoOpen(false);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [demoOpen]);
 
   function toggleTheme() {
     const next = theme === 'light' ? 'dark' : 'light';
@@ -334,11 +352,57 @@ export default function ShowroomAIPage({ locale }) {
 
         {/* Consultation Modal */}
         {demoOpen && (
-          <div style={{ position: 'fixed', inset: 0, zIndex: 100, background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(6px)', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
-            <div style={{ background: 'var(--panel)', border: '1px solid var(--line2)', borderRadius: '16px', maxWidth: '520px', width: '100%', padding: '32px', position: 'relative' }}>
+          <div
+            onClick={(e) => {
+              if (e.target === e.currentTarget) setDemoOpen(false);
+            }}
+            style={{
+              position: 'fixed',
+              inset: 0,
+              zIndex: 100,
+              background: 'rgba(0,0,0,0.8)',
+              backdropFilter: 'blur(8px)',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              padding: '20px',
+              overflowY: 'auto',
+            }}
+          >
+            <div
+              style={{
+                background: 'var(--panel)',
+                border: '1px solid var(--line2)',
+                borderRadius: '16px',
+                maxWidth: '520px',
+                width: '100%',
+                padding: '32px',
+                position: 'relative',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
+              }}
+            >
               <button
+                type="button"
                 onClick={() => setDemoOpen(false)}
-                style={{ position: 'absolute', top: '16px', right: '16px', background: 'transparent', border: 0, color: 'var(--fg3)', fontSize: '20px', cursor: 'pointer' }}
+                style={{
+                  position: 'absolute',
+                  top: '16px',
+                  right: '16px',
+                  width: '36px',
+                  height: '36px',
+                  borderRadius: '8px',
+                  background: 'var(--bg2)',
+                  border: '1px solid var(--line2)',
+                  color: 'var(--fg)',
+                  fontSize: '18px',
+                  fontWeight: 600,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  transition: 'all 0.15s ease',
+                  zIndex: 10,
+                }}
                 aria-label="Close modal"
               >
                 ✕

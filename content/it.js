@@ -140,7 +140,7 @@ export const it = {
 
   products: {
     id: 'Prodotti & Piattaforme',
-    h2: 'Prodotti e piattaforme proprietarie AlexDev',
+    h2: 'Sistemi che abbiamo progettato',
     lead: 'Oltre all’ingegneria su misura per i clienti, AlexDev sviluppa e gestisce le proprie piattaforme SaaS e di IA.',
     items: [
       {

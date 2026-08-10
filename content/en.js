@@ -140,7 +140,7 @@ export const en = {
 
   products: {
     id: 'Products & Platforms',
-    h2: 'AlexDev Proprietary Products & Platforms',
+    h2: "Systems we've engineered",
     lead: 'Beyond client engineering, AlexDev builds and operates its own SaaS and AI platforms. These are standalone technology products evolving on our engineering standard.',
     items: [
       {
