@@ -5,6 +5,7 @@ export const ru = {
     framework: 'Методология',
     engineer: 'Что мы делаем',
     work: 'Работы',
+    products: 'Продукты и платформы',
     aes: 'AES',
     engage: 'Форматы',
     faq: 'Вопросы',
@@ -95,19 +96,9 @@ export const ru = {
     lead: 'Реальные продукты с реальными метриками — большинство в проде, у каждого честный статус. Без макетов и выдуманной traction.',
     projects: [
       {
-        dm: 'AI · WhatsApp · Автоматизация', yr: '2026', name: 'AI Business Assistant', url: 'alex-dev.pro/ai-business-assistant', href: '/ru/ai-business-assistant',
-        desc: 'AI-ассистент для WhatsApp, который работает на базе знаний конкретного бизнеса, отвечает клиентам, квалифицирует обращения и автоматизирует коммуникацию.',
-        metrics: [{ mv: 'WhatsApp', mk: 'Cloud API v23.0' }, { mv: '24/7', mk: 'AI-ассистент' }, { mv: 'Bitrix24', mk: 'Интеграция с CRM' }],
-      },
-      {
         dm: 'FinTech · AI', yr: '2025', name: 'MEM Cash', url: 'memcash.app', href: 'https://memcash.app',
         desc: 'Agentic AI-платформа микрокредитования, которая в реальном времени закрывает небольшие нехватки средств на чекауте — мультиагентная оркестрация, LLM-скоринг по альтернативным данным и offline-first PWA.',
         metrics: [{ mv: 'Agentic', mk: 'Мультиагентный AI' }, { mv: 'Llama 3.1', mk: 'Скоринг' }, { mv: 'PWA', mk: 'Offline-first' }],
-      },
-      {
-        dm: 'AI', yr: '2025', name: 'Showroom Pro', url: 'showroom-ai.pro', href: 'https://showroom-ai.pro',
-        desc: 'AI-ассистент, который читает параметры товара из чатов и документов и за минуты формирует коммерческие предложения для мебельных фабрик.',
-        metrics: [{ mv: '5 мин', mk: 'Скорость КП' }, { mv: '98.7%', mk: 'Точность' }, { mv: '90%', mk: 'Экономия времени' }],
       },
       {
         dm: 'Web3', yr: '2024', name: 'ROSCASH', url: 'roscash.org', href: 'https://roscash.org',
@@ -143,6 +134,46 @@ export const ru = {
         dm: 'Art · NFT', yr: '2024', name: 'Ijareteli', url: 'ijareteli.com', href: 'https://ijareteli.com',
         desc: 'Цифровая галерея работ грузинского художника в виде NFT — кинематографичный скролл и интерактив на GSAP.',
         metrics: [{ mv: '2,000+', mk: 'Работ' }, { mv: '6.5 мин', mk: 'Среднее на сайте' }, { mv: '450+', mk: 'Заявок' }],
+      },
+    ],
+  },
+
+  products: {
+    id: 'Продукты и платформы',
+    h2: 'Собственные продукты и платформы AlexDev',
+    lead: 'Параллельно с заказной инженерией AlexDev создаёт и развивает собственные SaaS и AI-платформы. Это самостоятельные технологические продукты, развивающиеся по нашему инженерному стандарту.',
+    items: [
+      {
+        id: 'showroom-ai',
+        badge: 'AI-платформа для бизнеса',
+        name: 'Showroom AI',
+        tagline: 'AI-платформа для бизнеса',
+        desc: 'AI-платформа, которая превращает знания, каталог, правила и бизнес-процессы компании в AI-систему для обработки клиентских запросов, продаж и операционной работы.',
+        industries: ['Мебель', 'Автомобили', 'Недвижимость', 'Розничная торговля', 'Услуги'],
+        primaryCta: 'Открыть Showroom AI',
+        primaryHref: 'https://showroom-ai.pro/',
+        secondaryCta: 'Подробнее',
+        secondaryHref: '/ru/showroom-ai',
+        metrics: [
+          { mv: '5 мин', mk: 'Скорость КП' },
+          { mv: '98.7%', mk: 'Точность' },
+          { mv: 'Мультитенант', mk: 'Архитектура' }
+        ],
+      },
+      {
+        id: 'ai-business-assistant',
+        badge: 'AI-ассистент для WhatsApp',
+        name: 'AI Business Assistant',
+        tagline: 'AI-ассистент для бизнеса в WhatsApp',
+        desc: 'AI-ассистент для WhatsApp, который работает на базе знаний конкретного бизнеса, отвечает клиентам, квалифицирует обращения и автоматизирует коммуникацию 24/7.',
+        features: ['WhatsApp Cloud API', 'AI Engine', 'Интеграция с CRM'],
+        primaryCta: 'Открыть AI Business Assistant',
+        primaryHref: '/ru/ai-business-assistant',
+        metrics: [
+          { mv: 'WhatsApp', mk: 'Cloud API v23.0' },
+          { mv: '24/7', mk: 'AI-ассистент' },
+          { mv: 'Bitrix24', mk: 'Интеграция с CRM' }
+        ],
       },
     ],
   },

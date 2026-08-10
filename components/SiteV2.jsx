@@ -50,6 +50,7 @@ export default function SiteV2({ content: c, locale }) {
             <a href="#framework">{c.nav.framework}</a>
             <a href="#engineer">{c.nav.engineer}</a>
             <a href="#work">{c.nav.work}</a>
+            <a href="#products" style={{ color: 'var(--accent)', fontWeight: 600 }}>{c.nav.products || 'Products & Platforms'}</a>
             <a href="#aes">{c.nav.aes}</a>
             <a href="#engage">{c.nav.engage}</a>
             <a href="#faq">{c.nav.faq}</a>
@@ -176,8 +177,63 @@ export default function SiteV2({ content: c, locale }) {
             </div>
           </section>
 
+          <section id="products">
+            <div className="sec-head"><span className="id">06</span><span className="nm">{c.products ? c.products.id : 'Products & Platforms'}</span><span className="ln" /></div>
+            <h2>{c.products ? c.products.h2 : 'AlexDev Proprietary Products & Platforms'}</h2>
+            <p className="lead">{c.products ? c.products.lead : ''}</p>
+            {c.products && c.products.items && (
+              <div className="work" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+                {c.products.items.map((prod, i) => (
+                  <div className="wcard" key={i} style={{ borderColor: 'var(--line2)', background: 'var(--panel)' }}>
+                    <div className="wtop" style={{ background: 'var(--panel2)' }}>
+                      <span className="dm" style={{ color: 'var(--accent)', fontWeight: 600 }}>{prod.badge}</span>
+                      <span className="yr" style={{ background: 'var(--accent-dim)', color: 'var(--accent)', padding: '2px 8px', borderRadius: '4px', fontSize: '10px', letterSpacing: '0.08em' }}>PROPRIETARY</span>
+                    </div>
+                    <div className="wbody" style={{ display: 'flex', flexDirection: 'column' }}>
+                      <h3 style={{ fontSize: '22px' }}>{prod.name}</h3>
+                      <div style={{ fontSize: '12px', fontFamily: 'var(--mono)', color: 'var(--fg3)', marginTop: '4px' }}>{prod.tagline}</div>
+                      <p style={{ marginTop: '14px', flex: 1 }}>{prod.desc}</p>
+                      
+                      {prod.industries && (
+                        <div style={{ marginTop: '16px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                          {prod.industries.map((ind, idx) => (
+                            <span key={idx} className="chip" style={{ fontSize: '11px', padding: '3px 8px', borderColor: 'var(--line2)' }}>{ind}</span>
+                          ))}
+                        </div>
+                      )}
+                      
+                      {prod.features && (
+                        <div style={{ marginTop: '16px', display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                          {prod.features.map((feat, idx) => (
+                            <span key={idx} className="chip" style={{ fontSize: '11px', padding: '3px 8px', borderColor: 'var(--line2)' }}>{feat}</span>
+                          ))}
+                        </div>
+                      )}
+
+                      <div style={{ marginTop: '24px', display: 'flex', gap: '10px', flexWrap: 'wrap', alignItems: 'center' }}>
+                        <a href={prod.primaryHref} target={prod.primaryHref.startsWith('http') ? '_blank' : '_self'} rel="noopener" className="btn btn-pri" style={{ fontSize: '13px', padding: '8px 14px' }}>
+                          {prod.primaryCta} →
+                        </a>
+                        {prod.secondaryHref && (
+                          <a href={prod.secondaryHref} className="btn btn-ghost" style={{ fontSize: '13px', padding: '8px 14px' }}>
+                            {prod.secondaryCta}
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                    <div className="wmet">
+                      {prod.metrics.map((m, j) => (
+                        <div key={j}><div className="mv">{m.mv}</div><div className="mk">{m.mk}</div></div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </section>
+
           <section id="aes">
-            <div className="sec-head"><span className="id">06</span><span className="nm">{c.aes.id}</span><span className="ln" /></div>
+            <div className="sec-head"><span className="id">07</span><span className="nm">{c.aes.id}</span><span className="ln" /></div>
             <h2>{c.aes.h2}</h2>
             <p className="lead">{c.aes.lead}</p>
             <div className="aes">
@@ -195,7 +251,7 @@ export default function SiteV2({ content: c, locale }) {
           </section>
 
           <section id="engage">
-            <div className="sec-head"><span className="id">07</span><span className="nm">{c.engage.id}</span><span className="ln" /></div>
+            <div className="sec-head"><span className="id">08</span><span className="nm">{c.engage.id}</span><span className="ln" /></div>
             <h2>{c.engage.h2}</h2>
             <p className="lead">{c.engage.lead}</p>
             <div className="eng-grid">
@@ -216,7 +272,7 @@ export default function SiteV2({ content: c, locale }) {
           </section>
 
           <section id="faq">
-            <div className="sec-head"><span className="id">08</span><span className="nm">{c.faq.id}</span><span className="ln" /></div>
+            <div className="sec-head"><span className="id">09</span><span className="nm">{c.faq.id}</span><span className="ln" /></div>
             <h2>{c.faq.h2}</h2>
             <div className="faq">
               {c.faq.items.map((it, i) => (
@@ -229,7 +285,7 @@ export default function SiteV2({ content: c, locale }) {
           </section>
 
           <section className="final" id="start">
-            <div className="sec-head" style={{ justifyContent: 'center', marginBottom: '28px' }}><span className="id">09</span><span className="nm">{c.final.id}</span></div>
+            <div className="sec-head" style={{ justifyContent: 'center', marginBottom: '28px' }}><span className="id">10</span><span className="nm">{c.final.id}</span></div>
             <h2>{c.final.h2}</h2>
             <p>{c.final.p}</p>
             <form className="form" onSubmit={submitBrief}>

@@ -3,32 +3,33 @@ export const fr = {
 
   nav: {
     framework: 'Méthodologie',
-    engineer: 'Ce que nous construisons',
-    work: 'Réalisations',
+    engineer: 'Ce que nous faisons',
+    work: 'Projets',
+    products: 'Produits & Plateformes',
     aes: 'AES',
-    engage: 'Modèles',
-    faq: 'Questions',
-    cta: 'Démarrer un projet',
+    engage: 'Engagements',
+    faq: 'FAQ',
+    cta: 'Lancer un projet',
   },
 
   hero: {
     eyebrow: 'Société d’ingénierie AI-Native',
-    titleLine1: 'Nous ne vendons pas de développeurs.',
-    titleLine2: 'Nous concevons',
-    titleMuted: 'des produits.',
-    sub: 'AlexDev conçoit des produits numériques modernes grâce à un système où l’IA fait partie de la méthode d’ingénierie, et où les ingénieurs humains prennent chaque décision finale.',
-    ctaPrimary: 'Démarrer un projet',
+    titleLine1: "Nous ne vendons pas de développeurs.",
+    titleLine2: 'Nous concevons des',
+    titleMuted: 'produits.',
+    sub: 'AlexDev conçoit des produits numériques modernes via un système où l’IA fait partie de la méthode d’ingénierie — et où les ingénieurs humains prennent chaque décision finale.',
+    ctaPrimary: 'Lancer un projet',
     ctaSecondary: 'Voir le standard d’ingénierie',
-    meta: ['Systèmes en production, pas des prototypes', 'IA · SaaS · Web3', 'Partout dans le monde'],
+    meta: ['Systèmes en production, pas de prototypes', 'IA · SaaS · Web3', 'Dans le monde entier'],
     spec: {
       title: 'AES / Standard d’ingénierie',
       status: 'Actif',
       rows: [
-        { n: '01', l: 'Discovery', tag: 'Piloté par des humains' },
-        { n: '02', l: 'Architecture', tag: 'Piloté par des humains' },
+        { n: '01', l: 'Découverte', tag: 'Mené par l’humain' },
+        { n: '02', l: 'Architecture', tag: 'Mené par l’humain' },
         { n: '03', l: 'Développement AI-Native', tag: 'IA + humain' },
-        { n: '04', l: 'Revue humaine', tag: 'L’humain décide', gate: true },
-        { n: '05', l: 'QA et sécurité', tag: 'IA + humain' },
+        { n: '04', l: 'Validation humaine', tag: 'L’humain décide', gate: true },
+        { n: '05', l: 'QA & Sécurité', tag: 'IA + humain' },
         { n: '06', l: 'Déploiement', tag: 'Automatisé' },
         { n: '07', l: 'Évolution', tag: 'Continu' },
       ],
@@ -40,8 +41,8 @@ export const fr = {
     metrics: [
       { v: '$2.4M+', k: 'Valeur totale verrouillée, sécurisée on-chain', src: 'ROSCASH' },
       { v: '80k+', k: 'Transactions quotidiennes en production', src: 'QADSAN' },
-      { v: '98.7%', k: 'Précision de l’IA sur les paramètres en exploitation', src: 'Showroom Pro' },
-      { v: '10k+', k: 'Familles intégrées à un seul système', src: 'Swap Kids' },
+      { v: '98.7%', k: 'Précision de l’IA par paramètres en opération', src: 'Showroom Pro' },
+      { v: '10k+', k: 'Familles intégrées dans un seul système', src: 'Swap Kids' },
     ],
     stackLabel: 'Conçu avec',
     stack: ['OpenAI', 'Anthropic', 'Next.js', 'Node.js', 'PostgreSQL', 'Supabase', 'AWS', 'Docker', 'Solidity', 'Stripe'],
@@ -49,36 +50,36 @@ export const fr = {
 
   framework: {
     id: 'Framework d’ingénierie AI-Native',
-    h2: 'L’IA fait partie du système d’ingénierie, pas une fonctionnalité',
-    lead: 'Quatre principes régissent chaque produit que nous construisons. C’est ainsi que « AI-native » cesse d’être un slogan et devient une méthode avec une responsabilité intégrée.',
+    h2: 'L’IA fait partie du système d’ingénierie, pas une option',
+    lead: 'Quatre principes régissent chaque produit que nous concevons. C’est ainsi que « AI-native » cesse d’être un slogan pour devenir une méthode responsable.',
     cards: [
-      { n: 'P01', h: 'L’architecture avant le code', p: 'Nous concevons le système — données, contrats, sécurité — avant d’écrire une seule ligne. La structure décide de la qualité.' },
+      { n: 'P01', h: 'L’architecture avant le code', p: 'Nous concevons le système — données, contrats, sécurité — avant la première ligne. La structure décide de la qualité.' },
       { n: 'P02', h: 'IA by design', p: 'L’IA est intégrée à tout le flux : génération, revue, tests, documentation. Elle accélère le système, elle ne le remplace pas.' },
-      { n: 'P03', h: 'Responsabilité humaine', p: 'Chaque sortie de l’IA passe par une revue d’ingénierie humaine. Les personnes assument la décision finale, l’architecture et le risque.' },
-      { n: 'P04', h: 'Les systèmes avant les fonctionnalités', p: 'Nous construisons des produits qui tiennent face à la croissance et au changement : des structures durables, pas des livrables isolés.' },
+      { n: 'P03', h: 'Responsabilité humaine', p: 'Chaque résultat d’IA passe par une validation humaine. Les ingénieurs assument la décision finale, l’architecture et le risque.' },
+      { n: 'P04', h: 'Des systèmes avant des fonctionnalités', p: 'Nous construisons des produits qui résistent à la croissance — des structures durables, pas des livrables ponctuels.' },
     ],
   },
 
   engineer: {
-    id: 'Ce que nous construisons',
-    h2: 'Deux lignes, un seul standard d’ingénierie',
-    lead: 'D’une landing à 99 $ à une plateforme IA d’entreprise : chaque build passe par le même pipeline AES. Nous ne proposons pas de services marketing.',
+    id: 'Ce que nous faisons',
+    h2: 'Deux lignes, un même standard d’ingénierie',
+    lead: 'D’une landing page à 99 $ à une plateforme d’IA d’entreprise — chaque projet passe par le même pipeline AES. Aucun service marketing.',
     laneEng: {
       title: 'Projets d’ingénierie',
-      kind: 'Selon le périmètre',
+      kind: 'Sur devis',
       rows: [
-        { li: 'Systèmes IA', ld: 'agents · RAG · automatisation' },
-        { li: 'Plateformes FinTech', ld: 'paiements · crédit · wallets' },
+        { li: 'Systèmes d’IA', ld: 'agents · RAG · automatisation' },
+        { li: 'Plateformes FinTech', ld: 'paiements · prêt · portefeuilles' },
         { li: 'Plateformes SaaS', ld: 'multi-tenant · facturation' },
         { li: 'Gaming et GameFi', ld: 'temps réel · économies tokenisées' },
-        { li: 'Produits Web3', ld: 'émission de tokens et NFT · contrats · audits' },
-        { li: 'Plateformes métier et entreprise', ld: 'portails · CRM · ERP' },
+        { li: 'Produits Web3', ld: 'émission de tokens & NFT · contrats · audits' },
+        { li: 'Plateformes d’entreprise', ld: 'portails · CRM · ERP' },
         { li: 'Automatisation', ld: 'pipelines de bout en bout' },
       ],
     },
     laneQuick: {
       title: 'Solutions rapides',
-      kind: 'Productisées',
+      kind: 'Produits prêts',
       rows: [
         { li: 'Landing pages', ld: 'dès 99 $' },
         { li: 'Sites vitrines', ld: 'dès 500 $' },
@@ -90,24 +91,14 @@ export const fr = {
   },
 
   work: {
-    id: 'Réalisations sélectionnées',
-    h2: 'Des systèmes que nous avons conçus',
+    id: 'Projets sélectionnés',
+    h2: 'Systèmes que nous avons conçus',
     lead: 'Des produits réels avec des métriques réelles : la plupart en production, chacun avec son statut honnête. Pas de maquettes, pas de traction inventée.',
     projects: [
-      {
-        dm: 'AI · WhatsApp · Automation', yr: '2026', name: 'AI Business Assistant', url: 'alex-dev.pro/ai-business-assistant', href: '/fr/ai-business-assistant',
-        desc: "AI customer assistant for WhatsApp that works with a business's own knowledge base, qualifies leads and automates customer communication.",
-        metrics: [{ mv: 'WhatsApp', mk: 'Cloud API v23.0' }, { mv: '24/7', mk: 'AI Assistant' }, { mv: 'Bitrix24', mk: 'CRM Integration' }],
-      },
       {
         dm: 'FinTech · AI', yr: '2025', name: 'MEM Cash', url: 'memcash.app', href: 'https://memcash.app',
         desc: 'Plateforme de micro-crédit à IA agentique qui couvre en temps réel de petits manques de solde au moment du paiement : orchestration multi-agents, scoring de crédit alternatif par LLM et une PWA offline-first.',
         metrics: [{ mv: 'Agentic', mk: 'IA multi-agents' }, { mv: 'Llama 3.1', mk: 'Scoring' }, { mv: 'PWA', mk: 'Offline-first' }],
-      },
-      {
-        dm: 'AI', yr: '2025', name: 'Showroom Pro', url: 'showroom-ai.pro', href: 'https://showroom-ai.pro',
-        desc: 'Assistant IA qui lit les paramètres produits dans les chats et les documents et génère des propositions commerciales pour les fabricants de meubles en quelques minutes.',
-        metrics: [{ mv: '5 min', mk: 'Vitesse de devis' }, { mv: '98.7%', mk: 'Précision' }, { mv: '90%', mk: 'Temps gagné' }],
       },
       {
         dm: 'Web3', yr: '2024', name: 'ROSCASH', url: 'roscash.org', href: 'https://roscash.org',
@@ -116,22 +107,22 @@ export const fr = {
       },
       {
         dm: 'Construction · AI', yr: '2026', name: 'StroyTablitsa', url: 'stroytablica.ru', href: 'https://stroytablica.ru',
-        desc: 'Bot Telegram qui transforme n\'importe quel tableau Excel de chantier en analyste IA conversationnel : repère les écarts de sommes et les lignes en doublon, génère des synthèses par fournisseur et des comparatifs de prix, et suit les dépassements de budget — le tout en français simple, chaque chiffre étant calculé par une base de données et non « deviné » par une IA.',
+        desc: 'Bot Telegram qui transforme n\'importe quel tableau Excel de chantier en analyste IA conversationnel.',
         metrics: [{ mv: 'Exact (BDD)', mk: 'Zéro approximation IA' }, { mv: '200k', mk: 'Lignes / fichier' }, { mv: '3 gratuits', mk: 'Fichiers / mois' }],
       },
       {
         dm: 'Telegram · AI', yr: '2024', name: 'Swap Kids', url: 'swapkids.org', href: 'https://swapkids.org',
-        desc: 'Plateforme privée sur Telegram pour échanger des articles pour enfants, avec évaluation IA de l’état à partir des photos et une économie de tokens.',
+        desc: 'Plateforme privée sur Telegram pour échanger des articles pour enfants.',
         metrics: [{ mv: '10k+', mk: 'Familles' }, { mv: '45k+', mk: 'Échanges' }, { mv: '2,500', mk: 'En ligne / jour' }],
       },
       {
         dm: 'GameFi', yr: '2023', name: 'QADSAN', url: 'qadsan.com', href: 'https://qadsan.com',
-        desc: 'Simulateur GameFi massif de marché boursier avec actifs tokenisés, pools de staking et des milliers de transactions par seconde.',
+        desc: 'Simulateur GameFi massif de marché boursier avec actifs tokenisés.',
         metrics: [{ mv: '80k+', mk: 'Tx / jour' }, { mv: '40k+', mk: 'Utilisateurs actifs' }, { mv: '<30ms', mk: 'Réponse UI' }],
       },
       {
         dm: 'Telegram · Web3', yr: '2025', name: 'Webtransfer', url: 't.me/Webtransfer_apps_bot', href: 'https://t.me/Webtransfer_apps_bot',
-        desc: 'Mini-app Telegram pour le prêt P2P en TON et USDT — sans banques ni intermédiaires. Les utilisateurs prêtent et empruntent directement, enchérissent en temps réel pour le meilleur taux, revendent leurs prêts actifs sous forme de certificats négociables et gagnent grâce à un programme de parrainage à cinq niveaux.',
+        desc: 'Mini-app Telegram pour le prêt P2P en TON et USDT — sans banques ni intermédiaires.',
         metrics: [{ mv: 'TON + USDT', mk: 'Prêts bi-devises' }, { mv: 'Live', mk: 'Enchères en temps réel' }, { mv: '12', mk: 'Langues' }],
       },
       {
@@ -143,6 +134,46 @@ export const fr = {
         dm: 'Art · NFT', yr: '2024', name: 'Ijareteli', url: 'ijareteli.com', href: 'https://ijareteli.com',
         desc: 'Galerie numérique présentant les œuvres d’un artiste géorgien sous forme de NFT : défilement cinématographique et interaction GSAP.',
         metrics: [{ mv: '2,000+', mk: 'Œuvres' }, { mv: '6.5 min', mk: 'Temps moyen' }, { mv: '450+', mk: 'Demandes' }],
+      },
+    ],
+  },
+
+  products: {
+    id: 'Produits & Plateformes',
+    h2: 'Produits & plateformes propres d’AlexDev',
+    lead: 'En plus de l’ingénierie sur mesure, AlexDev développe et exploite ses propres plateformes SaaS et d’IA.',
+    items: [
+      {
+        id: 'showroom-ai',
+        badge: 'Plateforme IA d’entreprise',
+        name: 'Showroom AI',
+        tagline: 'Plateforme IA pour les entreprises',
+        desc: 'Une plateforme d’IA qui transforme la base de connaissances, le catalogue, les règles et les processus métiers de l’entreprise en un système d’IA pour le traitement des demandes et des ventes.',
+        industries: ['Ameublement', 'Automobile', 'Immobilier', 'Commerce', 'Services'],
+        primaryCta: 'Explorer Showroom AI',
+        primaryHref: 'https://showroom-ai.pro/',
+        secondaryCta: 'En savoir plus',
+        secondaryHref: '/fr/showroom-ai',
+        metrics: [
+          { mv: '5 min', mk: 'Vitesse de devis' },
+          { mv: '98.7%', mk: 'Précision' },
+          { mv: 'Multi-tenant', mk: 'Architecture' }
+        ],
+      },
+      {
+        id: 'ai-business-assistant',
+        badge: 'Assistant IA WhatsApp',
+        name: 'AI Business Assistant',
+        tagline: 'Assistant IA pour WhatsApp',
+        desc: "Assistant client IA pour WhatsApp qui s'appuie sur la base de connaissances de votre entreprise et automatise les échanges 24/7.",
+        features: ['WhatsApp Cloud API', 'Moteur de connaissances', 'Intégration CRM'],
+        primaryCta: 'Explorer AI Business Assistant',
+        primaryHref: '/fr/ai-business-assistant',
+        metrics: [
+          { mv: 'WhatsApp', mk: 'Cloud API v23.0' },
+          { mv: '24/7', mk: 'Assistant IA' },
+          { mv: 'Bitrix24', mk: 'Intégration CRM' }
+        ],
       },
     ],
   },

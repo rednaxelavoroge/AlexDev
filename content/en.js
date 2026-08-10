@@ -5,6 +5,7 @@ export const en = {
     framework: 'Framework',
     engineer: 'What we engineer',
     work: 'Work',
+    products: 'Products & Platforms',
     aes: 'AES',
     engage: 'Engagement',
     faq: 'FAQ',
@@ -95,19 +96,9 @@ export const en = {
     lead: 'Real products with real metrics — most live in production, each shown with its honest status. No mockups, no fabricated traction.',
     projects: [
       {
-        dm: 'AI · WhatsApp · Automation', yr: '2026', name: 'AI Business Assistant', url: 'alex-dev.pro/ai-business-assistant', href: '/en/ai-business-assistant',
-        desc: "AI customer assistant for WhatsApp that works with a business's own knowledge base, qualifies leads and automates customer communication.",
-        metrics: [{ mv: 'WhatsApp', mk: 'Cloud API v23.0' }, { mv: '24/7', mk: 'AI Assistant' }, { mv: 'Bitrix24', mk: 'CRM Integration' }],
-      },
-      {
         dm: 'FinTech · AI', yr: '2025', name: 'MEM Cash', url: 'memcash.app', href: 'https://memcash.app',
         desc: 'Agentic AI micro-lending platform that covers small shortfalls at checkout in real time — multi-agent orchestration, LLM-based alternative credit scoring and an offline-first PWA.',
         metrics: [{ mv: 'Agentic', mk: 'Multi-agent AI' }, { mv: 'Llama 3.1', mk: 'Credit scoring' }, { mv: 'PWA', mk: 'Offline-first' }],
-      },
-      {
-        dm: 'AI', yr: '2025', name: 'Showroom Pro', url: 'showroom-ai.pro', href: 'https://showroom-ai.pro',
-        desc: 'AI assistant that reads product parameters from chats and documents, then generates commercial proposals for furniture factories.',
-        metrics: [{ mv: '5 min', mk: 'Proposal speed' }, { mv: '98.7%', mk: 'Accuracy' }, { mv: '90%', mk: 'Time saved' }],
       },
       {
         dm: 'Web3', yr: '2024', name: 'ROSCASH', url: 'roscash.org', href: 'https://roscash.org',
@@ -143,6 +134,46 @@ export const en = {
         dm: 'Art · NFT', yr: '2024', name: 'Ijareteli', url: 'ijareteli.com', href: 'https://ijareteli.com',
         desc: "Digital gallery presenting a Georgian artist's works as NFTs — cinematic scrolling and GSAP-driven interaction.",
         metrics: [{ mv: '2,000+', mk: 'Artworks' }, { mv: '6.5 min', mk: 'Avg on site' }, { mv: '450+', mk: 'Inquiries' }],
+      },
+    ],
+  },
+
+  products: {
+    id: 'Products & Platforms',
+    h2: 'AlexDev Proprietary Products & Platforms',
+    lead: 'Beyond client engineering, AlexDev builds and operates its own SaaS and AI platforms. These are standalone technology products evolving on our engineering standard.',
+    items: [
+      {
+        id: 'showroom-ai',
+        badge: 'AI Platform for Business',
+        name: 'Showroom AI',
+        tagline: 'AI platform for business',
+        desc: 'An AI platform that turns company knowledge, catalog, rules, and business processes into an AI system for processing customer inquiries, sales, and operational workflows.',
+        industries: ['Furniture', 'Automotive', 'Real Estate', 'Retail', 'Services'],
+        primaryCta: 'Explore Showroom AI',
+        primaryHref: 'https://showroom-ai.pro/',
+        secondaryCta: 'Learn more',
+        secondaryHref: '/en/showroom-ai',
+        metrics: [
+          { mv: '5 min', mk: 'Proposal speed' },
+          { mv: '98.7%', mk: 'Accuracy' },
+          { mv: 'Multi-tenant', mk: 'Architecture' }
+        ],
+      },
+      {
+        id: 'ai-business-assistant',
+        badge: 'AI Customer Assistant for WhatsApp',
+        name: 'AI Business Assistant',
+        tagline: 'AI customer assistant for WhatsApp',
+        desc: "AI customer assistant for WhatsApp that works with a business's own knowledge base, qualifies leads and automates customer communication 24/7.",
+        features: ['WhatsApp Cloud API', 'Knowledge Engine', 'Bitrix24 / CRM'],
+        primaryCta: 'Explore AI Business Assistant',
+        primaryHref: '/en/ai-business-assistant',
+        metrics: [
+          { mv: 'WhatsApp', mk: 'Cloud API v23.0' },
+          { mv: '24/7', mk: 'AI Assistant' },
+          { mv: 'Bitrix24', mk: 'CRM Integration' }
+        ],
       },
     ],
   },

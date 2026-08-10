@@ -18,6 +18,12 @@ export default function Footer({ content: c, locale }) {
           </div>
           <div className="foot-cols">
             <div className="fcol">
+              <div className="ft">{c.nav.products || 'Products & Platforms'}</div>
+              <a href="https://showroom-ai.pro/" target="_blank" rel="noopener">Showroom AI</a>
+              <a href={`/${locale}/showroom-ai`}>Showroom AI Overview</a>
+              <a href={`/${locale}/ai-business-assistant`}>AI Business Assistant</a>
+            </div>
+            <div className="fcol">
               <div className="ft">{c.footer.colCompany.t}</div>
               {c.footer.colCompany.links.map((l, i) => (
                 <a href={getHref(l.href)} key={i}>

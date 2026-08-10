@@ -5,6 +5,7 @@ export const es = {
     framework: 'Metodología',
     engineer: 'Qué construimos',
     work: 'Trabajos',
+    products: 'Productos y Plataformas',
     aes: 'AES',
     engage: 'Modelos',
     faq: 'Preguntas',
@@ -95,19 +96,9 @@ export const es = {
     lead: 'Productos reales con métricas reales: la mayoría en producción, cada uno con su estado honesto. Sin maquetas ni tracción inventada.',
     projects: [
       {
-        dm: 'AI · WhatsApp · Automation', yr: '2026', name: 'AI Business Assistant', url: 'alex-dev.pro/ai-business-assistant', href: '/es/ai-business-assistant',
-        desc: "AI customer assistant for WhatsApp that works with a business's own knowledge base, qualifies leads and automates customer communication.",
-        metrics: [{ mv: 'WhatsApp', mk: 'Cloud API v23.0' }, { mv: '24/7', mk: 'AI Assistant' }, { mv: 'Bitrix24', mk: 'CRM Integration' }],
-      },
-      {
         dm: 'FinTech · AI', yr: '2025', name: 'MEM Cash', url: 'memcash.app', href: 'https://memcash.app',
         desc: 'Plataforma de microcréditos con IA agéntica que cubre pequeños faltantes en el checkout en tiempo real: orquestación multiagente, scoring crediticio alternativo con LLM y una PWA offline-first.',
         metrics: [{ mv: 'Agentic', mk: 'IA multiagente' }, { mv: 'Llama 3.1', mk: 'Scoring' }, { mv: 'PWA', mk: 'Offline-first' }],
-      },
-      {
-        dm: 'AI', yr: '2025', name: 'Showroom Pro', url: 'showroom-ai.pro', href: 'https://showroom-ai.pro',
-        desc: 'Asistente de IA que lee parámetros de productos desde chats y documentos y genera propuestas comerciales para fábricas de muebles en minutos.',
-        metrics: [{ mv: '5 min', mk: 'Velocidad de propuesta' }, { mv: '98.7%', mk: 'Precisión' }, { mv: '90%', mk: 'Tiempo ahorrado' }],
       },
       {
         dm: 'Web3', yr: '2024', name: 'ROSCASH', url: 'roscash.org', href: 'https://roscash.org',
@@ -143,6 +134,46 @@ export const es = {
         dm: 'Art · NFT', yr: '2024', name: 'Ijareteli', url: 'ijareteli.com', href: 'https://ijareteli.com',
         desc: 'Galería digital que presenta las obras de un artista georgiano como NFT: scroll cinematográfico e interacción con GSAP.',
         metrics: [{ mv: '2,000+', mk: 'Obras' }, { mv: '6.5 min', mk: 'Tiempo medio' }, { mv: '450+', mk: 'Consultas' }],
+      },
+    ],
+  },
+
+  products: {
+    id: 'Productos y Plataformas',
+    h2: 'Productos y plataformas propios de AlexDev',
+    lead: 'Más allá de la ingeniería para clientes, AlexDev construye y opera sus propias plataformas SaaS y de IA. Son productos tecnológicos independientes desarrollados bajo nuestro estándar de ingeniería.',
+    items: [
+      {
+        id: 'showroom-ai',
+        badge: 'Plataforma de IA para empresas',
+        name: 'Showroom AI',
+        tagline: 'Plataforma de IA para empresas',
+        desc: 'Una plataforma de IA que transforma el conocimiento, catálogo, reglas y procesos de negocio de la empresa en un sistema de IA para atender solicitudes de clientes y operaciones.',
+        industries: ['Muebles', 'Automotriz', 'Bienes Raíces', 'Venta al por menor', 'Servicios'],
+        primaryCta: 'Explorar Showroom AI',
+        primaryHref: 'https://showroom-ai.pro/',
+        secondaryCta: 'Más información',
+        secondaryHref: '/es/showroom-ai',
+        metrics: [
+          { mv: '5 min', mk: 'Velocidad de propuesta' },
+          { mv: '98.7%', mk: 'Precisión' },
+          { mv: 'Multi-tenant', mk: 'Arquitectura' }
+        ],
+      },
+      {
+        id: 'ai-business-assistant',
+        badge: 'Asistente de IA para WhatsApp',
+        name: 'AI Business Assistant',
+        tagline: 'Asistente de IA para WhatsApp',
+        desc: "Asistente de IA para WhatsApp que trabaja con la base de conocimientos de su empresa, cualifica clientes potenciales y automatiza la comunicación 24/7.",
+        features: ['WhatsApp Cloud API', 'Motor de Conocimiento', 'Integración CRM'],
+        primaryCta: 'Explorar AI Business Assistant',
+        primaryHref: '/es/ai-business-assistant',
+        metrics: [
+          { mv: 'WhatsApp', mk: 'Cloud API v23.0' },
+          { mv: '24/7', mk: 'Asistente de IA' },
+          { mv: 'Bitrix24', mk: 'Integración CRM' }
+        ],
       },
     ],
   },
