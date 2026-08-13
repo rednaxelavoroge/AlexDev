@@ -6,6 +6,7 @@ import { locales, langLabels } from '../lib/i18n';
 import { getContent } from '../content';
 import { showroomAIContent } from '../content/showroom-ai';
 import Footer from './Footer';
+import MobileNav from './MobileNav';
 
 export default function ShowroomAIPage({ locale }) {
   const router = useRouter();
@@ -72,44 +73,20 @@ export default function ShowroomAIPage({ locale }) {
     setDemoOpen(false);
   }
 
-  const upd = (k) => (e) => setForm({ ...form, [k]: e.target.value });
+  const showroomLinks = [
+    { id: '#industries', label: c.nav.industries },
+    { id: '#capabilities', label: c.nav.capabilities },
+    { id: '#workflow', label: c.nav.workflow },
+    { id: '#architecture', label: c.nav.architecture },
+    { id: '#pricing', label: c.nav.pricing },
+  ];
 
   return (
     <>
       <div className="rails"><div /></div>
 
       {/* Navigation Header */}
-      <nav>
-        <div className="nav-in">
-          <a className="logo" href={`/${locale}`}>
-            <span className="mk" />AlexDev
-          </a>
-          <div className="nav-links">
-            <a href={`/${locale}/showroom-ai`} style={{ color: 'var(--accent)', fontWeight: 600 }}>
-              {c.nav.product}
-            </a>
-            <a href="#industries">{c.nav.industries}</a>
-            <a href="#capabilities">{c.nav.capabilities}</a>
-            <a href="#workflow">{c.nav.workflow}</a>
-            <a href="#architecture">{c.nav.architecture}</a>
-            <a href="#pricing">{c.nav.pricing}</a>
-          </div>
-          <div className="nav-cta">
-            <select className="lang-select" aria-label="Language" value={langLabels[locale] || 'EN'} onChange={changeLang}>
-              {locales.map((l) => (<option key={l} value={langLabels[l]}>{langLabels[l]}</option>))}
-            </select>
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle color theme">
-              <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
-                <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" strokeWidth="1.4" />
-                <path d="M8 1a7 7 0 0 1 0 14z" fill="currentColor" />
-              </svg>
-            </button>
-            <a className="btn btn-pri" href="https://showroom-ai.pro/" target="_blank" rel="noopener">
-              {c.nav.cta} →
-            </a>
-          </div>
-        </div>
-      </nav>
+      <MobileNav locale={locale} content={mainContent} isSubpage={true} customLinks={showroomLinks} />
 
       <main style={{ overflowX: 'hidden' }}>
         <div className="wrap">
@@ -166,8 +143,8 @@ export default function ShowroomAIPage({ locale }) {
             <h2>{c.industriesTitle}</h2>
             <p className="lead">{c.industriesSub}</p>
 
-            {/* Industry Selector Tabs */}
-            <div style={{ marginTop: '32px', display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+            {/* Industry Selector Tabs (Touch-scrollable on mobile) */}
+            <div style={{ marginTop: '32px', display: 'flex', gap: '10px', overflowX: 'auto', paddingBottom: '8px', WebkitOverflowScrolling: 'touch', scrollSnapType: 'x mandatory' }}>
               {c.industries.map((ind) => (
                 <button
                   key={ind.id}
@@ -181,6 +158,8 @@ export default function ShowroomAIPage({ locale }) {
                     color: activeTab === ind.id ? 'var(--bg)' : 'var(--fg2)',
                     borderColor: activeTab === ind.id ? 'var(--fg)' : 'var(--line2)',
                     fontWeight: activeTab === ind.id ? 600 : 400,
+                    flexShrink: 0,
+                    scrollSnapAlign: 'start',
                   }}
                 >
                   {ind.name}
@@ -194,12 +173,12 @@ export default function ShowroomAIPage({ locale }) {
                 key={ind.id}
                 style={{
                   marginTop: '20px',
-                  padding: '28px',
+                  padding: '24px',
                   background: 'var(--panel)',
                   border: '1px solid var(--line2)',
                   borderRadius: '14px',
                   display: 'grid',
-                  gridTemplateColumns: '1fr 1fr',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
                   gap: '24px',
                   alignItems: 'center',
                 }}
@@ -370,13 +349,13 @@ export default function ShowroomAIPage({ locale }) {
             }}
           >
             <div
+              className="modal-box"
               style={{
                 background: 'var(--panel)',
                 border: '1px solid var(--line2)',
                 borderRadius: '16px',
                 maxWidth: '520px',
                 width: '100%',
-                padding: '32px',
                 position: 'relative',
                 boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
               }}

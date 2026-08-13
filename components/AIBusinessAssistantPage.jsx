@@ -1,11 +1,12 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { locales, langLabels } from '../lib/i18n';
 import { getContent } from '../content';
 import { aiBusinessAssistantContent } from '../content/ai-business-assistant';
 import Footer from './Footer';
+import MobileNav from './MobileNav';
 
 export default function AIBusinessAssistantPage({ locale }) {
   const router = useRouter();
@@ -22,6 +23,22 @@ export default function AIBusinessAssistantPage({ locale }) {
   const lang = locale === 'ru' ? 'ru' : 'en';
   const c = aiBusinessAssistantContent[lang] || aiBusinessAssistantContent.en;
   const mainContent = getContent(locale);
+
+  useEffect(() => {
+    if (!demoOpen) return;
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setDemoOpen(false);
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [demoOpen]);
 
   function toggleTheme() {
     const next = theme === 'light' ? 'dark' : 'light';
@@ -55,40 +72,18 @@ export default function AIBusinessAssistantPage({ locale }) {
 
   const upd = (k) => (e) => setForm({ ...form, [k]: e.target.value });
 
+  const aiAssistantLinks = [
+    { id: '#automate', label: c.nav.automate },
+    { id: '#how', label: c.nav.how },
+    { id: '#integrations', label: c.nav.integrations },
+    { id: '#pricing', label: c.nav.pricing },
+  ];
+
   return (
     <>
       <div className="rails"><div /></div>
 
-      <nav>
-        <div className="nav-in">
-          <a className="logo" href={`/${locale}`}>
-            <span className="mk" />AlexDev
-          </a>
-          <div className="nav-links">
-            <a href={`/${locale}/ai-business-assistant`} style={{ color: 'var(--accent)', fontWeight: 600 }}>
-              {c.nav.product}
-            </a>
-            <a href="#automate">{c.nav.automate}</a>
-            <a href="#how">{c.nav.how}</a>
-            <a href="#integrations">{c.nav.integrations}</a>
-            <a href="#pricing">{c.nav.pricing}</a>
-          </div>
-          <div className="nav-cta">
-            <select className="lang-select" aria-label="Language" value={langLabels[locale] || 'EN'} onChange={changeLang}>
-              {locales.map((l) => (<option key={l} value={langLabels[l]}>{langLabels[l]}</option>))}
-            </select>
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle color theme">
-              <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
-                <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" strokeWidth="1.4" />
-                <path d="M8 1a7 7 0 0 1 0 14z" fill="currentColor" />
-              </svg>
-            </button>
-            <button className="btn btn-pri" onClick={() => setDemoOpen(true)}>
-              {c.nav.cta}
-            </button>
-          </div>
-        </div>
-      </nav>
+      <MobileNav locale={locale} content={mainContent} isSubpage={true} customLinks={aiAssistantLinks} />
 
       <main style={{ overflowX: 'hidden' }}>
         <div className="wrap">
@@ -248,7 +243,7 @@ export default function AIBusinessAssistantPage({ locale }) {
             <h2>{c.whatTitle}</h2>
             <p className="lead">{c.whatSub}</p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '16px', marginTop: '40px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '16px', marginTop: '40px' }}>
               {c.features.map((feat, idx) => (
                 <div key={idx} className="spec" style={{ padding: '20px' }}>
                   <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '8px', marginBottom: '8px' }}>
@@ -294,7 +289,7 @@ export default function AIBusinessAssistantPage({ locale }) {
             <h2>{c.handoffTitle}</h2>
             <p className="lead">{c.handoffSub}</p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', marginTop: '40px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '24px', marginTop: '40px' }}>
               <div className="spec" style={{ padding: '24px' }}>
                 <h3 style={{ fontSize: '18px', color: 'var(--fg)', marginBottom: '16px', fontFamily: 'var(--disp)' }}>{c.handoffCol1.t}</h3>
                 <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -333,7 +328,7 @@ export default function AIBusinessAssistantPage({ locale }) {
             <h2>{c.crmTitle}</h2>
             <p className="lead">{c.crmSub}</p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '24px', marginTop: '40px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '24px', marginTop: '40px' }}>
               <div className="spec" style={{ padding: '24px' }}>
                 <span className="tag" style={{ marginBottom: '12px', display: 'inline-block' }}>Bitrix24 CRM</span>
                 <h3 style={{ fontSize: '18px', color: 'var(--fg)', marginBottom: '8px' }}>{c.bitrixTitle}</h3>
@@ -362,7 +357,7 @@ export default function AIBusinessAssistantPage({ locale }) {
             <h2>{c.pricingTitle}</h2>
             <p className="lead">{c.pricingSub}</p>
 
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px', marginTop: '40px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))', gap: '24px', marginTop: '40px' }}>
               {/* Starter */}
               <div className="spec" style={{ padding: '28px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div>
@@ -407,9 +402,58 @@ export default function AIBusinessAssistantPage({ locale }) {
 
           {/* UNIVERSAL CONSULTATION MODAL FORM */}
           {demoOpen && (
-            <div style={{ position: 'fixed', inset: 0, background: 'rgba(0,0,0,0.8)', backdropFilter: 'blur(8px)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px' }}>
-              <div className="spec" style={{ maxWidth: '500px', width: '100%', padding: '32px', position: 'relative', background: 'var(--panel)' }}>
-                <button onClick={() => setDemoOpen(false)} style={{ position: 'absolute', top: '16px', right: '16px', background: 'none', border: 'none', color: 'var(--fg2)', fontSize: '20px', cursor: 'pointer' }}>✕</button>
+            <div
+              onClick={(e) => {
+                if (e.target === e.currentTarget) setDemoOpen(false);
+              }}
+              style={{
+                position: 'fixed',
+                inset: 0,
+                background: 'rgba(0,0,0,0.8)',
+                backdropFilter: 'blur(8px)',
+                zIndex: 100,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '16px',
+                overflowY: 'auto',
+              }}
+            >
+              <div
+                className="spec modal-box"
+                style={{
+                  maxWidth: '500px',
+                  width: '100%',
+                  position: 'relative',
+                  background: 'var(--panel)',
+                  boxShadow: '0 20px 40px rgba(0,0,0,0.5)',
+                }}
+              >
+                <button
+                  type="button"
+                  onClick={() => setDemoOpen(false)}
+                  style={{
+                    position: 'absolute',
+                    top: '14px',
+                    right: '14px',
+                    width: '36px',
+                    height: '36px',
+                    borderRadius: '8px',
+                    background: 'var(--bg2)',
+                    border: '1px solid var(--line2)',
+                    color: 'var(--fg)',
+                    fontSize: '18px',
+                    fontWeight: 600,
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    cursor: 'pointer',
+                    zIndex: 10,
+                  }}
+                  aria-label="Close modal"
+                >
+                  ✕
+                </button>
 
                 <h3 style={{ fontSize: '22px', color: 'var(--fg)', marginBottom: '8px' }}>{c.formTitle}</h3>
                 <p style={{ fontSize: '14px', color: 'var(--fg2)', marginBottom: '24px' }}>{c.formSub}</p>

@@ -4,24 +4,14 @@ import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { locales, langLabels } from '../lib/i18n';
 
+import MobileNav from './MobileNav';
+
 export default function SiteV2({ content: c, locale }) {
   const router = useRouter();
   const [theme, setTheme] = useState('light');
   const [form, setForm] = useState({
     name: '', contact: '', type: c.final.form.typeOptions[0], msg: '',
   });
-
-  function toggleTheme() {
-    const next = theme === 'light' ? 'dark' : 'light';
-    setTheme(next);
-    if (typeof document !== 'undefined') {
-      document.documentElement.setAttribute('data-theme', next);
-    }
-  }
-
-  function changeLang(e) {
-    router.push(`/${e.target.value.toLowerCase()}/v2`);
-  }
 
   function submitBrief(e) {
     e.preventDefault();
@@ -43,32 +33,7 @@ export default function SiteV2({ content: c, locale }) {
     <>
       <div className="rails"><div /></div>
 
-      <nav>
-        <div className="nav-in">
-          <a className="logo" href="#top"><span className="mk" />AlexDev</a>
-          <div className="nav-links">
-            <a href="#framework">{c.nav.framework}</a>
-            <a href="#engineer">{c.nav.engineer}</a>
-            <a href="#work">{c.nav.work}</a>
-            <a href="#products" style={{ color: 'var(--accent)', fontWeight: 600 }}>{c.nav.products || 'Products & Platforms'}</a>
-            <a href="#aes">{c.nav.aes}</a>
-            <a href="#engage">{c.nav.engage}</a>
-            <a href="#faq">{c.nav.faq}</a>
-          </div>
-          <div className="nav-cta">
-            <select className="lang-select" aria-label="Language" value={langLabels[locale]} onChange={changeLang}>
-              {locales.map((l) => (<option key={l} value={langLabels[l]}>{langLabels[l]}</option>))}
-            </select>
-            <button className="theme-toggle" onClick={toggleTheme} aria-label="Toggle color theme">
-              <svg width="15" height="15" viewBox="0 0 16 16" aria-hidden="true">
-                <circle cx="8" cy="8" r="7" fill="none" stroke="currentColor" strokeWidth="1.4" />
-                <path d="M8 1a7 7 0 0 1 0 14z" fill="currentColor" />
-              </svg>
-            </button>
-            <a className="btn btn-pri" href="#start">{c.nav.cta}</a>
-          </div>
-        </div>
-      </nav>
+      <MobileNav locale={locale} content={c} />
 
       <main>
         <div className="wrap">
@@ -182,7 +147,7 @@ export default function SiteV2({ content: c, locale }) {
             <h2>{c.products ? c.products.h2 : 'AlexDev Proprietary Products & Platforms'}</h2>
             <p className="lead">{c.products ? c.products.lead : ''}</p>
             {c.products && c.products.items && (
-              <div className="work" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))' }}>
+              <div className="work" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))' }}>
                 {c.products.items.map((prod, i) => (
                   <div className="wcard" key={i} style={{ borderColor: 'var(--line2)', background: 'var(--panel)' }}>
                     <div className="wtop" style={{ background: 'var(--panel2)' }}>
