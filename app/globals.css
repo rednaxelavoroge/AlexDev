@@ -217,10 +217,16 @@ footer{padding:56px 0 40px;border-top:1px solid var(--line)}
 
 .mobile-drawer-backdrop {
   position: fixed;
-  inset: 0;
-  z-index: 1000;
-  background: rgba(10, 11, 13, 0.94);
-  backdrop-filter: blur(14px);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  background: rgba(10, 11, 13, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   display: flex;
   flex-direction: column;
   overflow-y: auto;
